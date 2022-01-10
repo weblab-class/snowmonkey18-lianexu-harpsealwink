@@ -1,3 +1,3 @@
 # Graph Ninja
 
-# a great game
+a cool game
