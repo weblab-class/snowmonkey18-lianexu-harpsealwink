@@ -9,8 +9,10 @@ import "./NavBar.css";
 const NavBar = () => {
   return (
     <nav className="Navbar-container">
+      <div className="Navbar-divider-s"></div>
       <div className="Navbar-title">Graph Ninja</div>
-      <div className="">
+      <div className="Navbar-divider-l"></div>
+      <div className="Navbar-divider-s">
         <Link to="/" className="Navbar-link">
             home
         </Link>
@@ -26,6 +28,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      <div className=""></div>
     </nav>
   );
 };

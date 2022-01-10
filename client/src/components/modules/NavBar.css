@@ -14,21 +14,28 @@
   font-family: "Skranji", cursive;
   font-size: var(--l);
   color: var(--white);
+  flex-grow: 2;
+}
+
+.Navbar-divider-l {
+  flex-grow: 10;
+}
+
+.Navbar-divider-s {
+  flex-grow: 1;
 }
 
 .Navbar-link {
-  float: left;
   color: var(--white);
   font-family: "Recursive", sans-serif;
   margin-right: var(--l);
   text-decoration: none;
-  padding-top: 1px;
+  display: inline-block;
 }
 
 /* Dropdown */
 .dropdown {
-  float: left;
-  margin-right: var(--l);
+  display: inline-block;
 }
 
 /* Dropdown button */

@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
 
+import "./Home.css";
+
 import { get } from "../../utilities";
 
 
 const Home = () => {
     return(
-        <div>
-            <h1>
+        <div className="Home-center">
+            <div className="Home-title">
                 Graph Ninja
-            </h1>
+            </div>
+            <div className="Home-slogan">
+                [insert slogan]
+            </div>
+            <div className="Home-text">
+                <div> Login to Train or Battle </div>
+                <div> </div>
+                <div> Register a Novice Ninja </div>
+            </div>
         </div>
     );
 };

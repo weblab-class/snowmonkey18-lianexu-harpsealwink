@@ -16,7 +16,7 @@
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
 @import url("https://fonts.googleapis.com/css2?family=Skranji&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@500&family=Skranji&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Recursive&display=swap");
 
 :root {
   --yellow: #face7f;
@@ -24,6 +24,7 @@
   --darkred: #630a10;
   --red: #942a2a;
   --white: #fff;
+  --lightred: #cb6e68;
 
   --xs: 4px;
   --s: 8px;
