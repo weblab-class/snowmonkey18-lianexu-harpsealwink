@@ -1,0 +1,63 @@
+.Navbar-container {
+  background-color: var(--darkred);
+  padding: var(--s) var(--m);
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-top-color: var(--yellow);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Navbar-title {
+  font-family: "Skranji", cursive;
+  font-size: var(--l);
+  color: var(--white);
+}
+
+.Navbar-link {
+  float: left;
+  color: var(--white);
+  font-family: "Recursive", sans-serif;
+  margin-right: var(--l);
+  text-decoration: none;
+  padding-top: 1px;
+}
+
+/* Dropdown */
+.dropdown {
+  float: left;
+  margin-right: var(--l);
+}
+
+/* Dropdown button */
+.dropbtn {
+  font-size: inherit;
+  border: none;
+  outline: none;
+  color: var(--white);
+  background-color: inherit;
+  font-family: inherit;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--darkred);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--s);
+  padding-top: var(--m);
+  padding-bottom: var(--s);
+}
+
+.dropdown-padding {
+  padding-top: var(--s);
+  padding-bottom: var(--s);
+}

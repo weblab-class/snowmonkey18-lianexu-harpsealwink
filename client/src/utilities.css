@@ -15,14 +15,14 @@
 */
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Skranji&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@500&family=Skranji&display=swap");
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
-  --darkgrey: #d4d4d4;
-  --medgrey: #e0e0e0;
-  --grey: #f7f7f7;
+  --yellow: #face7f;
+  --lightyellow: #fce7c8;
+  --darkred: #630a10;
+  --red: #942a2a;
   --white: #fff;
 
   --xs: 4px;
@@ -34,8 +34,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Recursive", sans-serif;
   font-weight: 300;
+  color: var(--white);
+  background-color: var(--red);
 }
 
 form {
@@ -80,11 +82,11 @@ form {
 }
 
 .u-link {
-  color: var(--primary);
+  color: var(--lightyellow);
   text-decoration: none;
   cursor: pointer;
 }
 
 .u-link:hover {
-  color: var(--primary--dim);
+  color: var(--yellow);
 }
