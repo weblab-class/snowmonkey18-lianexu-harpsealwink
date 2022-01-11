@@ -1,3 +1,8 @@
+.Training-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .Training-text {
   padding-left: 110px;
   padding-top: 50px;

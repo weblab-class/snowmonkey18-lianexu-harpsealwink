@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import GraphCard from "../modules/GraphCard";
 
 import "./Training.css";
 
@@ -14,16 +15,19 @@ import "./Training.css";
 
 const Training = (props) => {
     return(
-        <div className="Training-text">
-            <h1>
-                Training: Level {/* level goes here */}
-            </h1>
-            <p className="Training-info">
-                Match the red graph as closely as you can!
-            </p>
-            <div>
+        <div className="Training-container"> 
+            <div className="Training-text">
+                <h1>
+                    Training: Level {/* level goes here */}
+                </h1>
+                <p className="Training-info">
+                    Match the red graph as closely as you can!
+                </p>
+                <div>
 
+                </div>
             </div>
+            <GraphCard/>
         </div>
     );
 };

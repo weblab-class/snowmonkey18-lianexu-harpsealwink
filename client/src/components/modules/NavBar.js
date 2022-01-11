@@ -20,7 +20,7 @@ const NavBar = () => {
             about
         </Link>
         <div className="dropdown">
-          <button class="dropbtn">dojo ▼
+          <button className="dropbtn">dojo ▼
           </button>
           <div className="dropdown-content">
             <Link to="/training/" className="Navbar-link dropdown-padding">train</Link>
