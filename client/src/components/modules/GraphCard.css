@@ -1,5 +1,9 @@
+.GraphCard-container {
+  padding-left: 15vh;
+  padding-top: 20vh;
+}
+
 .GraphCard-graph {
-  width: 600px;
-  height: 400px;
-  position: relative;
+  width: 60vh;
+  height: 60vh;
 }
