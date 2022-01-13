@@ -15,17 +15,14 @@
   font-size: var(--l);
   color: var(--white);
   text-decoration: none;
-  padding: 0 var(--s);
-  flex-grow: 3;
+  padding: 0 var(--m);
+  flex-grow: 1;
   align-items: left;
-}
-
-.Navbar-divider-l {
-  flex-grow: 10;
 }
 
 .Navbar-link-container {
   align-items: right;
+  padding: 0 var(--l);
 }
 
 .Navbar-link {

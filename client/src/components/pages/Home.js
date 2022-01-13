@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "@reach/router";
 
 import "./Home.css";
 
@@ -15,9 +16,13 @@ const Home = () => {
                 [insert slogan]
             </div>
             <div className="Home-text">
-                <div> Login to Train or Battle </div>
+                <Link to="/signup/" className="Home-link">
+                Login to Train or Battle
+                </Link>
                 <div> </div>
-                <div> Register a Novice Ninja </div>
+                <Link to="/signup/" className="Home-link">
+                Register a Novice Ninja
+                </Link>
             </div>
         </div>
     );

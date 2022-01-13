@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound.js";
 import About from "./pages/About.js";
 import Training from "./pages/Training.js";
 import Profile from "./pages/Profile.js";
+import SignUp from "./pages/SignUp.js";
 
 import "../utilities.css";
 
@@ -45,13 +46,18 @@ const App = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar 
+      handleLogin={handleLogin}
+      handleLogout={handleLogout}
+      userId={userId}
+      />
       <div className="">
         <Router>
           <Home path="/" />
           <About path="/about/" />
-          <Profile path="/profile/" />
+          <Profile path="/profile/:userId" />
           <Training path="/training/" />
+          <SignUp path="/signup/" />
           <NotFound default />
         </Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
