@@ -1,6 +1,6 @@
 .Training-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .Training-text {

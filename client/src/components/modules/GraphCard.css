@@ -1,9 +1,26 @@
 .GraphCard-container {
-  padding-left: 15vh;
-  padding-top: 20vh;
+  display: flex;
+  flex-direction: row;
 }
 
 .GraphCard-graph {
+  padding-left: 25vh;
+}
+/* 
+.GraphCard-graph {
   width: 60vh;
   height: 60vh;
+} */
+
+.layer {
+  margin-top: 10vh;
+  margin-left: 10vw;
+}
+
+#plotSettings {
+  width: 160px;
+}
+
+#plot {
+  width: 550px;
 }
