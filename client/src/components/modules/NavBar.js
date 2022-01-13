@@ -9,18 +9,21 @@ import "./NavBar.css";
 const NavBar = () => {
   return (
     <nav className="Navbar-container">
-      <div className="Navbar-divider-s"></div>
-      <div className="Navbar-title">Graph Ninja</div>
-      <div className="Navbar-divider-l"></div>
-      <div className="Navbar-divider-s">
-        <Link to="/" className="Navbar-link">
-            home
+      <div className="Navbar-title">
+        <Link to="/" className="Navbar-title">
+          Graph Ninja
         </Link>
+      </div>
+      <div className="Navbar-link-container">
         <Link to="/about/" className="Navbar-link">
-            about
+          about
+        </Link>
+        <Link to="/profile/" className="Navbar-link">
+          profile
         </Link>
         <div className="dropdown">
-          <button className="dropbtn">dojo ▼
+          <button className="dropbtn">
+            dojo ▼
           </button>
           <div className="dropdown-content">
             <Link to="/training/" className="Navbar-link dropdown-padding">train</Link>

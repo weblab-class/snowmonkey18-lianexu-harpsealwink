@@ -6,6 +6,7 @@ import Home from "./pages/Home.js";
 import NotFound from "./pages/NotFound.js";
 import About from "./pages/About.js";
 import Training from "./pages/Training.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 
@@ -49,6 +50,7 @@ const App = () => {
         <Router>
           <Home path="/" />
           <About path="/about/" />
+          <Profile path="/profile/" />
           <Training path="/training/" />
           <NotFound default />
         </Router>
