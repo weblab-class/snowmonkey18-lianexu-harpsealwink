@@ -11,6 +11,8 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Info = require("./models/profileinfo");
+
 
 // import authentication library
 const auth = require("./auth");
@@ -41,6 +43,10 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+
+router.get("/profileinfos", (req, res) => {
+  Info.find({}).then((infos) => res.send(infos));
+});
 
 router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
   const newInfo = new Info({
