@@ -21,14 +21,14 @@ const Profile = (props) => {
     // this gets called when the user pushes "Submit", so their
     // post gets added to the screen right away
     const addNewInfo = (infoObj) => {
-      setInfos([]);
-      setInfos([infoObj]);
+        setInfos([]);
+        setInfos([infoObj]);
     };
   
     let infosList = null;
     const hasInfos = infos.length !== 0;
     if (hasInfos) {
-      infosList = infos.map((infoObj) => (
+      infosList = [infos[0]].map((infoObj) => (
         <ProfileCard
           key={`ProfileCard_${infoObj._id}`}
           _id={infoObj._id}
