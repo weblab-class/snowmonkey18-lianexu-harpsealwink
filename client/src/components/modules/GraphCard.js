@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import functionPlot from 'function-plot';
+import React, { useState, useEffect , useRef } from "react";
+import functionPlot, { FunctionPlotOptions } from 'function-plot';
 
 import "./GraphCard.css";
 import { get } from "../../utilities";
@@ -10,6 +10,10 @@ const GraphCard = () => {
     const [yMax, setYMax] = useState(10);
     const [yMin, setYMin] = useState(-10);
     const [func, setFunc] = useState("");
+    const [a, setA] = useState("");
+    const [b, setB] = useState("");
+    const [c, setC] = useState("");
+    
 
     const handleXMaxChange = (event) => {
         setXMax(event.target.value);
@@ -29,11 +33,23 @@ const GraphCard = () => {
     const handleClick = () => {
         plot();
     };
+    const handleAChange = (event) => {
+        setA(event.target.value);
+    }
+    const handleBChange = (event) => {
+        setB(event.target.value);
+    }
+    const handleCChange = (event) => {
+        setC(event.target.value);
+    }
+
+    /* let levels = [(0,1,2), (0,1,2)] */ 
+/* store level schema. get/levels endpoint. Send get request to database*/ 
 
     let userParameters = {
         target: '#myFunction',
         data: [
-            { fn: '', color: '#fce7c8' },
+            { fn: '', color: '#fce7c8' }, {fn: '2x^2+x+3', color: '#abcdef'} ,
         ],
         grid: true,
         yAxis: {domain: [-10, 10]},
@@ -43,16 +59,18 @@ const GraphCard = () => {
     let trueParameters = {
         target: '#myFunction',
         data: [
-            { fn: 'x^2', color: '#abcdef' },
+            { fn: '2x^2+x+3', color: '#abcdef' },
         ],
         grid: true,
         yAxis: {domain: [-10, 10]},
         xAxis: {domain: [-10, 10]}
     };
+
        
-    userParameters.data[0].fn = func;
+    /* userParameters.data[0].fn = func; */
     userParameters.xAxis.domain = [xMin, xMax];
     userParameters.yAxis.domain = [yMin, yMax];
+    userParameters.data[0].fn = String(a+"x^2"+ "+" + b + "x" + "+" + c);
 
     let plot = () => {
         functionPlot(userParameters);
@@ -61,7 +79,7 @@ const GraphCard = () => {
       
     useEffect(() => {
         functionPlot(trueParameters)
-    });
+    }, []);
      
     return(
         <div className="GraphCard-container">
@@ -78,7 +96,15 @@ const GraphCard = () => {
             <label >yMax: value: <input type="number" value={yMax} onChange={handleYMaxChange} />
             </label>
             <p></p>
-            <label >Function to plot: 
+            <label >a: <input type="number" value={a} onChange={handleAChange} />
+            </label>
+            <p></p>
+            <label >b: <input type="number" value={b} onChange={handleBChange} />
+            </label>
+            <p></p>
+            <label>c: <input type="number" value={c} onChange={handleCChange} />
+            </label> 
+            <label> ax^2 + bx + c: 
             <input id="function" type="text" value={func} onChange={handleFuncChange}/>
             </label>
             <p></p>
