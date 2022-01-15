@@ -46,21 +46,16 @@ const App = () => {
 
   return (
     <>
-      <NavBar 
-      handleLogin={handleLogin}
-      handleLogout={handleLogout}
-      userId={userId}
-      />
+      <NavBar userId={userId}/>
       <div className="">
         <Router>
           <Home path="/" />
           <About path="/about/" />
           <Profile path="/profile/:userId" />
           <Training path="/training/" />
-          <SignUp path="/signup/" />
+          <SignUp path="/signup/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
           <NotFound default />
         </Router>
-        {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
       </div>
     </>
   );

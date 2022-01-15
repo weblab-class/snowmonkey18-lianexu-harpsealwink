@@ -20,23 +20,6 @@ const NavBar = (props) => {
         <Link to="/" className="Navbar-title">
           Graph Ninja
         </Link>
-        {props.userId ? (
-          <GoogleLogout
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Logout"
-            onLogoutSuccess={props.handleLogout}
-            onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
-          />
-        ) : (
-          <GoogleLogin
-            clientId={GOOGLE_CLIENT_ID}
-            buttonText="Login"
-            onSuccess={props.handleLogin}
-            onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
-          />
-        )}
       </div>
       <div className="Navbar-link-container">
         <Link to="/about/" className="Navbar-link">
@@ -56,6 +39,23 @@ const NavBar = (props) => {
             <Link to="/battle/" className="Navbar-link dropdown-padding">battle</Link>
           </div>
         </div>
+        {props.userId ? (
+          <GoogleLogout
+            clientId={GOOGLE_CLIENT_ID}
+            buttonText="Logout"
+            onLogoutSuccess={props.handleLogout}
+            onFailure={(err) => console.log(err)}
+            className="Navbar-link"
+          />
+        ) : (
+          <GoogleLogin
+            clientId={GOOGLE_CLIENT_ID}
+            buttonText="Login"
+            onSuccess={props.handleLogin}
+            onFailure={(err) => console.log(err)}
+            className="Navbar-link"
+          />
+        )}
       </div>
       <div className=""></div>
     </nav>
