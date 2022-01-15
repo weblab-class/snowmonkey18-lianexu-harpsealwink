@@ -18,7 +18,7 @@ const SignUp = (props) => {
             buttonText="Logout"
             onLogoutSuccess={props.handleLogout}
             onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
+            className=""
           />
         ) : (
           <GoogleLogin
@@ -26,7 +26,7 @@ const SignUp = (props) => {
             buttonText="Login"
             onSuccess={props.handleLogin}
             onFailure={(err) => console.log(err)}
-            className="NavBar-link NavBar-login"
+            className=""
           />
         )}
         </div>
