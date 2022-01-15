@@ -4,55 +4,64 @@ import functionPlot from 'function-plot';
 import "./GraphCard.css";
 import { get } from "../../utilities";
 
-
-
 const GraphCard = () => {
-    const [xMax, setXMax] = useState(6);
-    const [xMin, setXMin] = useState(-6);
-    const [yMax, setYMax] = useState(6);
-    const [yMin, setYMin] = useState(-6);
-    const [func, setFunc] = useState("sin(x)");
+    const [xMax, setXMax] = useState(10);
+    const [xMin, setXMin] = useState(-10);
+    const [yMax, setYMax] = useState(10);
+    const [yMin, setYMin] = useState(-10);
+    const [func, setFunc] = useState("");
 
     const handleXMaxChange = (event) => {
         setXMax(event.target.value);
-      };
+    };
     const handleXMinChange = (event) => {
-    setXMin(event.target.value);
+        setXMin(event.target.value);
     };
     const handleYMaxChange = (event) => {
-    setYMax(event.target.value);
+        setYMax(event.target.value);
     };
     const handleYMinChange = (event) => {
-    setYMin(event.target.value);
+        setYMin(event.target.value);
     };
     const handleFuncChange = (event) => {
         setFunc(event.target.value);
-        };
+    };
     const handleClick = () => {
         plot();
     };
 
-
-    var parameters = {
+    let userParameters = {
         target: '#myFunction',
-        data: [{
-          fn: 'sin(x)', 
-          color: '#fce7c8'
-       }],
+        data: [
+            { fn: '', color: '#fce7c8' },
+        ],
         grid: true,
-        yAxis: {domain: [-1, 1]},
-        xAxis: {domain: [0, 2*Math.PI]}
-      };
+        yAxis: {domain: [-10, 10]},
+        xAxis: {domain: [-10, 10]}
+      };    
+      
+    let trueParameters = {
+        target: '#myFunction',
+        data: [
+            { fn: 'x^2', color: '#abcdef' },
+        ],
+        grid: true,
+        yAxis: {domain: [-10, 10]},
+        xAxis: {domain: [-10, 10]}
+    };
        
-      parameters.data[0].fn = func;
-      parameters.xAxis.domain = [xMin, xMax];
-      parameters.yAxis.domain = [yMin, yMax];
-  
-      let plot = () => {
-          functionPlot(parameters);
-          console.log(parameters);
-      };
-         
+    userParameters.data[0].fn = func;
+    userParameters.xAxis.domain = [xMin, xMax];
+    userParameters.yAxis.domain = [yMin, yMax];
+
+    let plot = () => {
+        functionPlot(userParameters);
+        console.log(userParameters);
+    };
+      
+    useEffect(() => {
+        functionPlot(trueParameters)
+    });
      
     return(
         <div className="GraphCard-container">
@@ -80,6 +89,7 @@ const GraphCard = () => {
         <div className="GraphCard-graph">
             <div id="myFunction"></div>
         </div>
+
         </div>
     );
 };
