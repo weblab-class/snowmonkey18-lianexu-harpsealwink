@@ -4,6 +4,7 @@ import GraphCard from "../modules/GraphCard";
 import "./Training.css";
 
 
+
 /**
  * Training page will consist of predetermined levels created by us
  *
@@ -28,6 +29,7 @@ const Training = (props) => {
                 </div>
             </div>
             <GraphCard/>
+            
         </div>
     );
 };

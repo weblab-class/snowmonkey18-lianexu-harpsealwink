@@ -24,6 +24,7 @@ const Home = () => {
                 Register a Novice Ninja
                 </Link>
             </div>
+            
         </div>
     );
 };
