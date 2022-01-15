@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
  
-import JXGBoard from 'jsxgraph-react-js'
+import JXGBoard from 'jsxgraph-react-js';
+
+import "./GraphCard2.css";
  
+
 let logicJS = (brd) => {
   brd.suspendUpdate();
   var a = brd.create('slider', [[2, 8], [6, 8], [0, 3, 6]], { name: 'a' });
@@ -19,6 +22,7 @@ let logicJS = (brd) => {
  
 const GraphCard2 = (props) => {
   return (
+      <div className="GraphCard-container">
     <JXGBoard
       logic={logicJS}
       boardAttributes={{ axis: true, boundingbox: [-12, 10, 12, -10] }}
@@ -26,6 +30,7 @@ const GraphCard2 = (props) => {
         border: "3px solid red"
       }}
     />
+    </div>
   )
 }
 
