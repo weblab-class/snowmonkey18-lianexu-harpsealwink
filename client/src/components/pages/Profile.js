@@ -26,18 +26,30 @@ const Profile = (props) => {
     };
   
     let infosList = null;
-    const hasInfos = infos.length !== 0;
+    let hasInfos;
+    for (const infoObj of infos) {
+        console.log(infoObj.creator_id)
+        if (infoObj.creator_id===props.userId) {
+            hasInfos = true;
+            break;
+          } 
+      }
     if (hasInfos) {
-      infosList = [infos[0]].map((infoObj) => (
-        <ProfileCard
-          key={`ProfileCard_${infoObj._id}`}
-          _id={infoObj._id}
-          creator_name={infoObj.creator_name}
-          creator_id={infoObj.creator_id}
-          userId={props.userId}
-          content={infoObj.content}
-        />
-      ));
+        for (const info of infos) {
+            if (info.creator_id===props.userId) {
+                infosList = [info].map((infoObj) => (
+                    <ProfileCard
+                      key={`ProfileCard_${infoObj._id}`}
+                      _id={infoObj._id}
+                      creator_name={infoObj.creator_name}
+                      creator_id={infoObj.creator_id}
+                      userId={props.userId}
+                      content={infoObj.content}
+                    />
+                  ));
+                break;
+            }
+        }
     } else {
       infosList = <div>Update your profile info!</div>;
     }

@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <>
-      <NavBar userId={userId}/>
+      <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
       <div className="">
         <Router>
           <Home path="/" />
