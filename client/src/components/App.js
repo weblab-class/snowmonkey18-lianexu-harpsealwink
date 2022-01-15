@@ -6,6 +6,7 @@ import Home from "./pages/Home.js";
 import NotFound from "./pages/NotFound.js";
 import About from "./pages/About.js";
 import Training from "./pages/Training.js";
+import Training2 from "./pages/Training2.js";
 import Profile from "./pages/Profile.js";
 import SignUp from "./pages/SignUp.js";
 
@@ -53,6 +54,7 @@ const App = () => {
           <About path="/about/" />
           <Profile path="/profile/:userId" />
           <Training path="/training/" />
+          <Training2 path="/training2/"/>
           <SignUp path="/signup/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
           <NotFound default />
         </Router>

@@ -17,16 +17,16 @@ let logicJS = (brd) => {
   brd.unsuspendUpdate();
 }
  
-class Example extends Component {
-  render () {
-    return (
-        <JXGBoard
-          logic={logicJS}
-          boardAttributes={{ axis: true, boundingbox: [-12, 10, 12, -10] }}
-          style={{
-            border: "3px solid red"
-          }}
-        />
-    )
-  }
+const Training2 = (props) => {
+  return (
+    <JXGBoard
+      logic={logicJS}
+      boardAttributes={{ axis: true, boundingbox: [-12, 10, 12, -10] }}
+      style={{
+        border: "3px solid red"
+      }}
+    />
+  )
 }
+
+export default Training2;

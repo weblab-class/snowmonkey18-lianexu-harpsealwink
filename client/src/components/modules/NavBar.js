@@ -36,6 +36,7 @@ const NavBar = (props) => {
           </button>
           <div className="dropdown-content">
             <Link to="/training/" className="Navbar-link dropdown-padding">train</Link>
+            <Link to="/training2/" className="Navbar-link dropdown-padding">train2</Link>
             <Link to="/battle/" className="Navbar-link dropdown-padding">battle</Link>
           </div>
         </div>
