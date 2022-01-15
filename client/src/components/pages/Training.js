@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GraphCard from "../modules/GraphCard";
+import GraphCard2 from "../modules/GraphCard2";
 
 import "./Training.css";
 
@@ -28,7 +28,7 @@ const Training = (props) => {
 
                 </div>
             </div>
-            <GraphCard/>
+            <GraphCard2/>
             
         </div>
     );

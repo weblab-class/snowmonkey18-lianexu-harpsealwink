@@ -17,7 +17,7 @@ let logicJS = (brd) => {
   brd.unsuspendUpdate();
 }
  
-const Training2 = (props) => {
+const GraphCard2 = (props) => {
   return (
     <JXGBoard
       logic={logicJS}
@@ -29,4 +29,4 @@ const Training2 = (props) => {
   )
 }
 
-export default Training2;
+export default GraphCard2;
