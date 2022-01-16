@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import GraphCard2 from "../modules/GraphCard2";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
+import { Dropdown, Option } from "../modules/Dropdown";
 
 
 
@@ -22,13 +23,14 @@ const Training = (props) => {
                     Training: Level {/* level goes here */}
                 </h1>
                 <p className="Training-info">
-                    Match the red graph as closely as you can!
+                    Match the yellow graph as closely as you can!
                 </p>
                 <div>
 
                 </div>
             </div>
-            <GraphCard/>
+            <GraphCard className = "Graph-container"/>
+    
             
         </div>
     );
