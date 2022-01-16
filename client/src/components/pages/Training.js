@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import GraphCard2 from "../modules/GraphCard2";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
