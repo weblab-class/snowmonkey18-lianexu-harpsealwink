@@ -4,7 +4,9 @@
 }
 
 .GraphCard-graph {
-  padding-left: 40vh;
+  /* padding-left: 40vh; */
+  padding-left: 0px;
+  background-color: grey;
 
 }
 /* 
@@ -14,8 +16,11 @@
 } */
 
 .layer {
-  margin-top: 15vh;
-  margin-left: 10vw;
+  /* margin-top: 15vh; */
+  /* margin-left: 10vw; */
+  margin-right: 50px;
+  background-color: grey;
+  padding: 8px 8px 8px 8px;
 
 }
 

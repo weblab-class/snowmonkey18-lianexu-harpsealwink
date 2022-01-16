@@ -1,15 +1,24 @@
 .Training-container {
   display: flex;
   flex-direction: column;
+  padding-left: 60px;
 }
 
 .Training-text {
-  padding-left: 110px;
   padding-top: 50px;
+  font-family: "Recursive", sans-serif;
+  
+}
+
+.Training-header{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .Training-info {
-  padding-top: 10px;
+  /* padding-top: 10px; */
+  font-family: "Recursive", sans-serif;
 }
 
 /* .Training-level {
@@ -18,4 +27,13 @@
 
 /* .Graph-container {
   
+} */
+
+
+/* .Navbar-link {
+  color: var(--white);
+  font-family: "Recursive", sans-serif;
+  margin-right: var(--l);
+  text-decoration: none;
+  display: inline-block;
 } */

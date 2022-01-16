@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
+// import React, { useRef } from "react";
+import "../modules/Dropdown.css";
+import Dropdown from "../modules/Dropdown";
 
 import { get } from "../../utilities";
 
@@ -18,6 +21,10 @@ import { get } from "../../utilities";
 const Training = (props) => {
     const [levels, setLevels] = useState([]);
     const [levelNumber, setLevelNumber] = useState(0);
+
+    const dropdownRef = useRef(null);
+    const [isActive, setIsActive] = Dropdown(dropdownRef, false);
+    const onClick = () => setIsActive(!isActive);
 
     useEffect(() => {
         get("/api/levels").then((levelObjs) => {
@@ -58,105 +65,45 @@ const Training = (props) => {
 
     return(
         <div className="Training-container"> 
-            <div className="Training-text">
-                <h1>
-                    Training: Level {levelNumber+1}
-                </h1>
-                <button
-                type="submit"
-                onClick={handleLevel1}
-                >
-                Level 1
-                </button>
-                <button
-                type="submit"
-                onClick={handleLevel2}
-                >
-                Level 2
-                </button>
-                <button
-                type="submit"
-                onClick={handleLevel3}
-                >
-                Level 3
-                </button>
-                <button
-                type="submit"
-                onClick={handleLevel4}
-                >
-                Level 4
-                </button>
-                <button
-                type="submit"
-                onClick={handleLevel5}
-                >
-                Level 5
-                </button>
-                <p className="Training-info">
-                    Match the yellow graph as closely as you can!
-                </p>
-                <div>
+            <div>
+                <div className = "Training-header">
 
+                    <div className="container">
+                        <div className="menu-container">
+                            <h1>Training: </h1>
+                            <button onClick={onClick} className="menu-trigger">
+                                <span>Level {levelNumber+1} out of 5 ▸</span>
+                            </button>
+                            <nav ref={dropdownRef} className={`menu ${isActive ? "active" : "inactive"}`}>
+                                <ul>
+                                    <li>
+                                    <a href="#" onClick={handleLevel1}>Level 1</a>
+                                    </li>
+                                    <li>
+                                    <a href="#" onClick={handleLevel2}>Level 2</a>
+                                    </li>
+                                    <li>
+                                    <a href="# " onClick={handleLevel3}>Level 3</a>
+                                    </li>
+                                    <li>
+                                    <a href="# " onClick={handleLevel4}>Level 4</a>
+                                    </li>
+                                    <li>
+                                    <a href="# " onClick={handleLevel5}>Level 5</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <p className="Training-info">
+                    Match the yellow graph as closely as you can!
+                    </p>
+                    <p>Note: Ugly background colors are for testing purposes.</p>
                 </div>
             </div>
-
             {levelsList[levelNumber]}
-
-{/* 
-            <div style="margin:5px">
-                <p>
-                    <label for="c1">
-                        c1:
-                    </label>
-                    <input 
-                        type="range" id="c1" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="0" max="100" value="60" 
-                        oninput="c1 = this.value*0.01; board.update();" 
-                    />
-                    <label for="f1">
-                        f1:
-                    </label>
-                    <input 
-                        type="range" id="f1" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="1" max="100" value="7"
-                        oninput="f1 = this.value; board.update();" 
-                    />
-                    <label for="c2">
-                        c2:
-                    </label>
-                    <input 
-                        type="range" id="c2" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="0" max="100" value="0"
-                        oninput="c2 = this.value*0.01; 
-                                board.updateQuality = board.BOARD_QUALITY_HIGH;
-                                board.update();" 
-                    />
-                    <label for="f2">
-                        f2:
-                    </label>
-                    <input 
-                        type="range" id="f2" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="1" max="100" value="17"
-                        oninput="f2 = this.value; board.update();" 
-                    />
-                </p>
-            </div>
-
-            <jsxgraph width="500" height="500" box="jxgbox">
-                board = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: ([-2.5,2.5,2.5,-2.5], keepaspectratio:true)});
-                let c1 = 0.6;
-                let c2 = 0.0; 
-                let f1 = 7; 
-                let f2 = 17;
-                let c = board.create('curve', [
-                    ((t) => { Math.cos(t)+ c1*Math.cos(f1*t)+ c2*Math.cos(f2*t) }),
-                    ((t) => { Math.sin(t)+ c1*Math.sin(f1*t)+ c2*Math.sin(f2*t) }),
-                    0,2.02*Math.PI], 
-                    strokeWidth: 2);
-            </jsxgraph>            
-                             */}
-
         </div>
+        
     );
 };
 
