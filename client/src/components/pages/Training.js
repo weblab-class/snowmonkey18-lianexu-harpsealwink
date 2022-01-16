@@ -29,7 +29,7 @@ const Training = (props) => {
                 </div>
             </div>
 
-            <GraphCard2/>
+            <GraphCard/>
 
 {/* 
             <div style="margin:5px">
