@@ -43,14 +43,9 @@ const GraphCard2 = (props) => {
       style={{
         border: "3px solid red"
       }}
-<<<<<<< HEAD
-    />
-    </div>
-=======
     />}
     
     </>
->>>>>>> daa3ea938114859e00ed45110d5b876b6e386d33
   )
 }
 

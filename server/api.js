@@ -23,6 +23,32 @@ const router = express.Router();
 //initialize socket
 const socketManager = require("./server-socket");
 
+//data for levels
+const data = {
+  levels: [
+    {
+      _id: 0,
+      function: '2x^2+x+3',
+    },
+    {
+      _id: 1,
+      function: '4x^2+x+2',
+    },
+    {
+      _id: 2,
+      function: '2x^2+2x+4',
+    },
+    {
+      _id: 3,
+      function: '-2x^2+x-3',
+    },
+    {
+      _id: 4,
+      function: '-x^2+x+6',
+    },
+  ],
+};
+
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
 router.get("/whoami", (req, res) => {
@@ -58,9 +84,10 @@ router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
   newInfo.save().then((info) => res.send(info));
 });
 
-// router.get("/training", (req, res) => {
-//     res.send()
-// });
+router.get("/levels", (req, res) => {
+  // send back all of the levels!
+  res.send(data.levels);
+});
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
