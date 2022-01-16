@@ -17,7 +17,7 @@
 
   .container {
       position: left;
-      padding-top: 60px;
+      padding-top: 8px;
   }
   
 
@@ -66,8 +66,8 @@
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    transform: translateY(0px);
+    /* transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s; */
     max-height: 80px;
     overflow-y: scroll;
 
@@ -76,7 +76,7 @@
   .menu.active {
     opacity: 1;
     visibility: visible;
-    transform: translateX(0px);
+    transform: translateY(60px) translateX(-167px);
   }
   
   .menu ul {

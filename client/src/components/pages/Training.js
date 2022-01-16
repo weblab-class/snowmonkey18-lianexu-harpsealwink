@@ -72,7 +72,7 @@ const Training = (props) => {
                         <div className="menu-container">
                             <h1>Training: </h1>
                             <button onClick={onClick} className="menu-trigger">
-                                <span>Level {levelNumber+1} out of 5 ▸</span>
+                                <span>Level {levelNumber+1} out of 5 ▼</span>
                             </button>
                             <nav ref={dropdownRef} className={`menu ${isActive ? "active" : "inactive"}`}>
                                 <ul>
