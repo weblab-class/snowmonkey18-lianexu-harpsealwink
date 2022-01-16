@@ -28,11 +28,11 @@ const data = {
   levels: [
     {
       _id: 0,
-      function: '2x^2+x+3',
+      function: '2x^2+1x+3',
     },
     {
       _id: 1,
-      function: '4x^2+x+2',
+      function: '4x^2+1x+2',
     },
     {
       _id: 2,
@@ -40,11 +40,11 @@ const data = {
     },
     {
       _id: 3,
-      function: '-2x^2+x-3',
+      function: '-2x^2+1x-3',
     },
     {
       _id: 4,
-      function: '-x^2+x+6',
+      function: '-1x^2+1x+6',
     },
   ],
 };
