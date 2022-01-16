@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import GraphCard2 from "../modules/GraphCard2";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
+import functionPlot, { FunctionPlotOptions } from 'function-plot';
 
+import { get } from "../../utilities";
 
 
 /**
@@ -15,21 +17,106 @@ import "./Training.css";
  */
 
 const Training = (props) => {
+    const [levels, setLevels] = useState([]);
+    const [levelNumber, setLevelNumber] = useState(0);
+
+    useEffect(() => {
+        get("/api/levels").then((levelObjs) => {
+          setLevels(levelObjs);
+        });
+      }, []); 
+      
+    let levelsList;
+    levelsList = levels.map((levelObj) => (
+        <GraphCard
+        _id={levelObj._id}
+        function={levelObj.function}
+        />
+    ));
+
+    let levelsList2;
+    levelsList2 = levels.map((levelObj) => (
+        levelObj.function
+    ));
+    
+    // let levelParameters = {
+    //     target: '#Function',
+    //     data: [
+    //         { fn: levelsList2[levelNumber], color: '#abcdef' },
+    //     ],
+    //     grid: true,
+    //     yAxis: {domain: [-10, 10]},
+    //     xAxis: {domain: [-10, 10]}
+    // };
+
+    const handleLevel1 = (event) => {
+        event.preventDefault();
+        setLevelNumber(0)
+      };
+    const handleLevel2 = (event) => {
+        event.preventDefault();
+        // functionPlot(levelParameters);
+        setLevelNumber(1)
+    };
+    const handleLevel3 = (event) => {
+        event.preventDefault();
+        setLevelNumber(2)
+    };
+    const handleLevel4 = (event) => {
+        event.preventDefault();
+        setLevelNumber(3)
+    };
+    const handleLevel5 = (event) => {
+        event.preventDefault();
+        setLevelNumber(4)
+    };
+
+
     return(
         <div className="Training-container"> 
             <div className="Training-text">
                 <h1>
-                    Training: Level {/* level goes here */}
+                    Training: Level {levelNumber+1}
                 </h1>
+                <button
+                type="submit"
+                onClick={handleLevel1}
+                >
+                Level 1
+                </button>
+                <button
+                type="submit"
+                onClick={handleLevel2}
+                >
+                Level 2
+                </button>
+                <button
+                type="submit"
+                onClick={handleLevel3}
+                >
+                Level 3
+                </button>
+                <button
+                type="submit"
+                onClick={handleLevel4}
+                >
+                Level 4
+                </button>
+                <button
+                type="submit"
+                onClick={handleLevel5}
+                >
+                Level 5
+                </button>
                 <p className="Training-info">
-                    Match the red graph as closely as you can!
+                    Match the yellow graph as closely as you can!
                 </p>
                 <div>
 
                 </div>
             </div>
 
-            <GraphCard/>
+            {levelsList[levelNumber]}
 
 {/* 
             <div style="margin:5px">
