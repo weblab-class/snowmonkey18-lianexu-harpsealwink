@@ -43,17 +43,25 @@ const NavBar = (props) => {
           <GoogleLogout
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Logout"
+            render={renderProps => (
+              <button onClick={renderProps.onClick} className="Navbar-button-google">
+                Logout
+              </button>
+            )}
             onLogoutSuccess={props.handleLogout}
             onFailure={(err) => console.log(err)}
-            className="Navbar-link"
           />
-        ) : (
+          ) : (
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Login"
+            render={renderProps => (
+              <button onClick={renderProps.onClick} className="Navbar-button-google">
+                Login
+              </button>
+            )}
             onSuccess={props.handleLogin}
             onFailure={(err) => console.log(err)}
-            className="Navbar-link"
           />
         )}
       </div>

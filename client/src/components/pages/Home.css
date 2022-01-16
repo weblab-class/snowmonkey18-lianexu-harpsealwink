@@ -32,3 +32,14 @@
   color: var(--white);
   text-decoration: none;
 }
+
+.Button-google {
+  background-color: var(--lightyellow);
+  color: var(--darkred);
+  font-family: "Skranji", cursive;
+  font-size: 24px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  border: none;
+  cursor: pointer;
+}

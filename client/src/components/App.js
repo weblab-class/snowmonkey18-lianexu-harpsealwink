@@ -7,7 +7,6 @@ import NotFound from "./pages/NotFound.js";
 import About from "./pages/About.js";
 import Training from "./pages/Training.js";
 import Profile from "./pages/Profile.js";
-import SignUp from "./pages/SignUp.js";
 
 import "../utilities.css";
 
@@ -49,11 +48,10 @@ const App = () => {
       <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
       <div className="">
         <Router>
-          <Home path="/" />
+          <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
           <Profile path="/profile/:userId" />
           <Training path="/training/" />
-          <SignUp path="/signup/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
           <NotFound default />
         </Router>
       </div>
