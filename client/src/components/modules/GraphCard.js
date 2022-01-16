@@ -5,27 +5,15 @@ import "./GraphCard.css";
 import { get } from "../../utilities";
 
 const GraphCard = (props) => {
-    const [xMax, setXMax] = useState(10);
-    const [xMin, setXMin] = useState(-10);
-    const [yMax, setYMax] = useState(10);
-    const [yMin, setYMin] = useState(-10);
     const [func, setFunc] = useState("");
     const [a, setA] = useState("");
     const [b, setB] = useState("");
     const [c, setC] = useState("");
+    const [trainingStatus , setTrainingStatus] = useState("");
 
-    const handleXMaxChange = (event) => {
-        setXMax(event.target.value);
-    };
-    const handleXMinChange = (event) => {
-        setXMin(event.target.value);
-    };
-    const handleYMaxChange = (event) => {
-        setYMax(event.target.value);
-    };
-    const handleYMinChange = (event) => {
-        setYMin(event.target.value);
-    };
+    // const [levels, setLevels] = useState([]);
+    // const [levelNumber, setLevelNumber] = useState(0);
+
     const handleFuncChange = (event) => {
         setFunc(event.target.value);
     };
@@ -42,26 +30,17 @@ const GraphCard = (props) => {
         setC(event.target.value);
     }
 
+
     /* let levels = [(0,1,2), (0,1,2)] */ 
 /* store level schema. get/levels endpoint. Send get request to database*/ 
 
 // called when the "Feed" component "mounts", i.e.
 // when it shows up on screen
 
-    let userParameters = {
+    let funcParameters = {
         target: '#myFunction',
         data: [
-            { fn: '', color: '#fce7c8' }, {fn: props.function, color: '#abcdef'} ,
-        ],
-        grid: true,
-        yAxis: {domain: [-10, 10]},
-        xAxis: {domain: [-10, 10]}
-      };    
-      
-    let trueParameters = {
-        target: '#myFunction',
-        data: [
-            { fn: props.function, color: '#abcdef' },
+            { fn: props.function, color: 'yellow' },
         ],
         grid: true,
         yAxis: {domain: [-10, 10]},
@@ -70,35 +49,41 @@ const GraphCard = (props) => {
 
        
     /* userParameters.data[0].fn = func; */
-    userParameters.xAxis.domain = [xMin, xMax];
-    userParameters.yAxis.domain = [yMin, yMax];
-    userParameters.data[0].fn = String(a+"x^2"+ "+" + b + "x" + "+" + c);
 
     let plot = () => {
-        functionPlot(userParameters);
-        console.log(userParameters);
+        // if (len(trueParameters.data) == 1){
+        //     trueParameters.data.pop();
+        // }
+
+        let userFunction = String(a+"x^2"+ "+" + b + "x" + "+" + c);
+        funcParameters.data.push({ fn: userFunction, color: 'red' });
+        if (userFunction == props.function) {
+            setTrainingStatus("Yay!")
+        } else {
+            setTrainingStatus("Keep trying!")
+        }
+        functionPlot(funcParameters);
+        //console.log(funcParameters);
     };
+    
+    let clearPlot = () => {
+        if(len(funcParameters.data) > 1){
+            trueParameters.data.pop();
+        }
+        functionPlot(funcParameters);
+    }
+
       
     useEffect(() => {
-        functionPlot(trueParameters)
-    }, []);
+        let userFunction = String("");
+        functionPlot(funcParameters)
+    });
 
      
     return(
         <div className="GraphCard-container">
         <div className="layer">
-            {/* <label >xMin:  value: <input type="number" value={xMin} onChange={handleXMinChange} />
-            </label>
-            <p></p>
-            <label >xMax: value: <input type="number" value={xMax} onChange={handleXMaxChange} />
-            </label>
-            <p></p>
-            <label>yMin: value: <input type="number" value={yMin} onChange={handleYMinChange} />
-            </label> 
-            <p></p>
-            <label >yMax: value: <input type="number" value={yMax} onChange={handleYMaxChange} />
-            </label>
-            <p></p> */}
+            <p>ax^2+bx+c</p>
             <label >a: <input type="number" value={a} onChange={handleAChange} />
             </label>
             <p></p>
@@ -112,6 +97,8 @@ const GraphCard = (props) => {
             </label> */}
             <p></p>
             <button onClick={handleClick}>Plot it!</button>
+            <p></p>
+            <p>Training status: {trainingStatus} </p>
         </div>
 
 

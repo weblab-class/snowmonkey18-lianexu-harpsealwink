@@ -33,21 +33,6 @@ const Training = (props) => {
         />
     ));
 
-    let levelsList2;
-    levelsList2 = levels.map((levelObj) => (
-        levelObj.function
-    ));
-    
-    // let levelParameters = {
-    //     target: '#Function',
-    //     data: [
-    //         { fn: levelsList2[levelNumber], color: '#abcdef' },
-    //     ],
-    //     grid: true,
-    //     yAxis: {domain: [-10, 10]},
-    //     xAxis: {domain: [-10, 10]}
-    // };
-
     const handleLevel1 = (event) => {
         event.preventDefault();
         setLevelNumber(0)
