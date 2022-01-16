@@ -28,7 +28,7 @@ const Profile = (props) => {
     let infosList = null;
     let hasInfos;
     for (const infoObj of infos) {
-        console.log(infoObj.creator_id)
+        // console.log(infoObj.creator_id)
         if (infoObj.creator_id===props.userId) {
             hasInfos = true;
             break;
