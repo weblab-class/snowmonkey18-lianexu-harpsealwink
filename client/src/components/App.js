@@ -49,7 +49,7 @@ const App = () => {
       <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
       <div className="">
         <Router>
-          <Home path="/" />
+          <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
           <Profile path="/profile/:userId" />
           <Training path="/training/" />

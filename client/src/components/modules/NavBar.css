@@ -32,6 +32,18 @@
   display: inline-block;
 }
 
+.Navbar-button-google {
+  background-color: transparent;
+  color: var(--white);
+  font-family: "Recursive", sans-serif;
+  font-size: inherit;
+  margin-right: var(--l);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+}
+
 /* Dropdown */
 .dropdown {
   display: inline-block;
@@ -46,6 +58,7 @@
   color: var(--white);
   background-color: inherit;
   font-family: inherit;
+  cursor: pointer;
 }
 
 /* Dropdown content (hidden by default) */
