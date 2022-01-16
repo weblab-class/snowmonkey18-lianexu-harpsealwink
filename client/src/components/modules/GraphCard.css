@@ -5,6 +5,7 @@
 
 .GraphCard-graph {
   padding-left: 40vh;
+
 }
 /* 
 .GraphCard-graph {
@@ -15,12 +16,15 @@
 .layer {
   margin-top: 15vh;
   margin-left: 10vw;
+
 }
 
 #plotSettings {
   width: 160px;
+
 }
 
 #plot {
   width: 550px;
+
 }
