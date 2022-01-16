@@ -50,7 +50,7 @@ const App = () => {
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
-          <Profile path="/profile/:userId" />
+          <Profile path="/profile/:userId" userName="USER_NAME"/>
           <Training path="/training/" />
           <NotFound default />
         </Router>

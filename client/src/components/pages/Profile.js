@@ -92,7 +92,7 @@ const Profile = (props) => {
     return(
         <div>
             <h1>
-                {props.userId}'s profile
+                {props.userName}'s profile id:{props.userId}
             </h1>
             <div className="u-flex">
             {props.userId && <NewInfo addNewInfo={addNewInfo} />}
