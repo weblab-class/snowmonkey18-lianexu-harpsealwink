@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
+import Popup from "../modules/Popup";
 
 import { get } from "../../utilities";
 
@@ -18,6 +19,7 @@ import { get } from "../../utilities";
 const Training = (props) => {
     const [levels, setLevels] = useState([]);
     const [levelNumber, setLevelNumber] = useState(0);
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     useEffect(() => {
         get("/api/levels").then((levelObjs) => {
@@ -36,23 +38,28 @@ const Training = (props) => {
     const handleLevel1 = (event) => {
         event.preventDefault();
         setLevelNumber(0)
+        setButtonPopup(false)
       };
     const handleLevel2 = (event) => {
         event.preventDefault();
         // functionPlot(levelParameters);
         setLevelNumber(1)
+        setButtonPopup(false)
     };
     const handleLevel3 = (event) => {
         event.preventDefault();
         setLevelNumber(2)
+        setButtonPopup(false)
     };
     const handleLevel4 = (event) => {
         event.preventDefault();
         setLevelNumber(3)
+        setButtonPopup(false)
     };
     const handleLevel5 = (event) => {
         event.preventDefault();
         setLevelNumber(4)
+        setButtonPopup(false)
     };
 
 
@@ -60,101 +67,28 @@ const Training = (props) => {
         <div className="Training-container"> 
             <div className="Training-text">
                 <h1>
-                    Training: Level {levelNumber+1}
+                    Training: Level {levelNumber+1} out of 5
                 </h1>
-                <button
-                type="submit"
-                onClick={handleLevel1}
-                >
-                Level 1
+                
+                <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
+                <span>Open levels</span>
                 </button>
-                <button
-                type="submit"
-                onClick={handleLevel2}
-                >
-                Level 2
-                </button>
-                <button
-                type="submit"
-                onClick={handleLevel3}
-                >
-                Level 3
-                </button>
-                <button
-                type="submit"
-                onClick={handleLevel4}
-                >
-                Level 4
-                </button>
-                <button
-                type="submit"
-                onClick={handleLevel5}
-                >
-                Level 5
-                </button>
+
                 <p className="Training-info">
                     Match the yellow graph as closely as you can!
                 </p>
-                <div>
-
-                </div>
+                
             </div>
+            
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                <button className="Select-level" onClick = {handleLevel1}>1</button>
+                <button className="Select-level" onClick = {handleLevel2}>2</button>
+                <button className="Select-level" onClick = {handleLevel3}>3</button>
+                <button className="Select-level" onClick = {handleLevel4}>4</button>
+                <button className="Select-level" onClick = {handleLevel5}>5</button>
+            </Popup>
 
             {levelsList[levelNumber]}
-
-{/* 
-            <div style="margin:5px">
-                <p>
-                    <label for="c1">
-                        c1:
-                    </label>
-                    <input 
-                        type="range" id="c1" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="0" max="100" value="60" 
-                        oninput="c1 = this.value*0.01; board.update();" 
-                    />
-                    <label for="f1">
-                        f1:
-                    </label>
-                    <input 
-                        type="range" id="f1" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="1" max="100" value="7"
-                        oninput="f1 = this.value; board.update();" 
-                    />
-                    <label for="c2">
-                        c2:
-                    </label>
-                    <input 
-                        type="range" id="c2" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="0" max="100" value="0"
-                        oninput="c2 = this.value*0.01; 
-                                board.updateQuality = board.BOARD_QUALITY_HIGH;
-                                board.update();" 
-                    />
-                    <label for="f2">
-                        f2:
-                    </label>
-                    <input 
-                        type="range" id="f2" style="border:0; color:#f6931f; font-weight:bold;" 
-                        min="1" max="100" value="17"
-                        oninput="f2 = this.value; board.update();" 
-                    />
-                </p>
-            </div>
-
-            <jsxgraph width="500" height="500" box="jxgbox">
-                board = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: ([-2.5,2.5,2.5,-2.5], keepaspectratio:true)});
-                let c1 = 0.6;
-                let c2 = 0.0; 
-                let f1 = 7; 
-                let f2 = 17;
-                let c = board.create('curve', [
-                    ((t) => { Math.cos(t)+ c1*Math.cos(f1*t)+ c2*Math.cos(f2*t) }),
-                    ((t) => { Math.sin(t)+ c1*Math.sin(f1*t)+ c2*Math.sin(f2*t) }),
-                    0,2.02*Math.PI], 
-                    strokeWidth: 2);
-            </jsxgraph>            
-                             */}
 
         </div>
     );

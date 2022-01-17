@@ -12,6 +12,74 @@
   padding-top: 10px;
 }
 
+
+
+.Select-level{
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 8px #999;
+  margin: 8px 4px;
+}
+
+.Select-level:hover{
+  background-color: #3e8e41
+}
+
+.Select-level:active{
+  background-color: #3e8e41;
+  box-shadow: 0 4px #666;
+  transform: translateY(4px);
+}
+
+.Open-levels{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  width: 160px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 4px;
+}
+
+.Open-levels span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.Open-levels span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.Open-levels:hover span {
+  padding-right: 25px;
+}
+
+.Open-levels:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 /* .Training-level {
   
 } */
