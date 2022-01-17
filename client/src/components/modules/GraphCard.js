@@ -3,6 +3,7 @@ import functionPlot, { FunctionPlotOptions } from 'function-plot';
 
 import "./GraphCard.css";
 import { get } from "../../utilities";
+import { text } from "express";
 
 const GraphCard = (props) => {
     const [func, setFunc] = useState("");
@@ -11,8 +12,12 @@ const GraphCard = (props) => {
     const [c, setC] = useState("");
     const [trainingStatus , setTrainingStatus] = useState("");
 
-    // const [levels, setLevels] = useState([]);
-    // const [levelNumber, setLevelNumber] = useState(0);
+    const[attempt, setAttempt] = useState(false);
+    const[numVars, setNumVars] = useState(props.variables.length);
+
+
+    const[inputArray, setInputArray] = useState([]);
+
 
     const handleFuncChange = (event) => {
         setFunc(event.target.value);
@@ -72,6 +77,17 @@ const GraphCard = (props) => {
         }
         functionPlot(funcParameters);
     }
+
+    // let generatePrompt = () =>{
+    //     text = "";
+        
+    //     for (let i = 0; i < numVars; i++) {
+
+
+    //         text += "<label><input>Enter the coefficient for " + "props.function[i]"+ " </input> </label><br/>";
+    //       }
+
+    // }
 
       
     useEffect(() => {

@@ -29,22 +29,32 @@ const data = {
     {
       _id: 0,
       function: '2x^2+1x+3',
+      hint: 'Hint: Match the yellow graph as closely as you can!',
+      variables: ['x^2','x','']
     },
     {
       _id: 1,
-      function: '4x^2+1x+2',
+      function: '1x+2',
+      hint: 'Hint: This is level 2!',
+      variables: ['x','']
     },
     {
       _id: 2,
       function: '2x^2+2x+4',
+      hint: 'Hint: This is level 3!',
+      variables: ['x^2','x','']
     },
     {
       _id: 3,
       function: '-2x^2+1x-3',
+      hint: 'Hint: This is level 4!',
+      variables: ['x^2','x','']
     },
     {
       _id: 4,
       function: '-1x^2+1x+6',
+      hint: 'Hint: Match the yellow graph as closely as you can!',
+      variables: ['x^2','x','']
     },
   ],
 };

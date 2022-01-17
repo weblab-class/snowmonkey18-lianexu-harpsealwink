@@ -18,14 +18,33 @@
     max-width: 200px;
     background-color: var(--darkred);
     border-radius: 16px;
+    
 
 }
 
-.popup-inner.close-btn{
+.close-btn{
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 8px;
+    right: 8px;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Recursive", sans-serif;
+    padding: 4px;
+
+    cursor: pointer;
+    margin: 5px;
     
+}
+
+
+
+.popup-header{
+    font-size:24px;
 }
 
 .level-buttons{
