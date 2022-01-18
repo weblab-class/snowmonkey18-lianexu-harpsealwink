@@ -3,6 +3,7 @@ import GraphCard from "../modules/GraphCard";
 import "./Training.css";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup";
+import TrainingHint from "../modules/TrainingHint";
 
 import { get } from "../../utilities";
 
@@ -32,6 +33,13 @@ const Training = (props) => {
         <GraphCard
         _id={levelObj._id}
         function={levelObj.function}
+        />
+    ));
+
+    let hintsList;
+    hintsList = levels.map((levelObj) => (
+        <TrainingHint
+        hint={levelObj.hint}
         />
     ));
 
@@ -73,10 +81,10 @@ const Training = (props) => {
                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
                 <span>Open levels</span>
                 </button>
+                <div className = "hint">
+                    {hintsList[levelNumber]}
+                </div>
 
-                <p className="Training-info">
-                    Match the yellow graph as closely as you can!
-                </p>
                 
             </div>
             

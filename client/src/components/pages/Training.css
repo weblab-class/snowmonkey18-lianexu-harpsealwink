@@ -13,11 +13,11 @@
 }
 
 
-
 .Select-level{
   display: inline-block;
   padding: 8px 16px;
   font-size: 16px;
+  font-family: "Recursive", sans-serif;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -42,6 +42,7 @@
 
 .Open-levels{
   display: inline-block;
+  font-family: "Recursive", sans-serif;
   border-radius: 4px;
   background-color: #f4511e;
   border: none;
@@ -52,7 +53,7 @@
   width: 160px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 4px;
+  margin-top: 4px;
 }
 
 .Open-levels span {
@@ -78,6 +79,10 @@
 .Open-levels:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.hint{
+  margin-top: 16px;
 }
 
 /* .Training-level {

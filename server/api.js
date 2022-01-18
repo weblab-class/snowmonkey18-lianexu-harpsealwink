@@ -29,22 +29,27 @@ const data = {
     {
       _id: 0,
       function: '2x^2+1x+3',
+      hint: 'Hint: 2x^2+1x+3'
     },
     {
       _id: 1,
       function: '4x^2+1x+2',
+      hint: 'Hint: 4x^2+1x+2'
     },
     {
       _id: 2,
       function: '2x^2+2x+4',
+      hint: 'Hint: 2x^2+2x+4'
     },
     {
       _id: 3,
       function: '-2x^2+1x-3',
+      hint: 'Hint: -2x^2+1x-3'
     },
     {
       _id: 4,
       function: '-1x^2+1x+6',
+      hint: 'Hint: -1x^2+1x+6'
     },
   ],
 };
