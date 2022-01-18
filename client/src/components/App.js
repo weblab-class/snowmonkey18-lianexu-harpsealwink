@@ -19,6 +19,7 @@ import { get, post } from "../utilities";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [userName, setUserName] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -30,7 +31,8 @@ const App = () => {
   }, []);
 
   const handleLogin = (res) => {
-    console.log(`Logged in as ${res.profileObj.name}`);
+    setUserName(res.profileObj.name);
+    console.log(`Logged in as ${userName}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
@@ -50,7 +52,7 @@ const App = () => {
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
-          <Profile path="/profile/:userId" userName="USER_NAME"/>
+          <Profile path="/profile/:userId" userName={userName}/>
           <Training path="/training/" />
           <NotFound default />
         </Router>

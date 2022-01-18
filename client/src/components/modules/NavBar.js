@@ -51,7 +51,7 @@ const NavBar = (props) => {
             onLogoutSuccess={props.handleLogout}
             onFailure={(err) => console.log(err)}
           />
-          ) : (
+        ) : (
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Login"
