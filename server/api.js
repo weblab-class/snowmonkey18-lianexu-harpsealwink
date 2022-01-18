@@ -43,7 +43,7 @@ const data = {
     },
     {
       _id: 3,
-      function: '-2x^2+1x-3',
+      function: '-2x^2+1x+-3',
       hint: 'Hint: -2x^2+1x-3'
     },
     {
