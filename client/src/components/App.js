@@ -20,6 +20,7 @@ import { get, post } from "../utilities";
 const App = () => {
   const [userId, setUserId] = useState(undefined);
   const [userName, setUserName] = useState(undefined);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -38,21 +39,23 @@ const App = () => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
     });
+    setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
     setUserId(undefined);
     post("/api/logout");
+    setIsLoggedIn(false);
   };
 
   return (
     <>
-      <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+      <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} isLoggedIn={isLoggedIn}/>
       <div className="">
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
-          <Profile path="/profile/:userId" userName={userName}/>
+          <Profile path="/profile/:userId" userName={userName} isLoggedIn={isLoggedIn}/>
           <Training path="/training/" />
           <NotFound default />
         </Router>

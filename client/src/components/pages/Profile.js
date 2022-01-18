@@ -91,7 +91,7 @@ const Profile = (props) => {
 
     return (
         <div>
-            {props.userName ? (
+            {props.isLoggedIn ? (
                 <div>
                     <h1>
                         {props.userName}'s profile
@@ -131,7 +131,6 @@ const Profile = (props) => {
             )
             }
         </div>
-        
     );
 };
 
