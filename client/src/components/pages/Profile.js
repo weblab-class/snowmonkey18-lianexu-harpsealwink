@@ -89,30 +89,47 @@ const Profile = (props) => {
     //   setValue("");
     // };
 
-    return(
+    return (
         <div>
-            <h1>
-                {props.userName}'s profile id:{props.userId}
-            </h1>
-            <div className="u-flex">
-            {props.userId && <NewInfo addNewInfo={addNewInfo} />}
-            {infosList}
-                {/* <input
-                    type="text"
-                    placeholder="Update Profile Info"
-                    value={value}
-                    onChange={handleChange}
-                    className="NewPostInput-input"
-                />
-                <button
-                    type="submit"
-                    className="NewPostInput-button u-pointer"
-                    value="Submit"
-                    onClick={addInfo}
-                >
-                    Submit
-                </button> */}
+            {props.isLoggedIn ? (
+                <div>
+                    <h1>
+                        {props.userName}'s profile
+                    </h1>
+                    <div className="u-flex">
+                    {props.userId && <NewInfo addNewInfo={addNewInfo} />}
+                    {infosList}
+                        {/* <input
+                            type="text"
+                            placeholder="Update Profile Info"
+                            value={value}
+                            onChange={handleChange}
+                            className="NewPostInput-input"
+                        />
+                        <button
+                            type="submit"
+                            className="NewPostInput-button u-pointer"
+                            value="Submit"
+                            onClick={addInfo}
+                        >
+                            Submit
+                        </button> */}
+                    </div>
             </div>
+            ) : (
+                <div>
+                    <p>
+                        Oops! This page is for ninja eyes only.
+                    </p>
+                    <p>
+                        If you are already a ninja, please login to see this page. 
+                    </p>
+                    <p>
+                        If you are not a ninja, please register to become a novice ninja.
+                    </p>                    
+                </div>
+            )
+            }
         </div>
     );
 };

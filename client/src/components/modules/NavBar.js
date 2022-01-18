@@ -25,7 +25,7 @@ const NavBar = (props) => {
         <Link to="/about/" className="Navbar-link">
           about
         </Link>
-        {props.userId && (
+        {props.isLoggedIn && (
           <Link to={`/profile/${props.userId}`} className="Navbar-link">
             profile
           </Link>
@@ -39,7 +39,7 @@ const NavBar = (props) => {
             <Link to="/battle/" className="Navbar-link dropdown-padding">battle</Link>
           </div>
         </div>
-        {props.userId ? (
+        {props.isLoggedIn ? (
           <GoogleLogout
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Logout"
@@ -51,7 +51,7 @@ const NavBar = (props) => {
             onLogoutSuccess={props.handleLogout}
             onFailure={(err) => console.log(err)}
           />
-          ) : (
+        ) : (
           <GoogleLogin
             clientId={GOOGLE_CLIENT_ID}
             buttonText="Login"
