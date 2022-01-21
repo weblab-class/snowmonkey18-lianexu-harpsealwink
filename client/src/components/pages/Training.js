@@ -21,6 +21,9 @@ const Training = (props) => {
     const [levels, setLevels] = useState([]);
     const [levelNumber, setLevelNumber] = useState(0);
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [a, setA] = useState("");
+    const [b, setB] = useState("");
+    const [c, setC] = useState("");
 
     useEffect(() => {
         get("/api/levels").then((levelObjs) => {
@@ -29,12 +32,24 @@ const Training = (props) => {
       }, []); 
       
     let levelsList;
-    levelsList = levels.map((levelObj) => (
-        <GraphCard
+    let levelObj = levels[levelNumber];
+    levelsList = levels.length !== 0 ? <GraphCard
         _id={levelObj._id}
         function={levelObj.function}
-        />
-    ));
+        a={a}
+        b={b}
+        c={c}
+        setA={setA}
+        setB={setB}
+        setC={setC}
+        /> : <div></div>;
+
+    const resetParams = () => {
+        setA("")
+        setB("")
+        setC("")
+        document.getElementById("myFunction").innerHTML = "";
+    }
 
     let hintsList;
     hintsList = levels.map((levelObj) => (
@@ -46,27 +61,32 @@ const Training = (props) => {
     const handleLevel1 = (event) => {
         event.preventDefault();
         setLevelNumber(0)
+        resetParams()
         setButtonPopup(false)
       };
     const handleLevel2 = (event) => {
         event.preventDefault();
         // functionPlot(levelParameters);
         setLevelNumber(1)
+        resetParams()
         setButtonPopup(false)
     };
     const handleLevel3 = (event) => {
         event.preventDefault();
         setLevelNumber(2)
+        resetParams()
         setButtonPopup(false)
     };
     const handleLevel4 = (event) => {
         event.preventDefault();
         setLevelNumber(3)
+        resetParams()
         setButtonPopup(false)
     };
     const handleLevel5 = (event) => {
         event.preventDefault();
         setLevelNumber(4)
+        resetParams()
         setButtonPopup(false)
     };
 
@@ -96,7 +116,7 @@ const Training = (props) => {
                 <button className="Select-level" onClick = {handleLevel5}>5</button>
             </Popup>
 
-            {levelsList[levelNumber]}
+            {levelsList}
 
         </div>
     );
