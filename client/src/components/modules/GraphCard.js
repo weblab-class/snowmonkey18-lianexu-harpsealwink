@@ -1,6 +1,5 @@
 import React, { useState, useEffect , useRef } from "react";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
-import Plot from 'react-function-plot';
 
 import "./GraphCard.css";
 import { get } from "../../utilities";

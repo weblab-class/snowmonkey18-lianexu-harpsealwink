@@ -32,7 +32,6 @@
     "nodemon": "^2.0.6",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-function-plot": "^0.0.14",
     "react-google-login": "^5.2.1",
     "react-router-dom": "^5.2.0",
     "socket.io": "^2.3.0",
