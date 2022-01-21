@@ -60,33 +60,42 @@ const Training = (props) => {
 
     const handleLevel1 = (event) => {
         event.preventDefault();
-        setLevelNumber(0)
-        resetParams()
-        setButtonPopup(false)
+        if (levelNumber !== 0) {
+            setLevelNumber(0)
+            resetParams()
+        };
+        setButtonPopup(false);
       };
     const handleLevel2 = (event) => {
         event.preventDefault();
-        // functionPlot(levelParameters);
+        if (levelNumber !== 1) {
         setLevelNumber(1)
         resetParams()
+        }
         setButtonPopup(false)
     };
     const handleLevel3 = (event) => {
         event.preventDefault();
-        setLevelNumber(2)
-        resetParams()
+        if (levelNumber !== 2) {
+            setLevelNumber(2)
+            resetParams()
+        }
         setButtonPopup(false)
     };
     const handleLevel4 = (event) => {
         event.preventDefault();
-        setLevelNumber(3)
-        resetParams()
+        if (levelNumber !== 3) {
+            setLevelNumber(3)
+            resetParams()
+        }
         setButtonPopup(false)
     };
     const handleLevel5 = (event) => {
         event.preventDefault();
-        setLevelNumber(4)
-        resetParams()
+        if (levelNumber !== 4) {
+            setLevelNumber(4)
+            resetParams()
+        }
         setButtonPopup(false)
     };
 
