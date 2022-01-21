@@ -8,6 +8,7 @@ import { post } from "../../utilities";
 
 const Profile = (props) => {
     const [infos, setInfos] = useState([]);
+    const [isEditing, setIsEditing] = useState([false])
   
     // called when the "Feed" component "mounts", i.e.
     // when it shows up on screen
@@ -63,11 +64,15 @@ const Profile = (props) => {
                     <h1>
                         {props.userName}'s profile
                     </h1>
+                    <button onClick={console.log('edittt')}>edit</button>
                     <div className="Profile-info">
-                    {infosList}
-                    {<NewInfo addNewInfo={addNewInfo} />}
+                    {isEditing ? (
+                        <NewInfo addNewInfo={addNewInfo} />
+                    ) : (
+                        {infosList}
+                    )}
                     </div>
-            </div>
+                </div>
             ) : (
                 <div className="Profile-text">
                     <h1>Oops!</h1>
@@ -83,8 +88,7 @@ const Profile = (props) => {
                     </p>      
                     </div>              
                 </div>
-            )
-            }
+            )}
         </div>
     );
 };
