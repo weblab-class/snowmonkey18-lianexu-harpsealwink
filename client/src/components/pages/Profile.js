@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ProfileCard from "../modules/ProfileCard.js";
 import { NewInfo } from "../modules/NewInfo.js";
+import "./Profile.css";
 
 import { get } from "../../utilities";
 import { post } from "../../utilities";
@@ -54,79 +55,33 @@ const Profile = (props) => {
       infosList = <div>Update your profile info!</div>;
     }
 
-    // const [value, setValue] = useState("");
-    // const [info, setInfo] = useState([]);
-
-
-    // useEffect(() => {
-    //     document.title = "Profile info";
-    //     get("/api/profileinfo").then((infoObj) => {
-    //       setInfo(infoObj);
-    //     });
-    //   }, []);
-    //   console.log("hey",info);
-
-    // const addNewInfo = (infoObj) => {
-    //     console.log(infoObj.content);
-
-    //     setInfo(infoObj);
-    //   };
-
-    // // called whenever the user types in the update profile info box
-    // const handleChange = (event) => {
-    //   setValue(event.target.value);
-    // };
-  
-    // // called when the user hits "Submit" for an updated profile
-    // const addInfo = (event, value) => {
-    //     const body = { content: value };
-    //     post("/api/profileinfo", body).then((info) => {
-    //     // display this profile on the screen
-    //     addNewInfo(info);
-    //   });
-    //   event.preventDefault();
-    //   props.onSubmit && props.onSubmit(value);
-    //   setValue("");
-    // };
 
     return (
         <div>
             {props.isLoggedIn ? (
-                <div>
+                <div className="Profile-text">
                     <h1>
                         {props.userName}'s profile
                     </h1>
-                    <div className="u-flex">
-                    {props.userId && <NewInfo addNewInfo={addNewInfo} />}
+                    <div className="Profile-info">
                     {infosList}
-                        {/* <input
-                            type="text"
-                            placeholder="Update Profile Info"
-                            value={value}
-                            onChange={handleChange}
-                            className="NewPostInput-input"
-                        />
-                        <button
-                            type="submit"
-                            className="NewPostInput-button u-pointer"
-                            value="Submit"
-                            onClick={addInfo}
-                        >
-                            Submit
-                        </button> */}
+                    {<NewInfo addNewInfo={addNewInfo} />}
                     </div>
             </div>
             ) : (
-                <div>
+                <div className="Profile-text">
+                    <h1>Oops!</h1>
+                    <div className="Profile-info">
                     <p>
-                        Oops! This page is for ninja eyes only.
+                        This page is for ninja eyes only.
                     </p>
                     <p>
                         If you are already a ninja, please login to see this page. 
                     </p>
                     <p>
                         If you are not a ninja, please register to become a novice ninja.
-                    </p>                    
+                    </p>      
+                    </div>              
                 </div>
             )
             }
