@@ -45,7 +45,7 @@ const NavBar = (props) => {
             buttonText="Logout"
             render={renderProps => (
               <button onClick={renderProps.onClick} className="Navbar-button-google">
-                Logout
+                logout
               </button>
             )}
             onLogoutSuccess={props.handleLogout}
@@ -57,7 +57,7 @@ const NavBar = (props) => {
             buttonText="Login"
             render={renderProps => (
               <button onClick={renderProps.onClick} className="Navbar-button-google">
-                Login
+                login
               </button>
             )}
             onSuccess={props.handleLogin}

@@ -25,7 +25,7 @@ const Home = (props) => {
                     buttonText="Logout"
                     render={renderProps => (
                         <button onClick={renderProps.onClick} className="Button-google">
-                            *logout text*
+                            logout to exit dojo
                         </button>
                     )}
                     onLogoutSuccess={props.handleLogout}
@@ -37,7 +37,7 @@ const Home = (props) => {
                     buttonText="Login"
                     render={renderProps => (
                         <button onClick={renderProps.onClick} className="Button-google">
-                            Login to Train or Battle
+                            login to enter dojo
                         </button>
                     )}
                     onSuccess={props.handleLogin}
