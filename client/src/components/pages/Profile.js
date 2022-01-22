@@ -8,7 +8,7 @@ import { post } from "../../utilities";
 
 const Profile = (props) => {
     const [infos, setInfos] = useState([]);
-    const [isEditing, setIsEditing] = useState([false])
+    const [isEditing, setIsEditing] = useState(false)
   
     // called when the "Feed" component "mounts", i.e.
     // when it shows up on screen
@@ -56,6 +56,10 @@ const Profile = (props) => {
       infosList = <div>Update your profile info!</div>;
     }
 
+    const toggleEdit = () => {
+        setIsEditing(!isEditing);
+    };
+
 
     return (
         <div>
@@ -64,12 +68,20 @@ const Profile = (props) => {
                     <h1>
                         {props.userName}'s profile
                     </h1>
-                    <button onClick={console.log('edittt')}>edit</button>
                     <div className="Profile-info">
-                    {isEditing ? (
-                        <NewInfo addNewInfo={addNewInfo} />
+                    {!isEditing ? (
+                        <>
+                            <button onClick={toggleEdit}>edit</button>
+                            {infosList}
+                        </>                     
                     ) : (
-                        {infosList}
+                        <>
+                            <span>
+                                <button onClick={toggleEdit}>done</button>
+                                <NewInfo addNewInfo={addNewInfo} />
+                            </span>
+                            {infosList}
+                        </>
                     )}
                     </div>
                 </div>
