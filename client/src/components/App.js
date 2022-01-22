@@ -13,6 +13,7 @@ import "../utilities.css";
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
+import Oops from "./pages/Oops.js";
 
 /**
  * Define the "App" component
@@ -21,15 +22,27 @@ const App = () => {
   const [userId, setUserId] = useState(undefined);
   const [userName, setUserName] = useState(undefined);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
+        console.log(`user: ${JSON.stringify(user)}`);
         setUserId(user._id);
+        setUserName(user.name);
+        setIsLoggedIn(true);
+
       }
-    });
+    }).then(() => {
+      setIsLoaded(true);
+    }, [isLoggedIn]);
   }, []);
+
+
+  useEffect(() => {
+    console.log(`logged in: ${userId}`);
+  }, [userId]);
 
   const handleLogin = (res) => {
     setUserName(res.profileObj.name);
@@ -46,6 +59,7 @@ const App = () => {
     setUserId(undefined);
     post("/api/logout");
     setIsLoggedIn(false);
+    setUserName(undefined);
   };
 
   return (
@@ -55,8 +69,9 @@ const App = () => {
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
-          <Profile path="/profile/:userId" userName={userName} isLoggedIn={isLoggedIn}/>
+          <Profile path="/profile/:userId" userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
           <Training path="/training/" />
+          <Oops path="/oops" />
           <NotFound default />
         </Router>
       </div>

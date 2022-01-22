@@ -30,7 +30,6 @@ const Home = (props) => {
                     )}
                     onLogoutSuccess={props.handleLogout}
                     onFailure={(err) => console.log(err)}
-                    cookiePolicy={'single_host_origin'}
                 />
                 ) : (
                 <GoogleLogin

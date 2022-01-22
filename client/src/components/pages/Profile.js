@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Oops from "./Oops.js";
 import ProfileCard from "../modules/ProfileCard.js";
 import { NewInfo } from "../modules/NewInfo.js";
 import "./Profile.css";
@@ -85,22 +86,11 @@ const Profile = (props) => {
                     )}
                     </div>
                 </div>
+            ) : (props.isLoaded ? (
+                <Oops />
             ) : (
-                <div className="Profile-text">
-                    <h1>Oops!</h1>
-                    <div className="Profile-info">
-                    <p>
-                        This page is for ninja eyes only.
-                    </p>
-                    <p>
-                        If you are already a ninja, please login to see this page. 
-                    </p>
-                    <p>
-                        If you are not a ninja, please register to become a novice ninja.
-                    </p>      
-                    </div>              
-                </div>
-            )}
+                <div>Loading...</div>
+            ))}
         </div>
     );
 };
