@@ -6,7 +6,7 @@ import { get } from "../../utilities";
 
 const GraphCard = (props) => {
     const [func, setFunc] = useState("");
-    const [trainingStatus , setTrainingStatus] = useState("");
+    // const [trainingStatus , setTrainingStatus] = useState("");
 
 
     const funcParameters = {
@@ -27,6 +27,7 @@ const GraphCard = (props) => {
     };
     const handleClick = () => {
         plot();
+        handleTrainingStatusChange();
     };
     const handleAChange = (event) => {
         props.setA(event.target.value);
@@ -38,23 +39,17 @@ const GraphCard = (props) => {
         props.setC(event.target.value);
     }
 
+    let handleTrainingStatusChange = () => {
+        let userFunction = String(props.a+"(x+"+props.b+")^2+"+props.c);
+        if (userFunction == props.function) {
+        props.setTrainingStatus("You got it!");
+        } else{
+            props.setTrainingStatus("Keep trying! Graph ninjas never give up!")
+        };
+    };
 
-    /* let levels = [(0,1,2), (0,1,2)] */ 
-/* store level schema. get/levels endpoint. Send get request to database*/ 
-
-// called when the "Feed" component "mounts", i.e.
-// when it shows up on screen
-
-
-       
-    /* userParameters.data[0].fn = func; */
 
     let plot = () => {
-        // if (len(trueParameters.data) == 1){
-        //     trueParameters.data.pop();
-        // }
-
-        //clearPlot();
         let userFunction = String(props.a+"(x+"+props.b+")^2+"+props.c);
         let newParameters = {
             target: '#myFunction',
@@ -66,15 +61,14 @@ const GraphCard = (props) => {
             yAxis: {domain: [-10, 10]},
             xAxis: {domain: [-10, 10]}
         }
-        // funcParameters.data.push({ fn: userFunction, color: 'red' });
-        // setFuncParameters(newParameters);
-        if (userFunction == props.function) {
-            setTrainingStatus("Yay!")
-        } else {
-            setTrainingStatus("Keep trying!")
-        }
+        // handleTrainingStatusChange()
+        // if (userFunction == props.function) {
+        //     setTrainingStatus("Yay!")
+        // } else {
+        //     setTrainingStatus("Keep trying!")
+        // }
         functionPlot(newParameters);
-        //console.log(funcParameters);
+
     };
     
    
@@ -102,7 +96,7 @@ const GraphCard = (props) => {
             <p></p>
             <button onClick={handleClick}>Plot it!</button>
             <p></p>
-            <p>Training status: {trainingStatus} </p>
+            {/* <p>Training status: {trainingStatus} </p> */}
 
         </div>
 

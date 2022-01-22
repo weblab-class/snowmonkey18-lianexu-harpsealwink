@@ -76,9 +76,9 @@ const data = {
     },
     {
       _id: 8,
-      function: 'Too easy? Let’s see if you can add in Element C now, and use all 3 Elements.',
-      hint: '2(x+1)^2+2',
-      note: 'Please enter whole numbers.'
+      function: '2(x+1)^2+2',
+      hint: 'Too easy? Let’s see if you can add in Element C now, and use all 3 Elements.',
+      note: 'Please enter whole numbers'
     },
     {
       _id: 9,
@@ -86,6 +86,7 @@ const data = {
       hint: 'This is my last test. It was nice training with you, my Graph Ninja. It is now time for me to send you off into the world. Navigate to the Freestyle room in the dojo to discover more Skills you might need in the future. Remember: with great power comes great responsibility.',
       note: 'Please enter whole numbers.'
     },
+
   ],
 };
 

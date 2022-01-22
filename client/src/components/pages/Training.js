@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
-import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup";
 import TrainingHint from "../modules/TrainingHint";
-
+import TrainingNote from "../modules/TrainingNote";
 import { get, post } from "../../utilities";
 
 
@@ -24,6 +23,7 @@ const Training = (props) => {
     const [a, setA] = useState("");
     const [b, setB] = useState("");
     const [c, setC] = useState("");
+    const [trainingStatus, setTrainingStatus] = useState("Keep trying! Graph ninjas never give up!");
 
     useEffect(() => {
         get("/api/levels").then((levelObjs) => {
@@ -45,12 +45,14 @@ const Training = (props) => {
         setA={setA}
         setB={setB}
         setC={setC}
+        setTrainingStatus={setTrainingStatus}
         /> : <div></div>;
 
     const resetParams = () => {
         setA("")
         setB("")
         setC("")
+        setTrainingStatus("Keep trying! Graph ninjas never give up!")
         const elem  = document.getElementById("myFunction")
         if(elem !== null) elem.innerHTML = "";
         // document.getElementById("myFunction").innerHTML = "";
@@ -60,6 +62,13 @@ const Training = (props) => {
     hintsList = levels.map((levelObj) => (
         <TrainingHint
         hint={levelObj.hint}
+        />
+    ));
+
+    let notesList;
+    notesList = levels.map((levelObj) => (
+        <TrainingNote
+        note={levelObj.note}
         />
     ));
 
@@ -151,13 +160,24 @@ const Training = (props) => {
 
     const handleLevel10 = (event) => {
         event.preventDefault();
-        if (levelNumber !== 10) {
-            setLevelNumber(10)
+        if (levelNumber !== 9) {
+            setLevelNumber(9)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 10, userId: props.userId});
+        post('/api/setHighestLevel', {level: 9, userId: props.userId});
         setButtonPopup(false)
     };
+
+
+    // const handleLevel10 = (event) => {
+    //     event.preventDefault();
+    //     if (levelNumber !== 9) {
+    //         setLevelNumber(9)
+    //         resetParams()
+    //     }
+    //     post('/api/setHighestLevel', {level: 9, userId: props.userId});
+    //     setButtonPopup(false)
+    // };
 
 
     return(
@@ -167,14 +187,17 @@ const Training = (props) => {
         <div className="Training-container"> 
             <div className="Training-text">
                 <h1>
-                    Training: Level {levelNumber+1} out of 5
+                    Training: Level {levelNumber+1} out of 10
                 </h1>
                 
                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
                 <span>Open levels</span>
                 </button>
-                <div className = "hint">
-                    {hintsList[levelNumber]}
+                <div className = "sensei-words">
+                    Sensei: {hintsList[levelNumber]}
+                </div>
+                <div className = "note-words">
+                    Note: {notesList[levelNumber]}
                 </div>
 
                 
@@ -194,6 +217,8 @@ const Training = (props) => {
             </Popup>
 
             {levelsList}
+
+            <div className = "training-status-status">Training status: {trainingStatus}</div>
 
         </div>
             ): (

@@ -1,10 +1,11 @@
 .Training-container {
   display: flex;
   flex-direction: column;
+  padding-left: 110px;
 }
 
 .Training-text {
-  padding-left: 110px;
+  /* padding-left: 110px; */
   padding-top: 50px;
 }
 
@@ -12,35 +13,32 @@
   padding-top: 10px;
 }
 
-
-.Select-level{
-  display: inline-block;
-  /* padding: 8px 16px; */
-  width: 42px;
-  height: 40px;
-  font-size: 16px;
+/* training status stuff */
+.Training-status-header{
   font-family: "Recursive", sans-serif;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: red;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 8px #999;
-  margin: 8px 4px;
 }
 
-.Select-level:hover{
-  background-color: #3e8e41
+.Training-status-status{
+  font-family: "Recursive", sans-serif;
 }
 
-.Select-level:active{
-  background-color: #3e8e41;
-  box-shadow: 0 4px #666;
-  transform: translateY(4px);
+/* sensei quote stuff */
+.sensei-words{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-family: "Recursive", sans-serif;
+  width: 80%;
+  max-height: 100px;
+  overflow:scroll;
 }
+
+.note-words{
+  font-family: "Recursive", sans-serif;
+}
+
+
+
+/* popup stuff */
 
 .Open-levels{
   display: inline-block;
@@ -83,9 +81,35 @@
   right: 0;
 }
 
-.hint{
-  margin-top: 16px;
+.Select-level{
+  display: inline-block;
+  /* padding: 8px 16px; */
+  width: 42px;
+  height: 40px;
+  font-size: 16px;
+  font-family: "Recursive", sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 8px #999;
+  margin: 8px 4px;
 }
+
+.Select-level:hover{
+  background-color: #3e8e41
+}
+
+.Select-level:active{
+  background-color: #3e8e41;
+  box-shadow: 0 4px #666;
+  transform: translateY(4px);
+}
+
 
 /* .Training-level {
   
