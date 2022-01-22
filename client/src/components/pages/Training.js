@@ -151,11 +151,11 @@ const Training = (props) => {
 
     const handleLevel10 = (event) => {
         event.preventDefault();
-        if (levelNumber !== 10) {
-            setLevelNumber(10)
+        if (levelNumber !== 9) {
+            setLevelNumber(9)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 10, userId: props.userId});
+        post('/api/setHighestLevel', {level: 9, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -167,7 +167,7 @@ const Training = (props) => {
         <div className="Training-container"> 
             <div className="Training-text">
                 <h1>
-                    Training: Level {levelNumber+1} out of 5
+                    Training: Level {levelNumber+1} out of 10
                 </h1>
                 
                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>

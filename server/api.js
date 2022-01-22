@@ -46,7 +46,7 @@ const data = {
     },
     {
       _id: 3,
-      function: '1(x+-1)^2+0',
+      function: '1(x-1)^2+0',
       hint: 'Nice one! I think you’re ready to move on to Element B. This might be another curveball. How will you shift the function to the right by 1? Observe what happens when you invoke B = 1 and B = -1.',
       note: 'Please enter whole numbers, and input 1 for A and 0 for C.'
     },
@@ -82,7 +82,7 @@ const data = {
     },
     {
       _id: 9,
-      function: '4(x+-1)^2-2',
+      function: '4(x-1)^2-2',
       hint: 'This is my last test. It was nice training with you, my Graph Ninja. It is now time for me to send you off into the world. Navigate to the Freestyle room in the dojo to discover more Skills you might need in the future. Remember: with great power comes great responsibility.',
       note: 'Please enter whole numbers.'
     },
