@@ -94,6 +94,39 @@ router.get("/levels", (req, res) => {
   res.send(data.levels);
 });
 
+router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
+
+  console.log('setitng highest level')
+  if(req.user) {
+    User.findById(req.body.userId).then(
+      (user) => {
+        
+        
+        if(req.body.level > user.highestLevel){
+          user.highestLevel = req.body.level;
+        }
+        user.save().then(ans => res.send(ans));
+        });
+  }
+  
+});
+
+  router.get("/getHighestLevel", (req, res) => {
+    // console.log(req);
+    console.log('get highest level')
+    if (req.user) {
+
+      User.findById(req.user._id).then(
+        (user) => {
+          
+          res.send({highestLevel: user.highestLevel})
+        }
+      );
+    }
+    
+  });
+
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
