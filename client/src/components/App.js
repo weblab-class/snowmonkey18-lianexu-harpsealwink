@@ -46,14 +46,19 @@ const App = () => {
 
   const handleLogin = (res) => {
     setUserName(res.profileObj.name);
-    console.log(`Logged in as ${userName}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
+      
     });
     setIsLoggedIn(true);
   };
+
+  useEffect(() => {
+
+    console.log(`Logged in as ${userName}`);
+  }, [userName]);
 
   const handleLogout = () => {
     setUserId(undefined);
@@ -70,7 +75,7 @@ const App = () => {
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
           <Profile path="/profile/:userId" userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
-          <Training path="/training/" />
+          <Training path="/training/" isLoggedIn={isLoggedIn} userId={userId}/>
           <Oops path="/oops" />
           <NotFound default />
         </Router>

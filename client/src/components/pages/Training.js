@@ -5,7 +5,7 @@ import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup";
 import TrainingHint from "../modules/TrainingHint";
 
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 
 /**
@@ -28,7 +28,10 @@ const Training = (props) => {
     useEffect(() => {
         get("/api/levels").then((levelObjs) => {
           setLevels(levelObjs);
-        });
+        }).then(() => {get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            setLevelNumber(levelObjs.highestLevel)
+        })});
       }, []); 
       
     let levelsList;
@@ -48,7 +51,9 @@ const Training = (props) => {
         setA("")
         setB("")
         setC("")
-        document.getElementById("myFunction").innerHTML = "";
+        const elem  = document.getElementById("myFunction")
+        if(elem !== null) elem.innerHTML = "";
+        // document.getElementById("myFunction").innerHTML = "";
     }
 
     let hintsList;
@@ -64,6 +69,7 @@ const Training = (props) => {
             setLevelNumber(0)
             resetParams()
         };
+        post('/api/setHighestLevel', {level: 0, userId: props.userId});
         setButtonPopup(false);
       };
     const handleLevel2 = (event) => {
@@ -96,11 +102,15 @@ const Training = (props) => {
             setLevelNumber(4)
             resetParams()
         }
+        post('/api/setHighestLevel', {level: 4, userId: props.userId});
         setButtonPopup(false)
     };
 
 
     return(
+        <div>
+            {props.isLoggedIn ? (
+        
         <div className="Training-container"> 
             <div className="Training-text">
                 <h1>
@@ -128,6 +138,27 @@ const Training = (props) => {
             {levelsList}
 
         </div>
+            ): (
+                <div className="Profile-text">
+                    <h1>Oops!</h1>
+                    <div className="Profile-info">
+                    <p>
+                        This page is for ninja eyes only.
+                    </p>
+                    <p>
+                        If you are already a ninja, please login to see this page. 
+                    </p>
+                    <p>
+                        If you are not a ninja, please register to become a novice ninja.
+                    </p>      
+                    </div>              
+                </div>
+            )
+            }
+
+
+        </div>
+
     );
 };
 
