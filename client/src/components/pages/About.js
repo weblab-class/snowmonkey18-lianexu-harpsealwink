@@ -10,7 +10,7 @@ const About = () => {
             </h1>
             <div className="About-info">
             <p>
-                Be a ninja. Change your life. :)
+                Train to be a quadratic ninja!
             </p>
             </div>
         </div>
