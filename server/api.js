@@ -101,7 +101,7 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
     User.findById(req.body.userId).then(
       (user) => {
         
-        
+        console.log("highest level set")
         if(req.body.level > user.highestLevel){
           user.highestLevel = req.body.level;
         }
@@ -118,7 +118,7 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
 
       User.findById(req.user._id).then(
         (user) => {
-          
+          console.log('highest level set')
           res.send({highestLevel: user.highestLevel})
         }
       );

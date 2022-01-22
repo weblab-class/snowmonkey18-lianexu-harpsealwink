@@ -10,10 +10,12 @@ const GOOGLE_CLIENT_ID = "580988859886-5erda5h8q54ha0knsjql9ha87vi7bcll.apps.goo
 
 const Home = (props) => {
     return(
+        <div className = "Home-page">
         <div className="Home-center">
-            
             <div className="Home-title">
+                <div className = "Home-title-text">
                 Graph Ninja
+                </div>
             </div>
  
             
@@ -45,7 +47,11 @@ const Home = (props) => {
                 />
                 )}
             </div>
-            <div className="NotFound-image"/>
+
+            
+            {/* <img src="./notFound.png"></img> */}
+            <div className = "Ninja-image"/>
+        </div>
         </div>
     );
 };

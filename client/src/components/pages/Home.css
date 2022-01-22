@@ -1,3 +1,14 @@
+.Home-page{
+  margin: 16px;
+  /* background-image: url("./dojoclipart.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  background-position: center; */
+}
+
+
 .Home-center {
   display: flex;
   justify-content: center;
@@ -8,10 +19,18 @@
 }
 
 .Home-title {
+  padding: 8px;
+  margin: 8px;
+}
+
+.Home-title-text{
   font-family: "Skranji", cursive;
   font-size: 110px;
-  padding-bottom: 4vh;
-  padding-top: 6vh;
+  /* padding-bottom: 4vh;
+  padding-top: 6vh; */
+  /* -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: var(--darkred);
+  text-shadow: 0px 1px 8px var(--darkred); */
 }
 
 .Home-slogan {
@@ -44,13 +63,12 @@
   cursor: pointer;
 }
 
-.NotFound-image {
-  /* width: 900px;
-  height: 270px; */
-  max-width: 80%;
-  padding: 8px;
+.Ninja-image {
+  width: 80%;
+  height: 200px;
+  /* max-width: 80%; */
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("./notFound.png");
+  background-image: url("./ninja_no_background.png");
 }

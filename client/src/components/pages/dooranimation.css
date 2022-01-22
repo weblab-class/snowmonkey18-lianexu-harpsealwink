@@ -1,0 +1,47 @@
+#leftDoor {
+    background-color:red;
+    /* background-image: url("./notFound.png"); */
+    left:0px;
+    height: 50%;
+    width: 100%;
+    -webkit-animation:leftDoorOpen 4s ease 4s;
+    -webkit-animation-fill-mode:forwards;
+    /* position: absolute; */
+ }
+ 
+ #rightDoor {
+    right:0px;
+    height: 50%;
+    background-color:red;
+    /* background-image: url("./notFound.png"); */
+    -webkit-animation:rightDoorOpen 4s ease 4s;
+    -webkit-animation-fill-mode:forwards;
+    /* position: absolute; */
+    width: 100%;
+ }
+ 
+ @-webkit-keyframes leftDoorOpen  {
+    from {
+       -webkit-transform:perspective(300) rotateY(0deg);
+       -webkit-transform-origin:0% 0%;
+    }
+    
+    to {
+       -webkit-transform:perspective(300) rotateY(90deg);
+       -webkit-transform-origin:0% 0%;
+    }
+ 
+ }
+ 
+ @-webkit-keyframes rightDoorOpen  {
+    from {
+       -webkit-transform:perspective(300) rotateY(0deg);
+       -webkit-transform-origin:0% 0%;
+    }
+    
+    to {
+       -webkit-transform:perspective(300) rotateY(-90deg);
+       -webkit-transform-origin:100% 0%;
+    }
+ 
+ }

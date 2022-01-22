@@ -7,7 +7,7 @@ import { get } from "../../utilities";
 const GraphCard = (props) => {
     const [func, setFunc] = useState("");
     const [trainingStatus , setTrainingStatus] = useState("");
-    // const [funcParameters, setFuncParameters] = useState({
+
 
     const funcParameters = {
         target: '#myFunction',

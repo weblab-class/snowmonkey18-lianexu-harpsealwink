@@ -30,6 +30,7 @@ const NavBar = (props) => {
             profile
           </Link>
         )}
+        {props.isLoggedIn && (
         <div className="dropdown">
           <button className="dropbtn">
             dojo ▼
@@ -39,6 +40,7 @@ const NavBar = (props) => {
             <Link to="/battle/" className="Navbar-link dropdown-padding">battle</Link>
           </div>
         </div>
+        )}
         {props.isLoggedIn ? (
           <GoogleLogout
             clientId={GOOGLE_CLIENT_ID}
