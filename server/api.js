@@ -94,6 +94,18 @@ router.get("/levels", (req, res) => {
   res.send(data.levels);
 });
 
+
+router.post("/updateLevel", (req,res) => {
+  User.findById(req.body.userId).then(user => {
+    user.level = req.body.level;
+    user.save().then(ans => res.send(ans));
+  })
+});
+
+router.get("/user", (req, res) => {
+  User.findById(req.query.userId).then(user => res.send(user));
+});
+
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);

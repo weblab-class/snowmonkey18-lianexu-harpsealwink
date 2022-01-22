@@ -8,6 +8,7 @@ import { post } from "../../utilities";
 
 const Profile = (props) => {
     const [infos, setInfos] = useState([]);
+    const [level, setLevel] = useState(0);
   
     // called when the "Feed" component "mounts", i.e.
     // when it shows up on screen
@@ -17,6 +18,10 @@ const Profile = (props) => {
         let reversedInfoObjs = infoObjs.reverse();
         setInfos(reversedInfoObjs);
       });
+
+    //   get("/api/user", {userId: props.userId}).then(user => 
+    //     setLevel(user.level)
+    //     )
     }, []); 
   
     // this gets called when the user pushes "Submit", so their
@@ -38,6 +43,7 @@ const Profile = (props) => {
     if (hasInfos) {
         for (const info of infos) {
             if (info.creator_id===props.userId) {
+                console.log(info);
                 infosList = [info].map((infoObj) => (
                     <ProfileCard
                       key={`ProfileCard_${infoObj._id}`}
@@ -63,6 +69,7 @@ const Profile = (props) => {
                     <h1>
                         {props.userName}'s profile
                     </h1>
+                    <div>Level {(props.level)+1}</div>
                     <div className="Profile-info">
                     {infosList}
                     {<NewInfo addNewInfo={addNewInfo} />}

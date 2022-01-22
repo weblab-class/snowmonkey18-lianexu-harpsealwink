@@ -21,6 +21,7 @@ const App = () => {
   const [userId, setUserId] = useState(undefined);
   const [userName, setUserName] = useState(undefined);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [levelNumber, setLevelNumber] = useState(0);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -42,6 +43,21 @@ const App = () => {
     setIsLoggedIn(true);
   };
 
+  useEffect(() => {
+    if (userId) {
+      console.log(userId);
+    get("/api/user", {userId: userId}).then(user => {
+      if(user.level === undefined){
+          setLevelNumber(0);
+      }
+      else{
+           
+      setLevelNumber(user.level);
+      }
+  })
+}
+  }, [userId])
+
   const handleLogout = () => {
     setUserId(undefined);
     post("/api/logout");
@@ -55,8 +71,8 @@ const App = () => {
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
-          <Profile path="/profile/:userId" userName={userName} isLoggedIn={isLoggedIn}/>
-          <Training path="/training/" />
+          <Profile path="/profile/:userId" userName={userName} isLoggedIn={isLoggedIn} level = {levelNumber}/>
+          <Training path="/training/" userId={userId} />
           <NotFound default />
         </Router>
       </div>
