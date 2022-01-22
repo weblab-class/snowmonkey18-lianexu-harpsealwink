@@ -76,8 +76,8 @@ const data = {
     },
     {
       _id: 8,
-      function: 'Too easy? Let’s see if you can add in Element C now, and use all 3 Elements.',
-      hint: '2(x+1)^2+2',
+      function: '2(x+1)^2+2',
+      hint: 'Too easy? Let’s see if you can add in Element C now, and use all 3 Elements.',
       note: 'Please enter whole numbers.'
     },
     {
