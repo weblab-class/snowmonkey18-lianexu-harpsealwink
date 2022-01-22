@@ -109,6 +109,56 @@ const Training = (props) => {
         setButtonPopup(false)
     };
 
+    const handleLevel6 = (event) => {
+        event.preventDefault();
+        if (levelNumber !== 5) {
+            setLevelNumber(5)
+            resetParams()
+        }
+        post('/api/setHighestLevel', {level: 5, userId: props.userId});
+        setButtonPopup(false)
+    };
+
+    const handleLevel7 = (event) => {
+        event.preventDefault();
+        if (levelNumber !== 6) {
+            setLevelNumber(6)
+            resetParams()
+        }
+        post('/api/setHighestLevel', {level: 6, userId: props.userId});
+        setButtonPopup(false)
+    };
+
+    const handleLevel8 = (event) => {
+        event.preventDefault();
+        if (levelNumber !== 7) {
+            setLevelNumber(7)
+            resetParams()
+        }
+        post('/api/setHighestLevel', {level: 7, userId: props.userId});
+        setButtonPopup(false)
+    };
+
+    const handleLevel9 = (event) => {
+        event.preventDefault();
+        if (levelNumber !== 8) {
+            setLevelNumber(8)
+            resetParams()
+        }
+        post('/api/setHighestLevel', {level: 8, userId: props.userId});
+        setButtonPopup(false)
+    };
+
+    const handleLevel10 = (event) => {
+        event.preventDefault();
+        if (levelNumber !== 10) {
+            setLevelNumber(10)
+            resetParams()
+        }
+        post('/api/setHighestLevel', {level: 10, userId: props.userId});
+        setButtonPopup(false)
+    };
+
 
     return(
         <div>
@@ -136,6 +186,11 @@ const Training = (props) => {
                 <button className="Select-level" onClick = {handleLevel3}>3</button>
                 <button className="Select-level" onClick = {handleLevel4}>4</button>
                 <button className="Select-level" onClick = {handleLevel5}>5</button>
+                <button className="Select-level" onClick = {handleLevel6}>6</button>
+                <button className="Select-level" onClick = {handleLevel7}>7</button>
+                <button className="Select-level" onClick = {handleLevel8}>8</button>
+                <button className="Select-level" onClick = {handleLevel9}>9</button>
+                <button className="Select-level" onClick = {handleLevel10}>10</button>
             </Popup>
 
             {levelsList}

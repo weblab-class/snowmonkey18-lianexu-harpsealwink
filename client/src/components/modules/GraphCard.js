@@ -55,7 +55,7 @@ const GraphCard = (props) => {
         // }
 
         //clearPlot();
-        let userFunction = String(props.a+"x^2"+ "+" + props.b + "x" + "+" + props.c);
+        let userFunction = String(props.a+"(x+"+props.b+")^2+"+props.c);
         let newParameters = {
             target: '#myFunction',
             data: [
@@ -86,7 +86,7 @@ const GraphCard = (props) => {
     return(
         <div className="GraphCard-container">
         <div className="layer">
-            <p>ax<sup>2</sup>+bx+c</p>
+            <p>a(x+b)<sup>2</sup>+c</p>
 
             <label >a: <input type="number" value={props.a} onChange={handleAChange} />
             </label>

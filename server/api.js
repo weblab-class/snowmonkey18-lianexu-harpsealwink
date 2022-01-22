@@ -28,28 +28,63 @@ const data = {
   levels: [
     {
       _id: 0,
-      function: '2x^2+1x+3',
-      hint: 'Hint: 2x^2+1x+3'
+      function: '1(x+0)^2+0',
+      hint: 'Welcome to the dojo, Ninja-in-Training. You are about to embark on an important journey to discover and master control over the Elements you need to be a Graph Ninja. Here, we will train 3 of your Elements: A, B, and C. Invoking each individually and in combination with each other results in a different outcome. We will start with Elements A. Go ahead: enter 1 for A, 0 for B, and 0 for C and see if you can match the yellow graph on the right.',
+      note: 'Please enter whole numbers.'
     },
     {
       _id: 1,
-      function: '4x^2+1x+2',
-      hint: 'Hint: 4x^2+1x+2'
+      function: '4(x+0)^2+0',
+      hint: 'Great! Now we have to sharpen Element A. Try different values for A until you match the red graph again. What does A = 2 do? A = 3? A = 4?',
+      note: 'Please enter whole numbers, and input 0 for B and C.'
     },
     {
       _id: 2,
-      function: '2x^2+2x+4',
-      hint: 'Hint: 2x^2+2x+4'
+      function: '-2(x+0)^2+0',
+      hint: 'Graph ninjas are never caught unaware, so here’s a curveball to keep you on your toes. How will you match this?',
+      note: 'Please enter whole numbers, and input 0 for B and C.'
     },
     {
       _id: 3,
-      function: '-2x^2+1x+-3',
-      hint: 'Hint: -2x^2+1x-3'
+      function: '1(x+-1)^2+0',
+      hint: 'Nice one! I think you’re ready to move on to Element B. This might be another curveball. How will you shift the function to the right by 1? Observe what happens when you invoke B = 1 and B = -1.',
+      note: 'Please enter whole numbers, and input 1 for A and 0 for C.'
     },
     {
       _id: 4,
-      function: '-1x^2+1x+6',
-      hint: 'Hint: -1x^2+1x+6'
+      function: '1(x+2)^2+0',
+      hint: 'Can you match this graph?',
+      note: 'Please enter whole numbers, and input 1 for A and 0 for C.'
+    },
+    {
+      _id: 5,
+      function: '1(x+0)^2+3',
+      hint: 'That wasn’t that hard. Now, I’ll allow you to try Element C and make the function go upwards. Here are some original words of wisdom: It’s leviosa, not leviosa! Anyways, try different values of C until you can match the graph.',
+      note: 'Note: please enter whole numbers, and input 1 for A and 0 for B.'
+    },
+    {
+      _id: 6,
+      function: '1(x+0)^2-3',
+      hint: 'What’s the opposite of leviosa? Leviosai’nt.',
+      note: 'Note: please enter whole numbers, and input 1 for A and 0 for B.'
+    },
+    {
+      _id: 7,
+      function: '2(x+4)^2+0',
+      hint: 'Now that you’ve discovered what each Element does, I want you to show me how you would combine Elements A and B to match this graph.',
+      note: 'Please enter whole numbers, and input 0 for C.'
+    },
+    {
+      _id: 8,
+      function: 'Too easy? Let’s see if you can add in Element C now, and use all 3 Elements.',
+      hint: '2(x+1)^2+2',
+      note: 'Please enter whole numbers.'
+    },
+    {
+      _id: 9,
+      function: '4(x+-1)^2-2',
+      hint: 'This is my last test. It was nice training with you, my Graph Ninja. It is now time for me to send you off into the world. Navigate to the Freestyle room in the dojo to discover more Skills you might need in the future. Remember: with great power comes great responsibility.',
+      note: 'Please enter whole numbers.'
     },
   ],
 };
