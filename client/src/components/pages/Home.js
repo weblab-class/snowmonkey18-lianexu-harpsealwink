@@ -11,12 +11,12 @@ const GOOGLE_CLIENT_ID = "580988859886-5erda5h8q54ha0knsjql9ha87vi7bcll.apps.goo
 const Home = (props) => {
     return(
         <div className="Home-center">
+            
             <div className="Home-title">
                 Graph Ninja
             </div>
-            <div className="Home-slogan">
-                [insert slogan]
-            </div>
+ 
+            
             <div className="Home-text">
 
                 {props.userId ? (
@@ -45,6 +45,7 @@ const Home = (props) => {
                 />
                 )}
             </div>
+            <div className="NotFound-image"/>
         </div>
     );
 };

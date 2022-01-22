@@ -78,6 +78,7 @@ const Training = (props) => {
         setLevelNumber(1)
         resetParams()
         }
+        post('/api/setHighestLevel', {level: 1, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel3 = (event) => {
@@ -86,6 +87,7 @@ const Training = (props) => {
             setLevelNumber(2)
             resetParams()
         }
+        post('/api/setHighestLevel', {level: 2, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel4 = (event) => {
@@ -94,6 +96,7 @@ const Training = (props) => {
             setLevelNumber(3)
             resetParams()
         }
+        post('/api/setHighestLevel', {level: 3, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel5 = (event) => {

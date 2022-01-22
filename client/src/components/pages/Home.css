@@ -43,3 +43,14 @@
   border: none;
   cursor: pointer;
 }
+
+.NotFound-image {
+  /* width: 900px;
+  height: 270px; */
+  max-width: 80%;
+  padding: 8px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("./notFound.png");
+}
