@@ -24,6 +24,7 @@ const Training = (props) => {
     const [b, setB] = useState("");
     const [c, setC] = useState("");
     const [trainingStatus, setTrainingStatus] = useState("");
+    const [passedTraining, setPassedTraining] = useState("");
 
     useEffect(() => {
         get("/api/levels").then((levelObjs) => {
@@ -89,6 +90,17 @@ const Training = (props) => {
         resetParams()
         }
         // post('/api/setHighestLevel', {level: 1, userId: props.userId});
+        const num = 1;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
     const handleLevel3 = (event) => {
@@ -98,6 +110,17 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 2, userId: props.userId});
+        const num = 2;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
     const handleLevel4 = (event) => {
@@ -107,6 +130,18 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 3, userId: props.userId});
+
+        const num = 3;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
     const handleLevel5 = (event) => {
@@ -116,6 +151,18 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 4, userId: props.userId});
+
+        const num = 4;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
 
@@ -126,6 +173,18 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 5, userId: props.userId});
+
+        const num = 5;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
 
@@ -136,6 +195,18 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 6, userId: props.userId});
+
+        const num = 6;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
 
@@ -146,6 +217,18 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 7, userId: props.userId});
+
+        const num = 7;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
 
@@ -156,6 +239,19 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 8, userId: props.userId});
+
+        const num = 8;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
+
         setButtonPopup(false)
     };
 
@@ -166,6 +262,18 @@ const Training = (props) => {
             resetParams()
         }
         // post('/api/setHighestLevel', {level: 9, userId: props.userId});
+
+        const num = 9;
+        get("/api/getHighestLevel").then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            if(levelObjs.highestLevel >= num){
+                setPassedTraining("");
+
+            }else if(levelObjs.highestLevel < num){
+                console.log("not ready")
+                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+            }  
+        });
         setButtonPopup(false)
     };
 
@@ -177,7 +285,7 @@ const Training = (props) => {
         <div className="Training-container"> 
             <div className="Training-text">
                 <h1>
-                    Training: Level {levelNumber+1} out of 10
+                    Training: Level {levelNumber+1} out of 10 {passedTraining}
                 </h1>
                 
                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
@@ -189,6 +297,7 @@ const Training = (props) => {
                 <div className = "note-words">
                     Note: {notesList[levelNumber]}
                 </div>
+                {/* <div>Ready: {passedTraining}</div> */}
 
                 
             </div>
@@ -207,6 +316,9 @@ const Training = (props) => {
             </Popup>
 
             {levelsList}
+
+
+
 
             <div className = "training-status-status">Training status: {trainingStatus}</div>
 
