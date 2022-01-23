@@ -1,3 +1,17 @@
+
+  .x.axis {
+    .tick {
+      line {
+        color: var(--red);
+      }
+      text {
+        font-size: 100px;
+      }
+    }
+  }
+
+
+
 .GraphCard-container {
   display: flex;
   flex-direction: row;
@@ -7,12 +21,21 @@
 
 }
 
+.GraphCard-graphContainer {
+  background-color: var(--lightyellow);
+  width: 580px;
+  height: 370px;
+  border-radius: 8px;
+  margin-left: 5vw;
+  margin-top: 2px;
+}
+
 .GraphCard-graph {
-  /* padding-left: 40vh; */
-  margin-left: 8px;
-  margin-top: 0px;
+  padding-left: 5vw;
+  margin-left: -60px;
+  margin-top: 6px;
   /* background-color: white; */
-  color: white;
+  color: black;
   /* border-radius: 8px;
   border-color: white;
   border-style: solid;

@@ -1,10 +1,25 @@
+/* !!! Profile.css has parts used in Profile.js AND SingleInfo.js !!! */
+
 .Profile-text {
-  padding-left: 110px;
-  padding-top: 50px;
+  padding-left: 100px;
+  padding-top: 15px;
+  padding-right: 100px;
+  padding-bottom: 110px;
+}
+
+.Profile-title {
+  font-family: "Skranji", cursive;
+  font-size: 76px;
 }
 
 .Profile-info {
   padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+}
+
+.Profile-buttonContainer {
+  padding-left: 16px;
 }
 
 .Profile-button {

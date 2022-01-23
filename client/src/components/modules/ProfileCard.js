@@ -21,6 +21,7 @@ const ProfileCard = (props) => {
         creator_name={props.creator_name}
         creator_id={props.creator_id}
         content={props.content}
+        isLoaded={props.isLoaded}
       />
     </div>
   );

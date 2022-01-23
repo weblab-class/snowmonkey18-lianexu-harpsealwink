@@ -17,7 +17,7 @@ const GraphCard = (props) => {
     const funcParameters = {
         target: '#myFunction',
         data: [
-            { fn: props.function, color: 'yellow' },
+            { fn: props.function, color: "blue"},
         ],
         grid: true,
         yAxis: {domain: [-10, 10]},
@@ -64,8 +64,8 @@ const GraphCard = (props) => {
         let newParameters = {
             target: '#myFunction',
             data: [
-                { fn: props.function, color: 'yellow' },
-                { fn: userFunction, color: 'red' }
+                { fn: props.function, color: 'blue' },
+                { fn: userFunction, color: "red" }
             ],
             grid: true,
             yAxis: {domain: [-10, 10]},
@@ -130,9 +130,10 @@ const GraphCard = (props) => {
 
         {/* <img src={quadratic_banner_ninja}/> */}
         
-
-        <div className="GraphCard-graph">
-            <div id="myFunction"></div>
+        <div className="GraphCard-graphContainer">
+            <div className="GraphCard-graph">
+                <div id="myFunction"></div>
+            </div>
         </div>
         {/* <Plot
   className='myPlot'

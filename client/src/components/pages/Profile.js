@@ -47,6 +47,7 @@ const Profile = (props) => {
                       creator_id={infoObj.creator_id}
                       userId={props.userId}
                       content={infoObj.content}
+                      isLoaded={props.isLoaded}
                     />
                   ));
                 break;
@@ -65,11 +66,13 @@ const Profile = (props) => {
         <div>
             {props.isLoggedIn ? (
                 <div className="Profile-text">
-                    <div className="Profile-info">
+                    <div className="">
                     {!isEditing ? (
                         <>
-                            My mood: {infosList}
+                            {infosList}
+                            <div className="Profile-buttonContainer">
                             <button className="Profile-button" onClick={toggleEdit}>edit</button>
+                            </div>
                         </>                     
                     ) : (
                         <>
