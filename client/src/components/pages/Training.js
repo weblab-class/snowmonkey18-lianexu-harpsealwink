@@ -4,6 +4,7 @@ import "./Training.css";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup";
 import TrainingHint from "../modules/TrainingHint";
+import TrainingNote from "../modules/TrainingNote";
 
 import { get, post } from "../../utilities";
 import training_ninja_header from "./training_ninja_header.png";
