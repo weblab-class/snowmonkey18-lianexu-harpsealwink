@@ -40,6 +40,66 @@
   }
 }
 
+@keyframes stretch {
+  0%,
+  100% {
+    height: 32vh;
+  }
+  5% {
+    height: 33vh;
+  }
+  10% {
+    height: 34vh;
+  }
+  15% {
+    height: 35vh;
+  }
+  20%,
+  95% {
+    height: 36vh;
+  }
+  25% {
+    height: 37vh;
+  }
+  30% {
+    height: 38vh;
+  }
+  40%,
+  90% {
+    height: 40vh;
+  }
+  50% {
+    height: 42vh;
+  }
+  60%,
+  85% {
+    height: 44vh;
+  }
+  70% {
+    height: 46vh;
+  }
+  80% {
+    height: 48vh;
+  }
+}
+@keyframes sidestep {
+  from {
+    left: 32vw;
+  }
+  to {
+    left: 38vw;
+  }
+}
+@keyframes levitate {
+  0%,
+  100% {
+    padding-bottom: 0vh;
+  }
+  50% {
+    padding-bottom: 3vh;
+  }
+}
+
 .About-info {
   line-height: 150%;
   font-size: 18px;
@@ -54,10 +114,40 @@
 }
 
 .About-elements {
-  width: 90%;
-  height: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
 
-  background-position: left;
-  background-size: contain;
-  background-repeat: no-repeat;
+.About-stretch {
+  padding-top: 14vh;
+  position: absolute;
+  width: 16vw;
+  padding-left: 1vw;
+  height: auto;
+  animation: stretch 3s infinite;
+}
+.About-sidestep {
+  position: absolute;
+  width: 16vw;
+  height: auto;
+  padding-top: 16vh;
+  left: 38vw;
+  animation: sidestep 2s infinite;
+}
+.About-levitate {
+  position: absolute;
+  width: 16vw;
+  height: auto;
+  left: 64.5vw;
+  animation: levitate 2s infinite;
+}
+
+.About-element {
+  padding-left: 17vw;
+  width: 100px;
+  padding-right: 4vw;
+  padding-top: 28vh;
+  padding-bottom: 12vh;
 }
