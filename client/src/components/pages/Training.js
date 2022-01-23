@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
+import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup";
 import TrainingHint from "../modules/TrainingHint";
-import TrainingNote from "../modules/TrainingNote";
+
 import { get, post } from "../../utilities";
 import training_ninja_header from "./training_ninja_header.png";
 import sensei from "./sensei.png";
@@ -29,6 +30,7 @@ const Training = (props) => {
     const [passedTraining, setPassedTraining] = useState("");
 
     useEffect(() => {
+        document.title = "Training";
         get("/api/levels").then((levelObjs) => {
           setLevels(levelObjs);
         }).then(() => {get("/api/getHighestLevel").then((levelObjs) => {
@@ -42,7 +44,6 @@ const Training = (props) => {
     levelsList = levels.length !== 0 ? <GraphCard
         _id={levelObj._id}
         function={levelObj.function}
-        userId = {props.userId}
         a={a}
         b={b}
         c={c}
@@ -57,7 +58,6 @@ const Training = (props) => {
         setA("")
         setB("")
         setC("")
-        setTrainingStatus("")
         const elem  = document.getElementById("myFunction")
         if(elem !== null) elem.innerHTML = "";
         // document.getElementById("myFunction").innerHTML = "";

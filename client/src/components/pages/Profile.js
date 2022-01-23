@@ -9,7 +9,7 @@ import { post } from "../../utilities";
 
 const Profile = (props) => {
     const [infos, setInfos] = useState([]);
-    const [isEditing, setIsEditing] = useState(false)
+    const [isEditing, setIsEditing] = useState(false);
   
     // called when the "Feed" component "mounts", i.e.
     // when it shows up on screen
@@ -24,8 +24,7 @@ const Profile = (props) => {
     // this gets called when the user pushes "Submit", so their
     // post gets added to the screen right away
     const addNewInfo = (infoObj) => {
-        setInfos([]);
-        setInfos([infoObj]);
+        setInfos([infoObj].concat(infos));
     };
   
     let infosList = null;
@@ -66,9 +65,6 @@ const Profile = (props) => {
         <div>
             {props.isLoggedIn ? (
                 <div className="Profile-text">
-                    <h1>
-                        {props.userName}'s profile
-                    </h1>
                     <div className="Profile-info">
                     {!isEditing ? (
                         <>

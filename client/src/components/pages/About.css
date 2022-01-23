@@ -1,8 +1,63 @@
 .About-text {
   padding-left: 110px;
-  padding-top: 50px;
+  padding-top: 25px;
+  padding-right: 110px;
+  padding-bottom: 110px;
+  font-family: "Source Code Pro", monospace;
+}
+
+.About-title {
+  font-family: "Skranji", cursive;
+  font-size: 88px;
+}
+
+.About-typewriter {
+  border-right: solid 3px var(--yellow);
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Source Code Pro", monospace;
+  font-size: 22px;
+  color: var(--lightyellow);
+  animation: animated-text 4s steps(29, end) 1s 1 normal both,
+    animated-cursor 600ms steps(29, end) infinite;
+}
+
+@keyframes animated-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 401px;
+  }
+}
+
+@keyframes animated-cursor {
+  from {
+    border-right-color: var(--yellow);
+  }
+  to {
+    border-right-color: transparent;
+  }
 }
 
 .About-info {
-  padding-top: 10px;
+  line-height: 150%;
+  font-size: 18px;
+}
+
+.About-equ {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  font-size: 22px;
+  color: var(--lightyellow);
+}
+
+.About-elements {
+  width: 90%;
+  height: 300px;
+
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
