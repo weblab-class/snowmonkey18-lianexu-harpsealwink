@@ -59,6 +59,7 @@ const Training = (props) => {
         setA("")
         setB("")
         setC("")
+        setTrainingStatus("");
         const elem  = document.getElementById("myFunction")
         if(elem !== null) elem.innerHTML = "";
         // document.getElementById("myFunction").innerHTML = "";
