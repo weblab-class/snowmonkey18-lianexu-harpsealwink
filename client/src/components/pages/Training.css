@@ -1,13 +1,16 @@
+
 .Training-container {
   display: flex;
   flex-direction: column;
-  padding-left: 110px;
+  padding: 50px 40px 40px 110px ;
 }
 
 .Training-text {
   /* padding-left: 110px; */
   padding-top: 50px;
+  height: 250px;
 }
+
 
 .Training-info {
   padding-top: 10px;
@@ -23,17 +26,28 @@
 }
 
 /* sensei quote stuff */
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 .sensei-words{
-  margin-top: 8px;
-  margin-bottom: 8px;
+
+  font-size: 18px;
+  /* font-family: 'Kalam', cursive; */
   font-family: "Recursive", sans-serif;
-  width: 80%;
-  max-height: 120px;
+  width: 95%;
   overflow:scroll;
+  background-color: var(--lightyellow);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--darkred);
+  margin-bottom: 4px;
+
 }
 
 .note-words{
   font-family: "Recursive", sans-serif;
+}
+
+.sensei-note-box{
+  height: 20px;
 }
 
 

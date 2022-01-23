@@ -43,7 +43,9 @@ const GraphCard = (props) => {
     let handleTrainingStatusChange = () => {
         let userFunction = String(props.a+"(x+"+props.b+")^2+"+props.c);
         if (userFunction == props.function) {
-        props.setTrainingStatus("You got it!");
+        props.setTrainingStatus("Good work! You're ready for the next level!");
+        // ----- this -----
+        props.setPassedTraining("");
         console.log(props.userId)
         post('/api/setHighestLevel', {level: Number(props._id), userId: props.userId});
         } else{

@@ -72,7 +72,7 @@ const Profile = (props) => {
                     <div className="Profile-info">
                     {!isEditing ? (
                         <>
-                            My favorite function: {infosList}
+                            My mood: {infosList}
                             <button className="Profile-button" onClick={toggleEdit}>edit</button>
                         </>                     
                     ) : (
