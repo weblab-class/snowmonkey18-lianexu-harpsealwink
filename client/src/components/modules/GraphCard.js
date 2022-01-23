@@ -92,6 +92,7 @@ const GraphCard = (props) => {
             {/* <img src={quadratic_banner_ninja}/> */}
             {/* <div>a(x+b)<sup>2</sup>+c</div> */}
             <div className = "ninja-textbox-layer">
+            <div className = "function-prompt">Form: y = a(x+b)<sup>2</sup>+c</div>
             <div className = "ninja-textbox-pair">
             <img src={stretch_ninja} className = "ninja-small"/>
             <label>a: <input className = "input-number" type="number" value={props.a} onChange={handleAChange} />

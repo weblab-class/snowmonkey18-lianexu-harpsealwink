@@ -73,6 +73,12 @@
   height: 33%;
 }
 
+.function-prompt{
+  color: white;
+  padding: 4px;
+  text-align: center;
+}
+
 #plotSettings {
   width: 160px;
 

@@ -364,7 +364,7 @@ const Training = (props) => {
                 <span>Open levels</span>
                 </button>
 
-                <button onClick = {handleNextLevel}/>
+                <button onClick = {handleNextLevel}>Next level</button>
                 </div>
                 
                 <div className = "sensei-box">
