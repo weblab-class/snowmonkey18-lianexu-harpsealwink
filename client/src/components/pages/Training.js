@@ -5,6 +5,8 @@ import Popup from "../modules/Popup";
 import TrainingHint from "../modules/TrainingHint";
 import TrainingNote from "../modules/TrainingNote";
 import { get, post } from "../../utilities";
+import training_ninja_header from "./training_ninja_header.png";
+import sensei from "./sensei.png";
 
 
 /**
@@ -326,13 +328,25 @@ const Training = (props) => {
             {props.isLoggedIn ? (
         
         <div className="Training-container"> 
+        
             <div className = "Training-header">
-                <h1>
-                    Training: Level {levelNumber+1} out of 10 {passedTraining}
-                </h1>
+            {/* <img src={training_ninja_header} /> */}
                 
-                <div className = "sensei-words">
+                <div className = "Training-top">
+                
+                <h1>
+                    Level {levelNumber+1} out of 10 {passedTraining}
+                </h1>
+                <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
+                <span>Open levels</span>
+                </button>
+                </div>
+                
+                <div className = "sensei-box">
+                    <img src={sensei} className = "sensei-image"/>
+                    <span className = "sensei-words">
                     {hintsList[levelNumber]}
+                    </span>
                 </div>
                 <div className = "note-words">
                     {notesList[levelNumber]}
@@ -363,9 +377,6 @@ const Training = (props) => {
 
 
             <div className = "training-status-status">Training status: {trainingStatus}</div>
-            <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
-                <span>Open levels</span>
-                </button>
 
         </div>
             ): (

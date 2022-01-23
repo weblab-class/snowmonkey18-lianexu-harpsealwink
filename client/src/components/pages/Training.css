@@ -2,7 +2,7 @@
 .Training-container {
   display: flex;
   flex-direction: column;
-  padding: 50px 40px 40px 110px ;
+  padding: 20px 40px 40px 50px ;
 }
 
 .Training-text {
@@ -28,12 +28,14 @@ h1{
 .Training-status-status{
   font-family: "Recursive", sans-serif;
 }
+.Training-top{
+  display: inline-block;
+}
 
 /* sensei quote stuff */
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
-.sensei-words{
+/* .sensei-words{
   font-size: 18px;
-  /* font-family: 'Kalam', cursive; */
   font-family: "Recursive", sans-serif;
   width: 95%;
   overflow:scroll;
@@ -42,7 +44,34 @@ h1{
   padding: 8px;
   color: var(--darkred);
   margin-bottom: 4px;
+} */
+.sensei-box{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  overflow:scroll;
+  background-color: var(--lightyellow);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--darkred);
+  margin-bottom: 4px;
+  align-items: center;
 }
+.sensei-words{
+  font-size: 16px;
+  font-family: 'Kalam', cursive;
+  padding-bottom: 0px;
+}
+
+.sensei-image{
+  height: 100px;
+  padding: 8px;
+}
+
+
+
+
+  /* font-family: 'Kalam', cursive; */
 
 .note-words{
   font-family: "Recursive", sans-serif;
@@ -125,6 +154,21 @@ h1{
   box-shadow: 0 4px #666;
   transform: translateY(4px);
 }
+
+/* .ninja-scroll{
+  background-image: url("./training_ninja_header.png");
+  width: 900px;
+  height: 270px;
+  height: 150px;
+  width: 200px;
+  background-color: blue; */
+
+  /* background-position: center; */
+  /* background-size: contain;
+  background-repeat: no-repeat;
+
+
+} */
 
 
 /* .Training-level {

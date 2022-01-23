@@ -3,6 +3,10 @@ import functionPlot, { FunctionPlotOptions } from 'function-plot';
 
 import "./GraphCard.css";
 import { get , post } from "../../utilities";
+import quadratic_banner_ninja from "../pages/quadratic_banner_ninja.png";
+import stretch_ninja from "./ninjas/stretch_ninja.png";
+import sidestep_ninja from "./ninjas/sidestep_ninja.png";
+import levitate_ninja from "./ninjas/levitate_ninja.png";
 
 const GraphCard = (props) => {
     const [func, setFunc] = useState("");
@@ -78,24 +82,46 @@ const GraphCard = (props) => {
      
     return(
         <div className="GraphCard-container">
+        {/* <div className = "ninja-column">
+            <img src={stretch_ninja} className = "ninja"/>
+            <img src={sidestep_ninja} className = "ninja"/>
+            <img src={levitate_ninja} className = "ninja"/>
+        </div> */}
         <div className="layer">
-            <p>a(x+b)<sup>2</sup>+c</p>
+
+            {/* <img src={quadratic_banner_ninja}/> */}
+            {/* <div>a(x+b)<sup>2</sup>+c</div> */}
+            <div className = "ninja-textbox-layer">
+            <div className = "ninja-textbox-pair">
+            <img src={stretch_ninja} className = "ninja-small"/>
             <label>a: <input className = "input-number" type="number" value={props.a} onChange={handleAChange} />
-            </label>
-            {/* <p></p> */}
+            </label></div>
+
+            <div className = "ninja-textbox-pair">
+            <img src={sidestep_ninja} className = "ninja-small"/>
             <label >b: <input className = "input-number" type="number" value={props.b} onChange={handleBChange} />
-            </label>
-            {/* <p></p> */}
+            </label></div>
+
+            <div className = "ninja-textbox-pair">
+            <img src={levitate_ninja} className = "ninja-small"/>
             <label>c: <input className = "input-number" type="number" value={props.c} onChange={handleCChange} />
-            </label> 
+            </label></div>
+
+            
+            </div>
+
+            
+
+            
+            {/* <p></p> */}
+            {/* <p>Training status: {trainingStatus} </p> */}
             {/* <label> ax^2 + bx + c: 
             <input id="function" type="text" value={func} onChange={handleFuncChange}/>
             </label> */}
-            {/* <p></p> */}
-            <button onClick={handleClick}>Plot it!</button>
-            {/* <p></p> */}
-            {/* <p>Training status: {trainingStatus} </p> */}
+
         </div>
+        {/* <img src={quadratic_banner_ninja}/> */}
+        <button onClick={handleClick}>Plot it!</button>
         <div className="GraphCard-graph">
             <div id="myFunction"></div>
         </div>
