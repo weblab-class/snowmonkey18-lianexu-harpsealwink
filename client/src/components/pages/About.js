@@ -30,16 +30,15 @@ const About = () => {
             <p>
             Those who are more familiar with vertex form can skip through levels, but we recommend starting from 
             Training Level 1 to hang out with the Sensei!
-
             </p>
             <div className="About-equ"> y = a (x + b)² + c</div>
             <div className="About-elements">
                 <img src={stretch_ninja} className="About-stretch"/>
-                <div className="About-element">  </div>
+                <div className="About-element"> </div>
                 <img src={sidestep_ninja} className="About-sidestep"/>
-                <div className="About-element">  </div>
+                <div className="About-element"> </div>
                 <img src={levitate_ninja} className="About-levitate"/>
-                <div className="About-element">  </div>
+                <div className="About-element"> </div>
             </div>
             </div>
         </div>
