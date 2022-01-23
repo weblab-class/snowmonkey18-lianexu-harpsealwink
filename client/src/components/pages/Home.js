@@ -9,6 +9,11 @@ import { get } from "../../utilities";
 const GOOGLE_CLIENT_ID = "580988859886-5erda5h8q54ha0knsjql9ha87vi7bcll.apps.googleusercontent.com";
 
 const Home = (props) => {
+
+    useEffect(() => {
+        document.title = "Graph Ninja";
+    }, []);  
+
     return(
         <div className = "Home-page">
         <div className="Home-center">

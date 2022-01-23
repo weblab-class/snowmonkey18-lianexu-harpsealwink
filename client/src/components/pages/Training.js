@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import GraphCard from "../modules/GraphCard";
 import "./Training.css";
+import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup";
 import TrainingHint from "../modules/TrainingHint";
-import TrainingNote from "../modules/TrainingNote";
+
 import { get, post } from "../../utilities";
 
 
@@ -23,9 +24,9 @@ const Training = (props) => {
     const [a, setA] = useState("");
     const [b, setB] = useState("");
     const [c, setC] = useState("");
-    const [trainingStatus, setTrainingStatus] = useState("");
 
     useEffect(() => {
+        document.title = "Training";
         get("/api/levels").then((levelObjs) => {
           setLevels(levelObjs);
         }).then(() => {get("/api/getHighestLevel").then((levelObjs) => {
@@ -39,21 +40,18 @@ const Training = (props) => {
     levelsList = levels.length !== 0 ? <GraphCard
         _id={levelObj._id}
         function={levelObj.function}
-        userId = {props.userId}
         a={a}
         b={b}
         c={c}
         setA={setA}
         setB={setB}
         setC={setC}
-        setTrainingStatus={setTrainingStatus}
         /> : <div></div>;
 
     const resetParams = () => {
         setA("")
         setB("")
         setC("")
-        setTrainingStatus("")
         const elem  = document.getElementById("myFunction")
         if(elem !== null) elem.innerHTML = "";
         // document.getElementById("myFunction").innerHTML = "";
@@ -66,20 +64,13 @@ const Training = (props) => {
         />
     ));
 
-    let notesList;
-    notesList = levels.map((levelObj) => (
-        <TrainingNote
-        note={levelObj.note}
-        />
-    ));
-
     const handleLevel1 = (event) => {
         event.preventDefault();
         if (levelNumber !== 0) {
             setLevelNumber(0)
             resetParams()
         };
-        // post('/api/setHighestLevel', {level: 0, userId: props.userId});
+        post('/api/setHighestLevel', {level: 0, userId: props.userId});
         setButtonPopup(false);
       };
     const handleLevel2 = (event) => {
@@ -88,7 +79,7 @@ const Training = (props) => {
         setLevelNumber(1)
         resetParams()
         }
-        // post('/api/setHighestLevel', {level: 1, userId: props.userId});
+        post('/api/setHighestLevel', {level: 1, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel3 = (event) => {
@@ -97,7 +88,7 @@ const Training = (props) => {
             setLevelNumber(2)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 2, userId: props.userId});
+        post('/api/setHighestLevel', {level: 2, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel4 = (event) => {
@@ -106,7 +97,7 @@ const Training = (props) => {
             setLevelNumber(3)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 3, userId: props.userId});
+        post('/api/setHighestLevel', {level: 3, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel5 = (event) => {
@@ -115,7 +106,7 @@ const Training = (props) => {
             setLevelNumber(4)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 4, userId: props.userId});
+        post('/api/setHighestLevel', {level: 4, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -125,7 +116,7 @@ const Training = (props) => {
             setLevelNumber(5)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 5, userId: props.userId});
+        post('/api/setHighestLevel', {level: 5, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -135,7 +126,7 @@ const Training = (props) => {
             setLevelNumber(6)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 6, userId: props.userId});
+        post('/api/setHighestLevel', {level: 6, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -145,7 +136,7 @@ const Training = (props) => {
             setLevelNumber(7)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 7, userId: props.userId});
+        post('/api/setHighestLevel', {level: 7, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -155,7 +146,7 @@ const Training = (props) => {
             setLevelNumber(8)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 8, userId: props.userId});
+        post('/api/setHighestLevel', {level: 8, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -165,7 +156,7 @@ const Training = (props) => {
             setLevelNumber(9)
             resetParams()
         }
-        // post('/api/setHighestLevel', {level: 9, userId: props.userId});
+        post('/api/setHighestLevel', {level: 9, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -183,11 +174,8 @@ const Training = (props) => {
                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
                 <span>Open levels</span>
                 </button>
-                <div className = "sensei-words">
-                    Sensei: {hintsList[levelNumber]}
-                </div>
-                <div className = "note-words">
-                    Note: {notesList[levelNumber]}
+                <div className = "hint">
+                    {hintsList[levelNumber]}
                 </div>
 
                 
@@ -207,8 +195,6 @@ const Training = (props) => {
             </Popup>
 
             {levelsList}
-
-            <div className = "training-status-status">Training status: {trainingStatus}</div>
 
         </div>
             ): (

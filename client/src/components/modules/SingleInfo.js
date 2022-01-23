@@ -12,8 +12,14 @@ import { Link } from "@reach/router";
  */
 const SingleInfo = (props) => {
   return (
-    <div className="Card-story">
-      <p className="Card-storyContent">{props.content}</p>
+    <div> 
+      <h1> {props.creator_name}'s Profile </h1>
+    <div className="">
+      <div> My favorite function: </div>
+      <p></p>
+      {props.content}
+      <p></p>
+    </div>
     </div>
   );
 };
