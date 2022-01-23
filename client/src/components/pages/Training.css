@@ -23,10 +23,13 @@ h1{
 /* training status stuff */
 .Training-status-header{
   font-family: "Recursive", sans-serif;
+
 }
 
 .Training-status-status{
   font-family: "Recursive", sans-serif;
+  padding-top: 8px;
+  max-width: 100%;
 }
 .Training-top{
   display: inline-block;
@@ -34,20 +37,9 @@ h1{
 
 /* sensei quote stuff */
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
-/* .sensei-words{
-  font-size: 18px;
-  font-family: "Recursive", sans-serif;
-  width: 95%;
-  overflow:scroll;
-  background-color: var(--lightyellow);
-  border-radius: 8px;
-  padding: 8px;
-  color: var(--darkred);
-  margin-bottom: 4px;
-} */
 .sensei-box{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 95%;
   background-color: var(--lightyellow);
   border-radius: 8px;
@@ -55,7 +47,7 @@ h1{
   color: var(--darkred);
   margin-bottom: 4px;
   margin-top: 4px;
-  align-items: center;
+  margin-right: 8px;
 
 }
 .sensei-words{
@@ -66,9 +58,45 @@ h1{
   overflow:scroll;
 }
 
+.sensei-stuff{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .sensei-image{
   height: 100px;
   padding: 8px;
+}
+
+.sensei-adjacent{
+  display: flex;
+  flex-direction: row;
+}
+
+.header-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.next-level-button{
+  display: inline-block;
+  font-family: "Recursive", sans-serif;
+  border-radius: 4px;
+  background-color: var(--yellow);
+  border: none;
+  color: var(--darkred);
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  width: 160px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 4px;
 }
 
 
@@ -78,6 +106,9 @@ h1{
 
 .note-words{
   font-family: "Recursive", sans-serif;
+  font-size: 13px;
+  padding-left: 20px;
+  padding-bottom: 8px;
 }
 
 /* .sensei-note-box{

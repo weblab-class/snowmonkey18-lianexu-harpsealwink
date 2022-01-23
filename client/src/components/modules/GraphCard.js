@@ -7,6 +7,7 @@ import quadratic_banner_ninja from "../pages/quadratic_banner_ninja.png";
 import stretch_ninja from "./ninjas/stretch_ninja.png";
 import sidestep_ninja from "./ninjas/sidestep_ninja.png";
 import levitate_ninja from "./ninjas/levitate_ninja.png";
+import plot_ninja from "./ninjas/plot_ninja.png";
 
 const GraphCard = (props) => {
     const [func, setFunc] = useState("");
@@ -91,6 +92,7 @@ const GraphCard = (props) => {
 
             {/* <img src={quadratic_banner_ninja}/> */}
             {/* <div>a(x+b)<sup>2</sup>+c</div> */}
+
             <div className = "ninja-textbox-layer">
             <div className = "function-prompt">Form: y = a(x+b)<sup>2</sup>+c</div>
             <div className = "ninja-textbox-pair">
@@ -107,7 +109,6 @@ const GraphCard = (props) => {
             <img src={levitate_ninja} className = "ninja-small"/>
             <label>c: <input className = "input-number" type="number" value={props.c} onChange={handleCChange} />
             </label></div>
-
             
             </div>
 
@@ -121,8 +122,13 @@ const GraphCard = (props) => {
             </label> */}
 
         </div>
+        <button className = "plot-button" onClick={handleClick}><img className = "plot-ninja" src = {plot_ninja}/>Plot it!</button>
+        {/* <button className = "plot-button" onClick={handleClick}>Plot it!</button> */}
+
+
         {/* <img src={quadratic_banner_ninja}/> */}
-        <button onClick={handleClick}>Plot it!</button>
+        
+
         <div className="GraphCard-graph">
             <div id="myFunction"></div>
         </div>
