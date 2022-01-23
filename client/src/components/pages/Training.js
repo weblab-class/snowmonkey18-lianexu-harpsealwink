@@ -169,17 +169,6 @@ const Training = (props) => {
     };
 
 
-    // const handleLevel10 = (event) => {
-    //     event.preventDefault();
-    //     if (levelNumber !== 9) {
-    //         setLevelNumber(9)
-    //         resetParams()
-    //     }
-    //     post('/api/setHighestLevel', {level: 9, userId: props.userId});
-    //     setButtonPopup(false)
-    // };
-
-
     return(
         <div>
             {props.isLoggedIn ? (
