@@ -77,6 +77,29 @@ const Training = (props) => {
         />
     ));
 
+
+    const handleNextLevel = (event) => {
+        if (levelNumber === 0){
+            handleLevel2(event);
+        }else if (levelNumber === 1){
+            handleLevel3(event);
+        }else if (levelNumber === 2){
+            handleLevel4(event);
+        }else if (levelNumber === 3){
+            handleLevel5(event);
+        }else if (levelNumber === 4){
+            handleLevel6(event);
+        }else if (levelNumber === 5){
+            handleLevel7(event);
+        }else if (levelNumber === 6){
+            handleLevel8(event);
+        }else if (levelNumber === 7){
+            handleLevel9(event);
+        }else if (levelNumber === 8){
+            handleLevel10(event);
+        }
+    };
+
     const handleLevel1 = (event) => {
         event.preventDefault();
         if (levelNumber !== 0) {
@@ -340,6 +363,8 @@ const Training = (props) => {
                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
                 <span>Open levels</span>
                 </button>
+
+                <button onClick = {handleNextLevel}/>
                 </div>
                 
                 <div className = "sensei-box">
@@ -353,7 +378,7 @@ const Training = (props) => {
                 </div>
                 {/* <div>Ready: {passedTraining}</div> */}
 
-                
+                <div className = "training-status-status">Training status: {trainingStatus}</div>
             </div>
             
             <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
@@ -376,7 +401,7 @@ const Training = (props) => {
 
 
 
-            <div className = "training-status-status">Training status: {trainingStatus}</div>
+            {/* <div className = "training-status-status">Training status: {trainingStatus}</div> */}
 
         </div>
             ): (
