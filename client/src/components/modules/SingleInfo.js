@@ -8,12 +8,16 @@ import { Link } from "@reach/router";
  * @param {string} _id of the story
  * @param {string} creator_name
  * @param {string} creator_id
- * @param {string} content of the story
+ * @param {string} fav_function is user's favorite function
+ * @param {string} ninja_power is user's desired ninja power
+ * @param {string} graph_ninja is what user likes about graph ninja
  */
 const SingleInfo = (props) => {
   return (
-    <div className="Card-story">
-      <p className="Card-storyContent">{props.content}</p>
+    <div className="">
+      <p className="">{props.fav_function}</p>
+      <p className="">{props.ninja_power}</p>
+      <p className="">{props.graph_ninja}</p>
     </div>
   );
 };

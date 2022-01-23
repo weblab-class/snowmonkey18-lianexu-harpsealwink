@@ -110,19 +110,70 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
-router.get("/profileinfos", (req, res) => {
-  Info.find({}).then((infos) => res.send(infos));
+router.post("/favfunc", auth.ensureLoggedIn, (req, res) => {
+  console.log('setitng fav func')
+
+  if(req.user) {
+    User.findById(req.body.userId).then(
+      (user) => {
+          user.favFunction = req.body.favfunc;
+        user.save().then(func => res.send(func));
+        });
+  }
 });
 
-router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
-  const newInfo = new Info({
-    creator_id: req.user._id,
-    creator_name: req.user.name,
-    content: req.body.content,
+router.post("/ninjapower", auth.ensureLoggedIn, (req, res) => {
+  if(req.user) {
+    User.findById(req.body.userId).then(
+      (user) => {
+          user.ninjaPower = req.body.ninjapower;
+        user.save().then(power => res.send(power));
+        });
+  }
+});
+
+router.post("/graphninja", auth.ensureLoggedIn, (req, res) => {
+
+  if(req.user) {
+    User.findById(req.body.userId).then(
+      (user) => {
+          user.graphNinja = req.body.graphninja;
+        user.save().then(gn => res.send(gn));
+        });
+  }
+});
+
+  router.get("/profileinfos", (req, res) => {
+    console.log('get profile infos')
+
+    if (req.user) {
+      User.findById(req.user._id).then(
+        (user) => {
+          res.send({
+            favFunction: user.favFunction,
+            ninjaPower: user.ninjaPower,
+            graphNinja: user.graphNinja,
+          })
+        }
+      );
+    }
   });
 
-  newInfo.save().then((info) => res.send(info));
-});
+// router.get("/profileinfos", (req, res) => {
+//   Info.find({}).then((infos) => res.send(infos));
+// });
+
+// router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
+//   const newInfo = new Info({
+//     creator_id: req.user._id,
+//     creator_name: req.user.name,
+//     fav_function: req.body.favfunc,
+//     ninja_power: req.body.ninjapower,
+//     graph_ninja: req.body.graphninja,
+//   });
+
+//   newInfo.save().then((info) => res.send(info));
+// });
 
 router.get("/levels", (req, res) => {
   // send back all of the levels!
