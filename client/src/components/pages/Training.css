@@ -25,18 +25,24 @@ h1{
   font-family: "Recursive", sans-serif;
 
 }
-
-.Training-status-status{
-  font-family: "Recursive", sans-serif;
-  padding-top: 8px;
-  max-width: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+.training-status-status{
+  font-family: 'Kalam', cursive;
+  margin-top: 8px;
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 0px;
+  border-radius: 8px;
+  width: 160px;
+  color: var(--darkred);
+  background-color:var(--lightyellow);
 }
 .Training-top{
   display: inline-block;
 }
 
 /* sensei quote stuff */
-@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
 .sensei-box{
   display: flex;
   flex-direction: column;
@@ -87,9 +93,9 @@ h1{
   display: inline-block;
   font-family: "Recursive", sans-serif;
   border-radius: 4px;
-  background-color: var(--yellow);
+  background-color: var(--lightred);
   border: none;
-  color: var(--darkred);
+  color: white;
   text-align: center;
   font-size: 16px;
   padding: 8px;
@@ -106,7 +112,7 @@ h1{
 
 .note-words{
   font-family: "Recursive", sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   padding-left: 20px;
   padding-bottom: 8px;
 }
@@ -123,7 +129,7 @@ h1{
   display: inline-block;
   font-family: "Recursive", sans-serif;
   border-radius: 4px;
-  background-color: #f4511e;
+  background-color: var(--lightred);
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -172,21 +178,20 @@ h1{
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: red;
+  background-color: var(--lightred);
   border: none;
   border-radius: 8px;
-  box-shadow: 0 8px #999;
   margin: 8px 4px;
 }
 
 .Select-level:hover{
-  background-color: #3e8e41
+  background-color: var(--lightyellow);
+  color: var(--darkred);
 }
 
 .Select-level:active{
-  background-color: #3e8e41;
-  box-shadow: 0 4px #666;
-  transform: translateY(4px);
+  background-color: var(--lightyellow);
+
 }
 
 /* .ninja-scroll{

@@ -1,7 +1,7 @@
 .GraphCard-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 95%;
   height: 50vh;
 
@@ -80,19 +80,37 @@
 }
 
 .plot-button{
-  display: inline-block;
+  display: inline-flex; /* keep the inline nature of buttons */
+  align-items: flex-end;
   font-family: "Recursive", sans-serif;
   border-radius: 4px;
-  background-color: var(--yellow);
+  background-color: var(--lightred);
   border: none;
-  color: var(--darkred);
-  text-align: center;
+  color: var(--white);
+  
   font-size: 16px;
   padding: 8px;
   transition: all 0.5s;
   cursor: pointer;
   margin-top: 16px;
-  max-width: 100px;
+  max-width: 150px;
+
+
+
+  /* width: 900px;
+  height: 270px; */
+
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("./ninjas/plot_ninja_inactive.png");
+}
+
+.plot-button:hover{
+  background-image: url("./ninjas/plot_ninja_active.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 

@@ -358,7 +358,7 @@ const Training = (props) => {
                 <div className = "Training-top">
                 
                 <h1>
-                    Level {levelNumber+1} out of 10 {passedTraining}
+                    Training: Level {levelNumber+1} of 10 {passedTraining}
                 </h1>
             
                 
@@ -379,11 +379,13 @@ const Training = (props) => {
                 </div>
                 <div className = "header-buttons">
                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
-                <span>Open levels</span></button>
+                <span>Open all levels</span></button>
+
+                <button className = "next-level-button" onClick = {handleNextLevel}>Next level</button>
 
                 <div className = "training-status-status">Graph matched? {trainingStatus}</div>
 
-                <button className = "next-level-button" onClick = {handleNextLevel}>Next level</button>
+                
 
                 </div>
                 </div>

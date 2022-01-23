@@ -122,7 +122,9 @@ const GraphCard = (props) => {
             </label> */}
 
         </div>
-        <button className = "plot-button" onClick={handleClick}><img className = "plot-ninja" src = {plot_ninja}/>Plot it!</button>
+        {/* <button className = "plot-button" onClick={handleClick}><img className = "plot-ninja" src = {plot_ninja}/>Plot it!</button> */}
+        <button className = "plot-button" onClick={handleClick}>Plot it!</button>
+
         {/* <button className = "plot-button" onClick={handleClick}>Plot it!</button> */}
 
 
