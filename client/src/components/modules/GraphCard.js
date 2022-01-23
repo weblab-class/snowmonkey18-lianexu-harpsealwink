@@ -2,7 +2,7 @@ import React, { useState, useEffect , useRef } from "react";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
 
 import "./GraphCard.css";
-import { get } from "../../utilities";
+import { get , post } from "../../utilities";
 
 const GraphCard = (props) => {
     const [func, setFunc] = useState("");
@@ -28,6 +28,7 @@ const GraphCard = (props) => {
     const handleClick = () => {
         plot();
         handleTrainingStatusChange();
+        // console.log(props._id);
     };
     const handleAChange = (event) => {
         props.setA(event.target.value);
@@ -43,6 +44,8 @@ const GraphCard = (props) => {
         let userFunction = String(props.a+"(x+"+props.b+")^2+"+props.c);
         if (userFunction == props.function) {
         props.setTrainingStatus("You got it!");
+        console.log(props.userId)
+        post('/api/setHighestLevel', {level: Number(props._id), userId: props.userId});
         } else{
             props.setTrainingStatus("Keep trying! Graph ninjas never give up!")
         };
@@ -61,12 +64,6 @@ const GraphCard = (props) => {
             yAxis: {domain: [-10, 10]},
             xAxis: {domain: [-10, 10]}
         }
-        // handleTrainingStatusChange()
-        // if (userFunction == props.function) {
-        //     setTrainingStatus("Yay!")
-        // } else {
-        //     setTrainingStatus("Keep trying!")
-        // }
         functionPlot(newParameters);
 
     };

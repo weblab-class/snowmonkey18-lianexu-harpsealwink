@@ -23,7 +23,7 @@ const Training = (props) => {
     const [a, setA] = useState("");
     const [b, setB] = useState("");
     const [c, setC] = useState("");
-    const [trainingStatus, setTrainingStatus] = useState("Keep trying! Graph ninjas never give up!");
+    const [trainingStatus, setTrainingStatus] = useState("");
 
     useEffect(() => {
         get("/api/levels").then((levelObjs) => {
@@ -39,6 +39,7 @@ const Training = (props) => {
     levelsList = levels.length !== 0 ? <GraphCard
         _id={levelObj._id}
         function={levelObj.function}
+        userId = {props.userId}
         a={a}
         b={b}
         c={c}
@@ -52,7 +53,7 @@ const Training = (props) => {
         setA("")
         setB("")
         setC("")
-        setTrainingStatus("Keep trying! Graph ninjas never give up!")
+        setTrainingStatus("")
         const elem  = document.getElementById("myFunction")
         if(elem !== null) elem.innerHTML = "";
         // document.getElementById("myFunction").innerHTML = "";
@@ -78,7 +79,7 @@ const Training = (props) => {
             setLevelNumber(0)
             resetParams()
         };
-        post('/api/setHighestLevel', {level: 0, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 0, userId: props.userId});
         setButtonPopup(false);
       };
     const handleLevel2 = (event) => {
@@ -87,7 +88,7 @@ const Training = (props) => {
         setLevelNumber(1)
         resetParams()
         }
-        post('/api/setHighestLevel', {level: 1, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 1, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel3 = (event) => {
@@ -96,7 +97,7 @@ const Training = (props) => {
             setLevelNumber(2)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 2, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 2, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel4 = (event) => {
@@ -105,7 +106,7 @@ const Training = (props) => {
             setLevelNumber(3)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 3, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 3, userId: props.userId});
         setButtonPopup(false)
     };
     const handleLevel5 = (event) => {
@@ -114,7 +115,7 @@ const Training = (props) => {
             setLevelNumber(4)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 4, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 4, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -124,7 +125,7 @@ const Training = (props) => {
             setLevelNumber(5)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 5, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 5, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -134,7 +135,7 @@ const Training = (props) => {
             setLevelNumber(6)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 6, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 6, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -144,7 +145,7 @@ const Training = (props) => {
             setLevelNumber(7)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 7, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 7, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -154,7 +155,7 @@ const Training = (props) => {
             setLevelNumber(8)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 8, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 8, userId: props.userId});
         setButtonPopup(false)
     };
 
@@ -164,7 +165,7 @@ const Training = (props) => {
             setLevelNumber(9)
             resetParams()
         }
-        post('/api/setHighestLevel', {level: 9, userId: props.userId});
+        // post('/api/setHighestLevel', {level: 9, userId: props.userId});
         setButtonPopup(false)
     };
 
