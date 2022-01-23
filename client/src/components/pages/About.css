@@ -40,43 +40,43 @@ font-family: "Recursive", sans-serif;
 @keyframes stretch {
   0%,
   100% {
-    height: 32vh;
+    width: 12%;
   }
   5% {
-    height: 33vh;
+    width: 13%;
   }
   10% {
-    height: 34vh;
+    width: 14%;
   }
   15% {
-    height: 35vh;
+    width: 15%;
   }
   20%,
   95% {
-    height: 36vh;
+    width: 16%;
   }
   25% {
-    height: 37vh;
+    width: 17%;
   }
   30% {
-    height: 38vh;
+    width: 18%;
   }
   40%,
   90% {
-    height: 40vh;
+    width: 10%;
   }
   50% {
-    height: 42vh;
+    width: 12%;
   }
   60%,
   85% {
-    height: 44vh;
+    width: 14%;
   }
   70% {
-    height: 46vh;
+    width: 16%;
   }
   80% {
-    height: 48vh;
+    width: 18%;
   }
 }
 /* @keyframes sidestep {
@@ -134,7 +134,7 @@ font-family: "Recursive", sans-serif;
   width: 16vw;
   padding-left: 1vw;
   height: auto;
-  animation: stretch 3s infinite;
+  animation: stretch 10s infinite;
 }
 .About-sidestep {
   position: absolute;
