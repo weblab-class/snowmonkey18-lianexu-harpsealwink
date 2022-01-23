@@ -1,11 +1,23 @@
 .GraphCard-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  height: 50vh;
+
 }
 
 .GraphCard-graph {
-  padding-left: 40vh;
-
+  /* padding-left: 40vh; */
+  margin-left: 8px;
+  margin-top: 0px;
+  /* background-color: white; */
+  color: white;
+  /* border-radius: 8px;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px; */
+  /* box-shadow: white 0px 7px 29px 0px; */
 }
 /* 
 .GraphCard-graph {
@@ -14,9 +26,85 @@
 } */
 
 .layer {
-  margin-top: 15vh;
+  /* margin-top: 15vh; */
   /* margin-left: 10vw; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* background-color: var(--lightred); */
+  color: var(--darkred);
+  border-radius: 8px;
+  max-width: 200px;
+  width: 40%;
+  /* width: 15%; */
+  max-height: 60vh;
+  padding: 8px;
+  /* background-color: purple; */
 
+
+}
+
+.ninja-textbox-layer{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* background-color: purple; */
+}
+
+.ninja-column{
+  display: flex;
+  flex-direction: column;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.ninja{
+  height: 33%;
+}
+
+.ninja-small{
+  height: 100%;
+}
+
+.ninja-textbox-pair{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 33%;
+}
+
+.function-prompt{
+  color: white;
+  padding: 4px;
+  text-align: center;
+}
+
+.plot-button{
+  display: inline-block;
+  font-family: "Recursive", sans-serif;
+  border-radius: 4px;
+  background-color: var(--yellow);
+  border: none;
+  color: var(--darkred);
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 16px;
+  max-width: 100px;
+}
+
+
+.input-and-plot-layer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.plot-ninja{
+  max-width: 100%;
 }
 
 #plotSettings {
@@ -27,4 +115,22 @@
 #plot {
   width: 550px;
 
+}
+
+.input-number{
+  max-width: 40px;
+}
+
+.layer p{
+  color: white
+}
+
+.layer label{
+  color: white
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
