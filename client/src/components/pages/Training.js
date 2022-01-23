@@ -335,7 +335,7 @@ const Training = (props) => {
                     {hintsList[levelNumber]}
                 </div>
                 <div className = "note-words">
-                    Note: {notesList[levelNumber]}
+                    {notesList[levelNumber]}
                 </div>
                 {/* <div>Ready: {passedTraining}</div> */}
 

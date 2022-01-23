@@ -80,26 +80,22 @@ const GraphCard = (props) => {
         <div className="GraphCard-container">
         <div className="layer">
             <p>a(x+b)<sup>2</sup>+c</p>
-
-            <label >a: <input type="number" value={props.a} onChange={handleAChange} />
+            <label>a: <input className = "input-number" type="number" value={props.a} onChange={handleAChange} />
             </label>
-            <p></p>
-            <label >b: <input type="number" value={props.b} onChange={handleBChange} />
+            {/* <p></p> */}
+            <label >b: <input className = "input-number" type="number" value={props.b} onChange={handleBChange} />
             </label>
-            <p></p>
-            <label>c: <input type="number" value={props.c} onChange={handleCChange} />
+            {/* <p></p> */}
+            <label>c: <input className = "input-number" type="number" value={props.c} onChange={handleCChange} />
             </label> 
             {/* <label> ax^2 + bx + c: 
             <input id="function" type="text" value={func} onChange={handleFuncChange}/>
             </label> */}
-            <p></p>
+            {/* <p></p> */}
             <button onClick={handleClick}>Plot it!</button>
-            <p></p>
+            {/* <p></p> */}
             {/* <p>Training status: {trainingStatus} </p> */}
-
         </div>
-
-
         <div className="GraphCard-graph">
             <div id="myFunction"></div>
         </div>

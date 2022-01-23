@@ -16,6 +16,10 @@
   padding-top: 10px;
 }
 
+h1{
+  margin-bottom: 8px;
+}
+
 /* training status stuff */
 .Training-status-header{
   font-family: "Recursive", sans-serif;
@@ -28,7 +32,6 @@
 /* sensei quote stuff */
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 .sensei-words{
-
   font-size: 18px;
   /* font-family: 'Kalam', cursive; */
   font-family: "Recursive", sans-serif;
@@ -39,16 +42,15 @@
   padding: 8px;
   color: var(--darkred);
   margin-bottom: 4px;
-
 }
 
 .note-words{
   font-family: "Recursive", sans-serif;
 }
 
-.sensei-note-box{
+/* .sensei-note-box{
   height: 20px;
-}
+} */
 
 
 
