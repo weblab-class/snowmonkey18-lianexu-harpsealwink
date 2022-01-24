@@ -70,7 +70,7 @@ const data = {
     },
     {
       _id: 7,
-      function: '1(x+0)^2-3',
+      function: '1(x+0)^2+-3',
       hint: 'Sensei: What’s the opposite of leviosa? Levios-ain’t. How should you change (c) now?',
       note: 'Important: input a=1, b=0, and whole numbers only!'
     },
@@ -143,7 +143,7 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
         user.save().then(ans => res.send(ans));
         });
   }
-  
+
 });
 
   router.get("/getHighestLevel", (req, res) => {
