@@ -17,7 +17,7 @@ const GraphCard = (props) => {
     const funcParameters = {
         target: '#myFunction',
         data: [
-            { fn: props.function, color: "blue"},
+            { fn: props.function, color: "#face7f"},
         ],
         grid: true,
         yAxis: {domain: [-10, 10]},
@@ -64,8 +64,8 @@ const GraphCard = (props) => {
         let newParameters = {
             target: '#myFunction',
             data: [
-                { fn: props.function, color: 'blue' },
-                { fn: userFunction, color: "red" }
+                { fn: props.function, color: '#face7f' },
+                { fn: userFunction, color: "white" }
             ],
             grid: true,
             yAxis: {domain: [-10, 10]},
@@ -94,20 +94,20 @@ const GraphCard = (props) => {
             {/* <div>a(x+b)<sup>2</sup>+c</div> */}
 
             <div className = "ninja-textbox-layer">
-            <div className = "function-prompt">Form: y = a(x+b)<sup>2</sup>+c</div>
+            <div className = "function-prompt">Form: <span className="function-equ">y=a(x+b)<sup>2</sup>+c </span> </div>
             <div className = "ninja-textbox-pair">
             <img src={stretch_ninja} className = "ninja-small"/>
-            <label>a: <input className = "input-number" type="number" value={props.a} onChange={handleAChange} />
+            <label className="function-prompt">a: <input className = "input-number" type="number" value={props.a} onChange={handleAChange} />
             </label></div>
 
             <div className = "ninja-textbox-pair">
             <img src={sidestep_ninja} className = "ninja-small"/>
-            <label >b: <input className = "input-number" type="number" value={props.b} onChange={handleBChange} />
+            <label className="function-prompt">b: <input className = "input-number" type="number" value={props.b} onChange={handleBChange} />
             </label></div>
 
             <div className = "ninja-textbox-pair">
             <img src={levitate_ninja} className = "ninja-small"/>
-            <label>c: <input className = "input-number" type="number" value={props.c} onChange={handleCChange} />
+            <label className="function-prompt">c: <input className = "input-number" type="number" value={props.c} onChange={handleCChange} />
             </label></div>
             
             </div>

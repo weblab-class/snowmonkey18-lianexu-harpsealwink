@@ -359,7 +359,7 @@ const Training = (props) => {
                 
                 <div className = "Training-top">
                 
-                <h1>
+                <h1 className="Training-title">
                     Training: Level {levelNumber+1} of 10 {passedTraining}
                 </h1>
             
@@ -371,7 +371,7 @@ const Training = (props) => {
                     <div className = "sensei-stuff">
                     <img src={sensei} className = "sensei-image"/>
                     <span className = "sensei-words">
-                    {hintsList[levelNumber]}
+                     {hintsList[levelNumber]}
                     </span>
                     </div>
                     <div className = "note-words">

@@ -1,14 +1,5 @@
 
-  .x.axis {
-    .tick {
-      line {
-        color: var(--red);
-      }
-      text {
-        font-size: 100px;
-      }
-    }
-  }
+
 
 
 
@@ -22,7 +13,7 @@
 }
 
 .GraphCard-graphContainer {
-  background-color: var(--lightyellow);
+  background-color: var(--red);
   width: 580px;
   height: 370px;
   border-radius: 8px;
@@ -35,7 +26,7 @@
   margin-left: -60px;
   margin-top: 6px;
   /* background-color: white; */
-  color: black;
+  color: white;
   /* border-radius: 8px;
   border-color: white;
   border-style: solid;
@@ -97,9 +88,15 @@
 }
 
 .function-prompt{
+  font-size: 18px;
   color: white;
-  padding: 4px;
+  font-family: "Skranji", cursive;
+  padding: 8px;
   text-align: center;
+  letter-spacing: 1.5px;
+}
+.function-equ {
+  letter-spacing: 2.5px;
 }
 
 .plot-button{
@@ -112,7 +109,7 @@
   color: var(--white);
   
   font-size: 16px;
-  padding: 8px;
+  padding: 12px;
   transition: all 0.5s;
   cursor: pointer;
   margin-top: 16px;
