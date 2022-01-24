@@ -60,6 +60,7 @@ const Training = (props) => {
             setC={setC}
             setTrainingStatus={setTrainingStatus}
             setPassedTraining={setPassedTraining}
+            userId={props.userId}
         /> : <div></div>;
 
     const resetParams = () => {

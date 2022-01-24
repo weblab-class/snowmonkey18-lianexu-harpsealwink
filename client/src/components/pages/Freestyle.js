@@ -30,7 +30,7 @@ const Freestyle = (props) => {
                             </div>
                         </div>    
                     </div>    
-                    <GraphCardFreestyle />
+                    <GraphCardFreestyle userId={props.userId} />
                 </div>
             ) : (
                 <div className="Profile-text">

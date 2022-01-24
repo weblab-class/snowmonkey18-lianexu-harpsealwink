@@ -35,10 +35,10 @@ const GraphCardFreestyle = (props) => {
         plot(func);
     };
     const handleStar = () => {
-        console.log("starrr");
-        console.log(`func: ${func}`);
-        console.log(`userId: ${props.userId}`);
         post('/api/addStarFuncs', {func: func, userId: props.userId});
+    };
+    const handleUnstar = () => {
+        post('/api/delStarFuncs', {func: func, userId: props.userId});
     };
 
     useEffect(() => {
@@ -59,6 +59,7 @@ const GraphCardFreestyle = (props) => {
         </div>
             <button className = "plot-button" onClick={handlePlot}>Plot it!</button>
             <button className = "star-button" onClick={handleStar}>Star</button>
+            <button className = "star-button" onClick={handleUnstar}>Unstar</button>
             <div className="GraphCard-graphContainer">
                 <div className="GraphCard-graph">
                     <div id="myFunction" />
