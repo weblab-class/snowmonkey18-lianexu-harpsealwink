@@ -1,0 +1,36 @@
+.NotFound-container {
+    text-align: center;
+    padding-top: 14vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 18px;
+  }
+  
+  .NotFound-title {
+    font-family: "Skranji", cursive;
+    font-size: 72px;
+    padding-bottom: 20px;
+  }
+  
+  .NotFound-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .NotFound-text {
+    padding: 8px;
+  }
+  
+  .NotFound-image {
+    width: 900px;
+    height: 270px;
+  
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("./notFound.png");
+  }
+  

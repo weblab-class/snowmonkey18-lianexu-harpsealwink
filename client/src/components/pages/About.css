@@ -82,10 +82,10 @@
   }
 }
 @keyframes sidestep {
-  from {
+  0%,100% {
     left: 35vw;
   }
-  to {
+  50% {
     left: 40vw;
   }
 }
@@ -133,7 +133,7 @@
   height: auto;
   padding-top: 13vh;
   left: 38vw;
-  animation: sidestep 2s infinite;
+  animation: sidestep 3s infinite;
 }
 .About-levitate {
   position: absolute;
