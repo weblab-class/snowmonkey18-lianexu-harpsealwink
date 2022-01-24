@@ -12,7 +12,7 @@ const Home = (props) => {
 
     useEffect(() => {
         document.title = "Graph Ninja";
-    }, []);  
+    }, []);
 
     return(
         <div className = "Home-page">
@@ -21,29 +21,18 @@ const Home = (props) => {
                 <div className = "Home-title-text">
                 Graph Ninja
                 </div>
-            </div>
- 
-            
+            </div>          
             <div className="Home-text">
-
                 {props.userId ? (
-                <GoogleLogout
-                    clientId={GOOGLE_CLIENT_ID}
-                    buttonText="Logout"
-                    render={renderProps => (
-                        <button onClick={renderProps.onClick} className="Button-google">
-                            logout to exit dojo
-                        </button>
-                    )}
-                    onLogoutSuccess={props.handleLogout}
-                    onFailure={(err) => console.log(err)}
-                />
+                    <Link to="/training/" className="Home-button">
+                        let's get started!
+                    </Link>
                 ) : (
                 <GoogleLogin
                     clientId={GOOGLE_CLIENT_ID}
                     buttonText="Login"
                     render={renderProps => (
-                        <button onClick={renderProps.onClick} className="Button-google">
+                        <button onClick={renderProps.onClick} className="Home-button">
                             login to enter dojo
                         </button>
                     )}

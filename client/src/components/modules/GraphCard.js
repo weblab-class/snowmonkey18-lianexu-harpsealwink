@@ -18,6 +18,7 @@ const GraphCard = (props) => {
         target: '#myFunction',
         data: [
             { fn: props.function, color: "#face7f"},
+
         ],
         grid: true,
         yAxis: {domain: [-10, 10]},
@@ -66,6 +67,7 @@ const GraphCard = (props) => {
             data: [
                 { fn: props.function, color: '#face7f' },
                 { fn: userFunction, color: "white" }
+
             ],
             grid: true,
             yAxis: {domain: [-10, 10]},
@@ -75,12 +77,10 @@ const GraphCard = (props) => {
 
     };
     
-   
     useEffect(() => {
-        functionPlot(funcParameters)
+        functionPlot(funcParameters);
     },[props.function]);
 
-     
     return(
         <div className="GraphCard-container">
         {/* <div className = "ninja-column">

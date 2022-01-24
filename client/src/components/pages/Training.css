@@ -23,15 +23,27 @@ h1{
 }
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 .training-status-status{
+<<<<<<< HEAD
   font-family: 'Kalam', cursive;
   margin-top: 12px;
   padding-top: 6px;
   padding-bottom: 6px;
   text-align: center;
+=======
+  font-family: "Recursive", sans-serif;
+  margin-top: 8px;
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 0px;
+>>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
   border-radius: 8px;
   width: 160px;
-  color: var(--darkred);
-  background-color:var(--lightyellow);
+  color: white;
+  /* color: var(--darkred); */
+  /* background-color:var(--lightyellow); */
+}
+.training-status-status span{
+  color: var(--yellow);
 }
 .Training-top{
   display: inline-block;
@@ -42,15 +54,27 @@ h1{
 .sensei-box{
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   width: 90%;
   background-color: var(--lightyellow);
+=======
+  width: 95%;
+  background-color: var(--offwhite);
+>>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
   border-radius: 8px;
   padding: 8px;
   color: var(--darkred);
   margin-bottom: 4px;
   margin-top: 4px;
+<<<<<<< HEAD
   margin-right: 20px;
 
+=======
+  margin-right: 8px;
+  border-color: var(--yellow);
+  border-style: double;
+  border-width: 4px;
+>>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
 }
 .sensei-words{
   font-size: 16px;
@@ -100,6 +124,10 @@ h1{
   margin-top: 4px;
 }
 
+.next-level-button:hover{
+  background-color: var(--lightyellow);
+  color: var(--darkred);
+}
 
 
 

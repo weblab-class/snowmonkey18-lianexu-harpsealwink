@@ -1,97 +1,124 @@
 import React, { useState, useEffect } from "react";
 import Oops from "./Oops.js";
 import ProfileCard from "../modules/ProfileCard.js";
+import Popup from "../modules/Popup.js";
 import { NewInfo } from "../modules/NewInfo.js";
 import "./Profile.css";
+import "../modules/popup.css";
+import ninja_1 from "./ninja_pfps/1.png";
+import ninja_2 from "./ninja_pfps/2.png";
+import ninja_3 from "./ninja_pfps/3.png";
+import ninja_4 from "./ninja_pfps/4.png";
+import ninja_5 from "./ninja_pfps/5.png";
+import ninja_6 from "./ninja_pfps/6.png";
+import corner_frame from "./corner_frame.png";
 
-import { get } from "../../utilities";
-import { post } from "../../utilities";
+import { get, post } from "../../utilities";
 
 const Profile = (props) => {
-    const [infos, setInfos] = useState([]);
-    const [isEditing, setIsEditing] = useState(false);
-  
-    // called when the "Feed" component "mounts", i.e.
-    // when it shows up on screen
-    useEffect(() => {
-      document.title = "Profile";
-      get("/api/profileinfos").then((infoObjs) => {
-        let reversedInfoObjs = infoObjs.reverse();
-        setInfos(reversedInfoObjs);
-      });
-    }, []); 
-  
-    // this gets called when the user pushes "Submit", so their
-    // post gets added to the screen right away
-    const addNewInfo = (infoObj) => {
-        setInfos([infoObj].concat(infos));
+    //props.userName is like "Liane Xu"
+    //props.userId is like "23dsff35", which is what we want to use when pulling up info
+
+    const[highestLevel, setHighestLevel] = useState(2);
+    const[starFuncs, setStarFuncs] = useState([]);
+    const[ninjaPower, setNinjaPower] = useState("");
+    const[ninjaPower2, setNinjaPower2] = useState("");
+    const[pfp, setPfp] = useState(0);
+    const [buttonPopup, setButtonPopup] = useState(false);
+
+    const ninja_pfps = [ninja_1, ninja_2, ninja_3, ninja_4, ninja_5, ninja_6];
+
+    const handleNinjaPower2Change = (event) => {
+        setNinjaPower2(event.target.value);
     };
-  
-    let infosList = null;
-    let hasInfos;
-    for (const infoObj of infos) {
-        // console.log(infoObj.creator_id)
-        if (infoObj.creator_id===props.userId) {
-            hasInfos = true;
-            break;
-          } 
-      }
-    if (hasInfos) {
-        for (const info of infos) {
-            if (info.creator_id===props.userId) {
-                infosList = [info].map((infoObj) => (
-                    <ProfileCard
-                      key={`ProfileCard_${infoObj._id}`}
-                      _id={infoObj._id}
-                      creator_name={infoObj.creator_name}
-                      creator_id={infoObj.creator_id}
-                      userId={props.userId}
-                      content={infoObj.content}
-                      isLoaded={props.isLoaded}
-                    />
-                  ));
-                break;
-            }
+
+    const changePicture = () => {
+        let num = Math.floor(Math.random() * 6);
+        while(num === pfp){
+            num = Math.floor(Math.random() * 6);
         }
-    } else {
-      infosList = <div>Update your profile info!</div>;
+        post('/api/setPfp', {pfp: num, userId: props.userId});
+        setPfp(num);
     }
 
-    const toggleEdit = () => {
-        setIsEditing(!isEditing);
+    const handleClick = () => {
+        if (ninjaPower2.length !== 0) {
+        post('/api/setNinjaPower', {ninjaPower: String(ninjaPower2), userId: props.userId})
+            .then(() => {
+                get("/api/getNinjaPower").then((obj) => {
+                    setNinjaPower(obj.ninjaPower)
+                });
+            });
+        };
     };
 
+    useEffect(() => {
+        document.title = "Profile";
+        console.log("made it this far");
+        get("/api/getHighestLevel").then((obj) => {
+            setHighestLevel(obj.highestLevel);
+        });
+        get("/api/getStarFuncs").then((obj) => {
+            setStarFuncs(obj.starFuncs);
+        });
+        get("/api/getNinjaPower").then((obj) => {
+            setNinjaPower(obj.ninjaPower);
+        });
+
+        get("/api/getPfp").then((obj) => {
+            setPfp(obj.pfp);
+        });
+    }, []); 
+    // useEffect(() => {
+    //     starFuncs.forEach((func,idx) => {
+    //         console.log(func, idx);
+    //     });
+    // }, [starFuncs]);
+
+    const mapFuncs = () => {
+        return starFuncs.map(func => <li>{func}</li>);
+    }
+    
+    //post('/api/setHighestLevel', {level: Number(props._id), userId: props.userId});
+    //post('/api/setFavoriteFunction', {favoriteFunction: String(favoriteFunction), userId: props.userId});
 
     return (
         <div>
             {props.isLoggedIn ? (
-                <div className="Profile-text">
-                    <div className="">
-                    {!isEditing ? (
-                        <>
-                            {infosList}
-                            <div className="Profile-buttonContainer">
-                            <button className="Profile-button" onClick={toggleEdit}>edit</button>
-                            </div>
-                        </>                     
-                    ) : (
-                        <>
-                            {infosList}
-                            <span>
-                                <NewInfo addNewInfo={addNewInfo} />
-                                <button className="Profile-button" onClick={toggleEdit}>done</button>
-                            </span>
-                        </>
-                    )}
+                <div className = "Profile-page">
+
+
+                    <div className = "Profile-title">{props.userName}'s Ninja Profile</div>
+                    <div className = "Pfp-frame">
+                        <img src = {ninja_pfps[pfp]} className = "pfp"/>
+                        <img src={corner_frame} className = "corner-pic-topleft"/>
+                        <img src={corner_frame} className = "corner-pic-bottomleft"/>
+                        <img src={corner_frame} className = "corner-pic-topright"/>
+                        <img src={corner_frame} className = "corner-pic-bottomright"/>
                     </div>
+                    <button onClick = {changePicture}>Give me different look!</button>
+                    <div>
+                        Highest level: {highestLevel+1}
+                    </div>
+                    <div>
+                        Starred functions: 
+                        <div>
+                            {mapFuncs()}
+                        </div>
+                    </div>
+                    <div>
+                        Ninja power: {ninjaPower}
+                    </div>
+    
+                    <input type = "text" value={ninjaPower2} onChange = {handleNinjaPower2Change}></input>
+                    <button onClick = {handleClick}>Edit ninja power</button>
+        
                 </div>
-            ) : (props.isLoaded ? (
-                <Oops />
-            ) : (
-                <div>Loading...</div>
-            ))}
+            ) : <Oops />
+            }
         </div>
     );
 };
 
 export default Profile;
+  

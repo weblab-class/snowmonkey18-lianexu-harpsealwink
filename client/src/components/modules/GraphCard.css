@@ -1,7 +1,20 @@
+<<<<<<< HEAD
 
 
 
 
+=======
+/* .x.axis {
+  .tick {
+    line {
+      color: var(--red);
+    }
+    text {
+      font-size: 100px;
+    }
+  }
+} */
+>>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
 
 .GraphCard-container {
   display: flex;
@@ -9,11 +22,20 @@
   /* justify-content: space-between; */
   width: 95%;
   height: 50vh;
-
+  border-radius: 8px;
+  background-color: #813737;
+  border-style: double;
+  border-color: var(--yellow);
+  border-width: 4px;
+  padding-bottom: 12px;
 }
 
 .GraphCard-graphContainer {
+<<<<<<< HEAD
   background-color: var(--red);
+=======
+  /* background-color: var(--lightyellow); */
+>>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
   width: 580px;
   height: 370px;
   border-radius: 8px;
@@ -54,41 +76,44 @@
   max-height: 60vh;
   padding: 8px;
   /* background-color: purple; */
-
-
 }
 
-.ninja-textbox-layer{
+.ninja-textbox-layer {
   display: flex;
   flex-direction: column;
   height: 100%;
   /* background-color: purple; */
 }
 
-.ninja-column{
+.ninja-column {
   display: flex;
   flex-direction: column;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-.ninja{
+.ninja {
   height: 33%;
 }
 
-.ninja-small{
+.ninja-small {
   height: 100%;
 }
 
-.ninja-textbox-pair{
+.ninja-textbox-pair {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 33%;
 }
 
+<<<<<<< HEAD
 .function-prompt{
   font-size: 18px;
+=======
+
+.function-prompt {
+>>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
   color: white;
   font-family: "Skranji", cursive;
   padding: 8px;
@@ -99,7 +124,7 @@
   letter-spacing: 2.5px;
 }
 
-.plot-button{
+.plot-button {
   display: inline-flex; /* keep the inline nature of buttons */
   align-items: flex-end;
   font-family: "Recursive", sans-serif;
@@ -107,15 +132,13 @@
   background-color: var(--lightred);
   border: none;
   color: var(--white);
-  
+
   font-size: 16px;
   padding: 12px;
   transition: all 0.5s;
   cursor: pointer;
   margin-top: 16px;
   max-width: 150px;
-
-
 
   /* width: 900px;
   height: 270px; */
@@ -126,49 +149,50 @@
   background-image: url("./ninjas/plot_ninja_inactive.png");
 }
 
-.plot-button:hover{
+.plot-button:hover {
   background-image: url("./ninjas/plot_ninja_active.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-
-.input-and-plot-layer{
+/* 
+.star-button {
+  background-image:
+}
+ */
+.input-and-plot-layer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: white;
 }
 
-.plot-ninja{
+.plot-ninja {
   max-width: 100%;
 }
 
 #plotSettings {
   width: 160px;
-
 }
 
 #plot {
   width: 550px;
-
 }
 
-.input-number{
+.input-number {
   max-width: 40px;
 }
 
-.layer p{
-  color: white
+.layer p {
+  color: white;
 }
 
-.layer label{
-  color: white
+.layer label {
+  color: white;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
