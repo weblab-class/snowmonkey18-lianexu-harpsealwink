@@ -131,35 +131,41 @@ router.get("/levels", (req, res) => {
 });
 
 router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
-  console.log('setitng highest level')
-  if(req.user) {
-    User.findById(req.body.userId).then(
-      (user) => {
-        
-        console.log("highest level set")
-        if(req.body.level > user.highestLevel){
-          user.highestLevel = req.body.level;
-        }
-        user.save().then(ans => res.send(ans));
-        });
+  console.log('setting highest level')
+  if (req.user) {
+    User.findById(req.body.userId).then((user) => {
+      console.log("highest level set")
+      if (req.body.level > user.highestLevel) {
+        user.highestLevel = req.body.level;
+      };
+      user.save().then(ans => res.send(ans));
+    });
   }
-  
 });
 
-  router.get("/getHighestLevel", (req, res) => {
-    // console.log(req);
-    console.log('get highest level')
-    if (req.user) {
+router.get("/getHighestLevel", (req, res) => {
+  // console.log(req);
+  console.log('get highest level')
+  if (req.user) {
+    User.findById(req.user._id).then((user) => {
+        console.log('highest level set');
+        res.send({highestLevel: user.highestLevel});
+    });
+  };
+});
 
-      User.findById(req.user._id).then(
-        (user) => {
-          console.log('highest level set')
-          res.send({highestLevel: user.highestLevel})
-        }
-      );
-    }
-    
-  });
+router.post("/addStarFuncs", auth.ensureLoggedIn, (req, res) => {
+  console.log('adding to starred functions')
+  if (req.user) {
+    User.findById(req.body.userId).then((user) => {
+      console.log("function starred")
+      if (!user.starFuncs.includes(req.body.func)) {
+        user.starFuncs.append(req.body.func);
+      };
+      user.save().then(func => res.send(func));
+    });
+  }
+});
 
 
 // anything else falls to this "not found" case

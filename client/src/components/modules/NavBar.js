@@ -12,8 +12,6 @@ const GOOGLE_CLIENT_ID = "580988859886-5erda5h8q54ha0knsjql9ha87vi7bcll.apps.goo
  * The navigation bar at the top of all pages. Takes no props.
  */
 const NavBar = (props) => {
-
-
   return (
     <nav className="Navbar-container">
       <div className="Navbar-title">
@@ -22,25 +20,25 @@ const NavBar = (props) => {
         </Link>
       </div>
       <div className="Navbar-link-container">
+        {props.isLoggedIn && (
+          <>
+            <Link to={`/profile/${props.userId}`} className="Navbar-link">
+              profile
+            </Link>
+            <div className="dropdown">
+              <button className="dropbtn">
+                dojo ▼
+              </button>
+              <div className="dropdown-content">
+                <Link to="/training/" className="Navbar-link dropdown-padding">training</Link>
+                <Link to="/freestyle/" className="Navbar-link dropdown-padding">freestyle</Link>
+              </div>
+            </div>
+          </>
+        )}
         <Link to="/about/" className="Navbar-link">
-          about
+            about
         </Link>
-        {props.isLoggedIn && (
-          <Link to={`/profile/${props.userId}`} className="Navbar-link">
-            profile
-          </Link>
-        )}
-        {props.isLoggedIn && (
-        <div className="dropdown">
-          <button className="dropbtn">
-            dojo ▼
-          </button>
-          <div className="dropdown-content">
-            <Link to="/training/" className="Navbar-link dropdown-padding">train</Link>
-            <Link to="/battle/" className="Navbar-link dropdown-padding">battle</Link>
-          </div>
-        </div>
-        )}
         {props.isLoggedIn ? (
           <GoogleLogout
             clientId={GOOGLE_CLIENT_ID}
