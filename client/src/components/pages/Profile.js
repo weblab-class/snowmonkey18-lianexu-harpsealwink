@@ -5,12 +5,12 @@ import Popup from "../modules/Popup.js";
 import { NewInfo } from "../modules/NewInfo.js";
 import "./Profile.css";
 import "../modules/popup.css";
-import ninja_1 from "./ninja_pfps/1.png"
-import ninja_2 from "./ninja_pfps/2.png"
-import ninja_3 from "./ninja_pfps/3.png"
-import ninja_4 from "./ninja_pfps/4.png"
-import ninja_5 from "./ninja_pfps/5.png"
-import ninja_6 from "./ninja_pfps/6.png"
+import ninja_1 from "./ninja_pfps/1.png";
+import ninja_2 from "./ninja_pfps/2.png";
+import ninja_3 from "./ninja_pfps/3.png";
+import ninja_4 from "./ninja_pfps/4.png";
+import ninja_5 from "./ninja_pfps/5.png";
+import ninja_6 from "./ninja_pfps/6.png";
 
 import { get, post } from "../../utilities";
 
@@ -22,9 +22,20 @@ const Profile = (props) => {
     const[pfp, setPfp] = useState(0);
     const [buttonPopup, setButtonPopup] = useState(false);
 
+    const ninja_pfps = [ninja_1, ninja_2, ninja_3, ninja_4, ninja_5, ninja_6];
+
     const handleNinjaPower2Change = (event) => {
         setNinjaPower2(event.target.value);
     };
+
+    const changePicture = () => {
+        let num = Math.floor(Math.random() * 6);
+        while(num === pfp){
+            num = Math.floor(Math.random() * 6);
+        }
+        post('/api/setPfp', {pfp: num, userId: props.userId});
+        setPfp(num);
+    }
 
     const handleClick = () => {
         if (ninjaPower2.length !== 0) {
@@ -49,6 +60,10 @@ const Profile = (props) => {
         get("/api/getNinjaPower").then((obj) => {
             setNinjaPower(obj.ninjaPower);
         });
+
+        get("/api/getPfp").then((obj) => {
+            setPfp(obj.pfp);
+        });
     }, []); 
     // useEffect(() => {
     //     starFuncs.forEach((func,idx) => {
@@ -66,7 +81,10 @@ const Profile = (props) => {
     return (
         <div>
             {props.isLoggedIn ? (
-                <div>
+                <div className = "Profile-page">
+                    <div className = "Profile-title">{props.userName}'s Ninja Profile</div>
+                    <div className = "pfp"><img className = "pfp-pic" src = {ninja_pfps[pfp]}/></div>
+                    <button onClick = {changePicture}>I want a different look!</button>
                     <div>
                         UserId: {props.userId}
                     </div>

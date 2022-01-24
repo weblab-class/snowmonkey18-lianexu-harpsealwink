@@ -386,6 +386,7 @@ const Training = (props) => {
                             </h1>
                         </div>
                         <div className = "sensei-adjacent">
+
                             <div className = "sensei-box">
                                 <div className = "sensei-stuff">
                                     <img src={sensei} className = "sensei-image" />
@@ -397,6 +398,7 @@ const Training = (props) => {
                                     {notesList[levelNumber]}
                                 </div>
                             </div>
+
                             <div className = "header-buttons">
                                 <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
                                     <span>
@@ -410,6 +412,7 @@ const Training = (props) => {
                                     Graph matched? <span>{trainingStatus}</span>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>

@@ -229,28 +229,28 @@ router.get("/getNinjaPower", (req, res) => {
 });
 
 
-  // router.post("/setPfp", auth.ensureLoggedIn, (req, res) => {
-  //   console.log('setting pfp')
-  //   if(req.user) {
-  //     User.findById(req.body.userId).then(
-  //       (user) => {       
-  //           user.pfp = req.body.pfp;
-  //           user.save().then(ans => res.send(ans));
-  //       });
-  //   }
-  // });
+  router.post("/setPfp", auth.ensureLoggedIn, (req, res) => {
+    console.log('setting pfp')
+    if(req.user) {
+      User.findById(req.body.userId).then(
+        (user) => {       
+            user.pfp = req.body.pfp;
+            user.save().then(ans => res.send(ans));
+        });
+    }
+  });
 
-  // router.get("/getPfp", (req, res) => {
-  //   console.log("get pfp")
-  //   if (req.user) {
-  //     User.findById(req.user._id).then(
-  //       (user) => {
-  //           console.log('get pfp')
-  //           res.send({pfp: user.pfp})
-  //       }
-  //     );
-  //   }
-  // });
+  router.get("/getPfp", (req, res) => {
+    console.log("get pfp")
+    if (req.user) {
+      User.findById(req.user._id).then(
+        (user) => {
+            console.log('get pfp')
+            res.send({pfp: user.pfp})
+        }
+      );
+    }
+  });
 
 
 

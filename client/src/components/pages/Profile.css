@@ -10,7 +10,7 @@
 
 .Profile-title {
   font-family: "Skranji", cursive;
-  font-size: 60px;
+  font-size: 45px;
   text-align: center;
 }
 
@@ -55,7 +55,11 @@
 }
 
 .pfp-pic{
-  height: 50px;
-  background-color: var(--yelow);
+  height: 200px;
+  background-color: var(--offwhite);
+  border-radius: 8px;
+  border-color: var(--yellow);
+  border-style: solid;
+  border-width: 4px;
   margin: 4px;
 }

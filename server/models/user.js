@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   highestLevel: {type: Number, default: -1},
   ninjaPower: {type: String, default: "Update your ninja power"},
   starFuncs: {type: Array, default: [""]},
-  pfp: {type: Number, default: 1}
+  pfp: {type: Number, default: 0}
 });
 
 // compile model from schema

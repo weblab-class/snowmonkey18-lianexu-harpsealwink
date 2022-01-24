@@ -19,7 +19,7 @@ const About = () => {
             </h1>
             <div className="About-info">
             <p className="About-typewriter">
-                 Train to be a quadratic ninja!
+                 Train to be a graph ninja!
             </p>
             <p>
                 This website was designed to teach children all about vertex-form quadratic graphs
@@ -29,7 +29,7 @@ const About = () => {
             </p>
             <p>
             Those who are more familiar with vertex form can skip through levels, but we recommend starting from 
-            Training Level 1 to hang out with the Sensei!
+            Training Level 1 to hang out with Sensei!
             </p>
             <div className="About-equ"> y = a (x + b)² + c</div>
             <div className="About-elements">
