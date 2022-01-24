@@ -135,28 +135,35 @@ router.get("/levels", (req, res) => {
 
 
 router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
-  console.log('setting highest level')
-  if (req.user) {
-    User.findById(req.body.userId).then((user) => {
-      console.log("highest level set")
-      if (req.body.level > user.highestLevel) {
-        user.highestLevel = req.body.level;
-      };
-      user.save().then(ans => res.send(ans));
-    });
+  console.log('setitng highest level')
+  if(req.user) {
+    User.findById(req.body.userId).then(
+      (user) => {
+        
+        console.log("highest level set")
+        if(req.body.level > user.highestLevel){
+          user.highestLevel = req.body.level;
+        }
+        user.save().then(ans => res.send(ans));
+        });
   }
+  
 });
 
-router.get("/getHighestLevel", (req, res) => {
-  // console.log(req);
-  console.log('get highest level')
-  if (req.user) {
-    User.findById(req.user._id).then((user) => {
-        console.log('highest level set');
-        res.send({highestLevel: user.highestLevel});
-    });
-  };
-});
+  router.get("/getHighestLevel", (req, res) => {
+    // console.log(req);
+    console.log('get highest level')
+    if (req.user) {
+
+      User.findById(req.user._id).then(
+        (user) => {
+          console.log('highest level set')
+          res.send({highestLevel: user.highestLevel})
+        }
+      );
+    }
+    
+  });
 
 router.post("/addStarFuncs", auth.ensureLoggedIn, (req, res) => {
   console.log('adding to starred functions')
@@ -218,6 +225,30 @@ router.post("/addStarFuncs", auth.ensureLoggedIn, (req, res) => {
       );
     }
   });
+
+
+  // router.post("/setPfp", auth.ensureLoggedIn, (req, res) => {
+  //   console.log('setting pfp')
+  //   if(req.user) {
+  //     User.findById(req.body.userId).then(
+  //       (user) => {       
+  //           user.pfp = req.body.pfp;
+  //           user.save().then(ans => res.send(ans));
+  //       });
+  //   }
+  // });
+
+  // router.get("/getPfp", (req, res) => {
+  //   console.log("get pfp")
+  //   if (req.user) {
+  //     User.findById(req.user._id).then(
+  //       (user) => {
+  //           console.log('get pfp')
+  //           res.send({pfp: user.pfp})
+  //       }
+  //     );
+  //   }
+  // });
 
 
 

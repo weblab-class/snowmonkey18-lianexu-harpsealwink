@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
   ninjaPower: {type: String, default: "Update your ninja power"},
   favoriteFunction: {type: String, default: "Update your favorite function"},
   starFuncs: {type: Array, default: [""]},
+  pfp: {type: Number, default: 1}
 });
 
 // compile model from schema

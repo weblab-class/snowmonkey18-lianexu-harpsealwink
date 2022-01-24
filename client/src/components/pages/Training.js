@@ -61,6 +61,7 @@ const Training = (props) => {
         setB("")
         setC("")
         setTrainingStatus("");
+        // setPassedTraining("");
         const elem  = document.getElementById("myFunction")
         if(elem !== null) elem.innerHTML = "";
         // document.getElementById("myFunction").innerHTML = "";
@@ -113,7 +114,7 @@ const Training = (props) => {
         const num = 0;
         get("/api/getHighestLevel").then((levelObjs) => {
             console.log(JSON.stringify(levelObjs));
-            if(levelObjs.highestLevel >= num){
+            if(levelObjs.highestLevel >= (num-1)){
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < (num-1)){
