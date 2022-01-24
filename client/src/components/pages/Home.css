@@ -63,6 +63,11 @@
   text-decoration: none;
 }
 
+.Home-button:hover {
+  background-color: var(--darkred);
+  color: var(--lightyellow);
+}
+
 .Ninja-image {
   width: 80%;
   height: 200px;

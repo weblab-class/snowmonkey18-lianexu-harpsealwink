@@ -1,0 +1,33 @@
+.Dojo-text {
+  padding-left: 110px;
+  padding-top: 25px;
+  padding-right: 110px;
+  padding-bottom: 110px;
+}
+
+.Dojo-title {
+  font-family: "Skranji", cursive;
+  font-size: 88px;
+}
+
+.Dojo-container {
+  padding: var(--l) var(--m);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Dojo-link {
+  padding: var(--l) var(--m);
+  background-color: var(--lightyellow);
+  color: var(--darkred);
+  font-family: "Recursive", sans-serif;
+  font-size: var(--l);
+  margin-right: var(--l);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  border-radius: 20%;
+}

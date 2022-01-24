@@ -24,11 +24,9 @@ const Home = (props) => {
             </div>          
             <div className="Home-text">
                 {props.userId ? (
-                    <button className="Home-button">
-                        <Link to="/training/" className="Home-button">
-                            let's get started!
-                        </Link>
-                    </button>
+                    <Link to="/training/" className="Home-button">
+                        let's get started!
+                    </Link>
                 ) : (
                 <GoogleLogin
                     clientId={GOOGLE_CLIENT_ID}
