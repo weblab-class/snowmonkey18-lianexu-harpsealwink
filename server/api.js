@@ -172,7 +172,7 @@ router.post("/addStarFuncs", auth.ensureLoggedIn, (req, res) => {
   if (req.user) {
     User.findById(req.body.userId).then((user) => {
       console.log("function starred");
-      if (!user.starFuncs.includes(req.body.func)) {
+      if (!user.starFuncs.includes(req.body.func) && (req.body.func !== "")) {
         user.starFuncs.push(req.body.func);
       };
       user.save().then(func => res.send(func));
