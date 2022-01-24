@@ -111,9 +111,6 @@ const GraphCard = (props) => {
             </label></div>
             
             </div>
-
-            
-
             
             {/* <p></p> */}
             {/* <p>Training status: {trainingStatus} </p> */}

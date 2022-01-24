@@ -10,22 +10,22 @@
   border-style: double;
   border-color: var(--yellow);
   border-width: 4px;
-  padding-bottom: 12px;
+  padding-bottom: 26px;
 }
 
 .GraphCard-graphContainer {
-  background-color: var(--red);
+  background-color: transparent;
   /* background-color: var(--lightyellow); */
   width: 580px;
   height: 370px;
   border-radius: 8px;
-  margin-left: 5vw;
-  margin-top: 2px;
+  margin-left: 6vw;
+  margin-top: 2vh;
 }
 
 .GraphCard-graph {
   padding-left: 5vw;
-  margin-left: -60px;
+  margin-left: -64px;
   margin-top: 6px;
   /* background-color: white; */
   color: white;
@@ -50,11 +50,12 @@
   /* background-color: var(--lightred); */
   color: var(--darkred);
   border-radius: 8px;
-  max-width: 200px;
-  width: 40%;
+  max-width: 250px;
+  width: 20vw;
   /* width: 15%; */
   max-height: 60vh;
   padding: 8px;
+  padding-right: 2vw;
   /* background-color: purple; */
 }
 
@@ -113,7 +114,7 @@
   padding: 12px;
   transition: all 0.5s;
   cursor: pointer;
-  margin-top: 16px;
+  margin-top: 22px;
   max-width: 150px;
 
   /* width: 900px;

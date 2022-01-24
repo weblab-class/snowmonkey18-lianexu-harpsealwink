@@ -2,7 +2,7 @@
 .Training-container {
   display: flex;
   flex-direction: column;
-  padding: 0px 80px 40px 80px ;
+  padding: 10px 80px 40px 80px ;
 }
 
 
@@ -13,7 +13,7 @@
 
 
 h1{
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 /* training status stuff */
@@ -55,8 +55,9 @@ h1{
   padding: 8px;
   color: var(--darkred);
   margin-bottom: 4px;
-  margin-top: 4px;
-  margin-right: 20px;
+  margin-top: 2px;
+  margin-right: 4vw;
+  width: 90%;
 
   /* margin-right: 8px;
   border-color: var(--yellow);
@@ -65,6 +66,7 @@ h1{
 
 }
 .sensei-words{
+  color: var(--offwhite);
   font-size: 16px;
   font-family: 'Kalam', cursive;
   padding-bottom: 0px;
@@ -123,6 +125,7 @@ h1{
 
 .note-words{
   font-family: "Recursive", sans-serif;
+  color: var(--offwhite);
   font-size: 15px;
   padding-left: 20px;
   padding-bottom: 8px;

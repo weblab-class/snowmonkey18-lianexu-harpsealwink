@@ -1,13 +1,26 @@
 .Dojo-text {
-  padding-left: 110px;
-  padding-top: 25px;
-  padding-right: 110px;
-  padding-bottom: 110px;
+  display:flex;
+  flex-direction: column;
+  padding-top: 14vh;
+}
+
+@keyframes grow {
+  0%, 100% {
+    font-size: 88px;
+    margin-bottom:28px;
+  }
+  50% {
+    font-size: 110px;
+    margin-bottom: 0px;
+  }
 }
 
 .Dojo-title {
+  text-align: center;
   font-family: "Skranji", cursive;
-  font-size: 88px;
+  /* font-size: 88px; */
+  padding-bottom: 4vh;
+  animation: grow 3s infinite;
 }
 
 .Dojo-container {
@@ -15,7 +28,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .Dojo-link {
