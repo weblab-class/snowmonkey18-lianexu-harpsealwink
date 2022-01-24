@@ -29,6 +29,14 @@ const NavBar = (props) => {
           <Link to={`/profile/${props.userId}`} className="Navbar-link">
             profile
           </Link>
+          
+        )}
+
+      {props.isLoggedIn && (
+          <Link to={`/profile2/${props.userId}`} className="Navbar-link">
+            Profile2
+          </Link>
+          
         )}
         {props.isLoggedIn && (
         <div className="dropdown">

@@ -14,6 +14,7 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 import Oops from "./pages/Oops.js";
+import Profile2 from "./pages/Profile2.js";
 
 /**
  * Define the "App" component
@@ -74,7 +75,8 @@ const App = () => {
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
           <About path="/about/" />
-          <Profile path="/profile/:userId" userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
+          <Profile path="/profile/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
+          <Profile2 path="/profile2/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
           <Training path="/training/" isLoggedIn={isLoggedIn} userId={userId}/>
           <Oops path="/oops" />
           <NotFound default />

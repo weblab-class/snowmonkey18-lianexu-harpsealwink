@@ -125,17 +125,20 @@ router.post("/profileinfo", auth.ensureLoggedIn, (req, res) => {
   newInfo.save().then((info) => res.send(info));
 });
 
+
+//This is the stuff we need
+
 router.get("/levels", (req, res) => {
   // send back all of the levels!
   res.send(data.levels);
 });
 
+
 router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
   console.log('setitng highest level')
   if(req.user) {
     User.findById(req.body.userId).then(
-      (user) => {
-        
+      (user) => {       
         console.log("highest level set")
         if(req.body.level > user.highestLevel){
           user.highestLevel = req.body.level;
@@ -150,7 +153,6 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
     // console.log(req);
     console.log('get highest level')
     if (req.user) {
-
       User.findById(req.user._id).then(
         (user) => {
           console.log('highest level set')
@@ -160,6 +162,57 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
     }
     
   });
+
+
+  router.post("/setFavoriteFunction", auth.ensureLoggedIn, (req, res) => {
+    console.log('setting favorite function')
+    if(req.user) {
+      User.findById(req.body.userId).then(
+        (user) => {       
+            user.favoriteFunction = req.body.favoriteFunction;
+            user.save().then(ans => res.send(ans));
+        });
+    }
+  });
+
+  router.get("/getFavoriteFunction", (req, res) => {
+    console.log("get favorite function")
+    if (req.user) {
+      User.findById(req.user._id).then(
+        (user) => {
+          console.log('favorite function set')
+          res.send({favoriteFunction: user.favoriteFunction})
+        }
+      );
+    }
+  });
+
+
+  router.post("/setNinjaPower", auth.ensureLoggedIn, (req, res) => {
+    console.log('setting ninja power')
+    if(req.user) {
+      User.findById(req.body.userId).then(
+        (user) => {       
+            user.ninjaPower = req.body.ninjaPower;
+            user.save().then(ans => res.send(ans));
+        });
+    }
+  });
+
+  router.get("/getNinjaPower", (req, res) => {
+    console.log("get ninja power")
+    if (req.user) {
+      User.findById(req.user._id).then(
+        (user) => {
+          console.log('get ninja power')
+          res.send({ninjaPower: user.ninjaPower})
+        }
+      );
+    }
+  });
+
+
+
 
 
 // anything else falls to this "not found" case
