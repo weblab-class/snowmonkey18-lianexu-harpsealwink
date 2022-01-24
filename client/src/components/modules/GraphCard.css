@@ -1,4 +1,4 @@
-.x.axis {
+/* .x.axis {
   .tick {
     line {
       color: var(--red);
@@ -7,7 +7,7 @@
       font-size: 100px;
     }
   }
-}
+} */
 
 .GraphCard-container {
   display: flex;
@@ -15,10 +15,16 @@
   /* justify-content: space-between; */
   width: 95%;
   height: 50vh;
+  border-radius: 8px;
+  background-color: var(--darkred);
+  border-style: solid;
+  border-color: var(--yellow);
+  border-width: 4px;
+  padding-bottom: 12px;
 }
 
 .GraphCard-graphContainer {
-  background-color: var(--lightyellow);
+  /* background-color: var(--lightyellow); */
   width: 580px;
   height: 370px;
   border-radius: 8px;
@@ -31,7 +37,7 @@
   margin-left: -60px;
   margin-top: 6px;
   /* background-color: white; */
-  color: black;
+  color: white;
   /* border-radius: 8px;
   border-color: white;
   border-style: solid;
@@ -89,6 +95,7 @@
   align-items: center;
   height: 33%;
 }
+
 
 .function-prompt {
   color: white;

@@ -51,7 +51,11 @@ const Training = (props) => {
             console.log(objs.highestLevel);
             // console.log(JSON.stringify(objs));
             // console.log("hi2");
+            if(objs.highestLevel === 9){
+                setLevelNumber(9);
+            }else{
             setLevelNumber((objs.highestLevel)+1);
+            }
         }))
     }, []);
 
@@ -403,7 +407,7 @@ const Training = (props) => {
                                     Next level
                                 </button>
                                 <div className = "training-status-status">
-                                    Graph matched? {trainingStatus}
+                                    Graph matched? <span>{trainingStatus}</span>
                                 </div>
                             </div>
                         </div>

@@ -17,7 +17,7 @@ const GraphCard = (props) => {
     const funcParameters = {
         target: '#myFunction',
         data: [
-            { fn: props.function, color: "blue"},
+            { fn: props.function, color: "yellow"},
         ],
         grid: true,
         yAxis: {domain: [-10, 10]},
@@ -64,7 +64,7 @@ const GraphCard = (props) => {
         let newParameters = {
             target: '#myFunction',
             data: [
-                { fn: props.function, color: 'blue' },
+                { fn: props.function, color: 'yellow' },
                 { fn: userFunction, color: "red" }
             ],
             grid: true,

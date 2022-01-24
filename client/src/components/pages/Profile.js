@@ -74,7 +74,7 @@ const Profile = (props) => {
                         userName: {props.userName}
                     </div>
                     <div>
-                        Highest level: {highestLevel}
+                        Highest level: {highestLevel+1}
                     </div>
                     <div>
                         Starred functions: 
