@@ -30,17 +30,21 @@ const Training = (props) => {
     const [c, setC] = useState("");
     const [trainingStatus, setTrainingStatus] = useState("");
     const [passedTraining, setPassedTraining] = useState("");
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         document.title = "Training";
         get("/api/levels").then((levelObjs) => {
-          setLevels(levelObjs);
+            setLevels(levelObjs);
         }).then(() => {
-            get("/api/getHighestLevel").then((levelObjs) => {
-                console.log(JSON.stringify(levelObjs));
-                setLevelNumber(levelObjs.highestLevel+1);
-        })});
-      }, []);
+            get("/api/getHighestLevel")
+        }).then((levelObjs) => {
+            console.log(JSON.stringify(levelObjs));
+            setLevelNumber(levelObjs.highestLevel+1);
+        }).then(() => {
+            setIsLoaded(true);
+        });
+    }, []);
       
     let levelObj = levels[levelNumber];
     let levelsList = levels.length !== 0 ? 
@@ -406,9 +410,14 @@ const Training = (props) => {
                     {/* <div className = "training-status-status">Training status: {trainingStatus}</div> */}
                 </div>
             ) : (
-                <div className="Profile-text">
-                    <Oops />              
-                </div>
+                <>
+                    {isLoaded ? (
+                        <div className="Profile-text">
+                            <Oops />              
+                        </div>
+                    ) : <></>
+                    }
+                </>
             )}
         </>
     );
