@@ -14,7 +14,6 @@ import NotFound from "./pages/NotFound.js";
 
 import "../utilities.css";
 
-import Profile2 from "./pages/Profile2.js";
 
 /**
  * Define the "App" component
@@ -78,7 +77,7 @@ const App = () => {
           <Freestyle path="/freestyle/" isLoggedIn={isLoggedIn} userId={userId} />
           <About path="/about/" />
           <Profile path="/profile/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
-          <Profile2 path="/profile2/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
+          {/* <Profile2 path="/profile2/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/> */}
           <Oops path="/oops" />
           <NotFound default />
         </Router>

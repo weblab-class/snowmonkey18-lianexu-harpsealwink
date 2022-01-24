@@ -8,90 +8,82 @@ import { get } from "../../utilities";
 import { post } from "../../utilities";
 
 const Profile = (props) => {
-    const [infos, setInfos] = useState([]);
-    const [isEditing, setIsEditing] = useState(false);
-  
-    // called when the "Feed" component "mounts", i.e.
-    // when it shows up on screen
-    useEffect(() => {
-      document.title = "Profile";
-      get("/api/profileinfos").then((infoObjs) => {
-        let reversedInfoObjs = infoObjs.reverse();
-        setInfos(reversedInfoObjs);
-      });
-    }, []); 
-  
-    // this gets called when the user pushes "Submit", so their
-    // post gets added to the screen right away
-    const addNewInfo = (infoObj) => {
-        setInfos([infoObj].concat(infos));
-    };
-  
-    let infosList = null;
-    let hasInfos;
-    for (const infoObj of infos) {
-        // console.log(infoObj.creator_id)
-        if (infoObj.creator_id===props.userId) {
-            hasInfos = true;
-            break;
-          } 
-      }
-    if (hasInfos) {
-        for (const info of infos) {
-            if (info.creator_id===props.userId) {
-                infosList = [info].map((infoObj) => (
-                    <ProfileCard
-                      key={`ProfileCard_${infoObj._id}`}
-                      _id={infoObj._id}
-                      creator_name={infoObj.creator_name}
-                      creator_id={infoObj.creator_id}
-                      userId={props.userId}
-                      content={infoObj.content}
-                      isLoaded={props.isLoaded}
-                    />
-                  ));
-                break;
-            }
-        }
-    } else {
-      infosList = <div>Update your profile info!</div>;
+    const[highestLevel, setHighestLevel] = useState(2);
+    const[favoriteFunction, setFavoriteFunction] = useState("");
+    const[ninjaPower, setNinjaPower] = useState("");
+    const[ninjaPower2, setNinjaPower2] = useState("");
+
+
+    let handleNinjaPower2Change = (event) => {
+        setNinjaPower2(event.target.value);
     }
 
-    const toggleEdit = () => {
-        setIsEditing(!isEditing);
+    let handleClick = () => {
+        if (ninjaPower2.length !== 0){
+        post('/api/setNinjaPower', {ninjaPower: String(ninjaPower2), userId: props.userId}).then(() => {
+            get("/api/getNinjaPower").then((obj) => {
+                setNinjaPower(obj.ninjaPower)
+        });
+    });
+};
+        
+        
     };
 
+    
+    useEffect(() => {
+        document.title = "Profile";
+        console.log("made it this far");
+        get("/api/getHighestLevel").then((obj) => {
+            setHighestLevel(obj.highestLevel)
+        });
+        get("/api/getFavoriteFunction").then((obj) => {
+            setFavoriteFunction(obj.favoriteFunction)
+        });
+        get("/api/getNinjaPower").then((obj) => {
+            setNinjaPower(obj.ninjaPower)
+        });
+      }, []); 
+
+
+    //post('/api/setHighestLevel', {level: Number(props._id), userId: props.userId});
+    //post('/api/setFavoriteFunction', {favoriteFunction: String(favoriteFunction), userId: props.userId});
 
     return (
         <div>
             {props.isLoggedIn ? (
-                <div className="Profile-text">
-                    <div className="">
-                    {!isEditing ? (
-                        <>
-                            {infosList}
-                            <div className="Profile-buttonContainer">
-                            <button className="Profile-button" onClick={toggleEdit}>edit</button>
-                            </div>
-                        </>                     
-                    ) : (
-                        <>
-                            {infosList}
-                            <span>
-                                <NewInfo addNewInfo={addNewInfo} />
-                                <button className="Profile-button" onClick={toggleEdit}>done</button>
-                            </span>
-                        </>
-                    )}
-                    </div>
+                <div>
+                <div>
+                    UserId: {props.userId}
                 </div>
-            ) : (props.isLoaded ? (
-                <Oops />
-            ) : (
-                <div>Loading...</div>
-            ))}
-        </div>
-    );
-};
+                <div>
+                    userName: {props.userName}
+                </div>
+                <div>
+                    Highest level: {highestLevel}
+                </div>
+                <div>
+                    Favorite function: {favoriteFunction}
+                </div>
+                <div>
+                    Ninja power: {ninjaPower}
+                </div>
+    
+                <input type = "text" value={ninjaPower2} onChange = {handleNinjaPower2Change}></input>
+                <button onClick = {handleClick}>Edit ninja power</button>
+    
+            </div>
 
-export default Profile;
+
+
+            ): <Oops />
+            }
+        </div>
+        
+
+
+    );
+  };
+  
+  export default Profile;
+  
