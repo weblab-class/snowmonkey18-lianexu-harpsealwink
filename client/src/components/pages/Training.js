@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GraphCard from "../modules/GraphCard.js";
 import "./Training.css";
-import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup.js";
 import TrainingHint from "../modules/TrainingHint.js";
 import TrainingNote from "../modules/TrainingNote.js";
@@ -41,11 +40,13 @@ const Training = (props) => {
         }).then((levelObjs) => {
             console.log(JSON.stringify(levelObjs));
             setLevelNumber(levelObjs.highestLevel+1);
-        }).then(() => {
-            setIsLoaded(true);
-        });
+        })
     }, []);
-      
+
+    useEffect(() => {
+        setIsLoaded(true);
+    }, [levelNumber]);
+
     let levelObj = levels[levelNumber];
     let levelsList = levels.length !== 0 ? 
         <GraphCard

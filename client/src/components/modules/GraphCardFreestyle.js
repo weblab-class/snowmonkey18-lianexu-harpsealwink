@@ -58,7 +58,7 @@ const GraphCardFreestyle = (props) => {
             </div>
         </div>
             <button className = "plot-button" onClick={handlePlot}>Plot it!</button>
-            <button onClick={handleStar}>Star</button>
+            <button className = "star-button" onClick={handleStar}>Star</button>
             <div className="GraphCard-graphContainer">
                 <div className="GraphCard-graph">
                     <div id="myFunction" />
