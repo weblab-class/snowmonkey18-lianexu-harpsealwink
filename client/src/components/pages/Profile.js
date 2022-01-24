@@ -11,10 +11,14 @@ import ninja_3 from "./ninja_pfps/3.png";
 import ninja_4 from "./ninja_pfps/4.png";
 import ninja_5 from "./ninja_pfps/5.png";
 import ninja_6 from "./ninja_pfps/6.png";
+import corner_frame from "./corner_frame.png";
 
 import { get, post } from "../../utilities";
 
 const Profile = (props) => {
+    //props.userName is like "Liane Xu"
+    //props.userId is like "23dsff35", which is what we want to use when pulling up info
+
     const[highestLevel, setHighestLevel] = useState(2);
     const[starFuncs, setStarFuncs] = useState([]);
     const[ninjaPower, setNinjaPower] = useState("");
@@ -82,15 +86,17 @@ const Profile = (props) => {
         <div>
             {props.isLoggedIn ? (
                 <div className = "Profile-page">
+
+
                     <div className = "Profile-title">{props.userName}'s Ninja Profile</div>
-                    <div className = "pfp"><img className = "pfp-pic" src = {ninja_pfps[pfp]}/></div>
-                    <button onClick = {changePicture}>I want a different look!</button>
-                    <div>
-                        UserId: {props.userId}
+                    <div className = "Pfp-frame">
+                        <img src = {ninja_pfps[pfp]} className = "pfp"/>
+                        <img src={corner_frame} className = "corner-pic-topleft"/>
+                        <img src={corner_frame} className = "corner-pic-bottomleft"/>
+                        <img src={corner_frame} className = "corner-pic-topright"/>
+                        <img src={corner_frame} className = "corner-pic-bottomright"/>
                     </div>
-                    <div>
-                        userName: {props.userName}
-                    </div>
+                    <button onClick = {changePicture}>Give me different look!</button>
                     <div>
                         Highest level: {highestLevel+1}
                     </div>
