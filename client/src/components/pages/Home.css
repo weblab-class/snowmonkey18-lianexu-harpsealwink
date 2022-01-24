@@ -1,4 +1,4 @@
-.Home-page{
+.Home-page {
   margin: 16px;
   /* background-image: url("./dojoclipart.png");
   background-size: contain;
@@ -7,7 +7,6 @@
   height: auto;
   background-position: center; */
 }
-
 
 .Home-center {
   display: flex;
@@ -23,7 +22,7 @@
   margin: 8px;
 }
 
-.Home-title-text{
+.Home-title-text {
   font-family: "Skranji", cursive;
   font-size: 110px;
   /* padding-bottom: 4vh;
@@ -52,7 +51,7 @@
   text-decoration: none;
 }
 
-.Button-google {
+.Home-button {
   background-color: var(--lightyellow);
   color: var(--darkred);
   font-family: "Skranji", cursive;
@@ -61,6 +60,7 @@
   padding: 16px 24px;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .Ninja-image {
