@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-
-
-
-
-=======
-/* .x.axis {
-  .tick {
-    line {
-      color: var(--red);
-    }
-    text {
-      font-size: 100px;
-    }
-  }
-} */
->>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
 
 .GraphCard-container {
   display: flex;
@@ -31,11 +14,8 @@
 }
 
 .GraphCard-graphContainer {
-<<<<<<< HEAD
   background-color: var(--red);
-=======
   /* background-color: var(--lightyellow); */
->>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
   width: 580px;
   height: 370px;
   border-radius: 8px;
@@ -107,13 +87,9 @@
   height: 33%;
 }
 
-<<<<<<< HEAD
 .function-prompt{
   font-size: 18px;
-=======
 
-.function-prompt {
->>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
   color: white;
   font-family: "Skranji", cursive;
   padding: 8px;

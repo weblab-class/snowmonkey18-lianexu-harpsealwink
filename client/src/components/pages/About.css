@@ -82,18 +82,11 @@
   }
 }
 @keyframes sidestep {
-<<<<<<< HEAD
   0%,100% {
     left: 35vw;
   }
   50% {
-=======
-  0%, 100% {
->>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
     left: 40vw;
-  }
-  50% {
-    left: 35vw;
   }
 }
 @keyframes levitate {

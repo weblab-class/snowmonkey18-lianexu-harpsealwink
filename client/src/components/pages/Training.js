@@ -377,30 +377,6 @@ const Training = (props) => {
     return(
         <>
             {props.isLoggedIn ? (
-<<<<<<< HEAD
-        
-        <div className="Training-container"> 
-        
-            <div className = "Training-header">
-            {/* <img src={training_ninja_header} /> */}
-                
-                <div className = "Training-top">
-                
-                <h1 className="Training-title">
-                    Training: Level {levelNumber+1} of 10 {passedTraining}
-                </h1>
-            
-                
-                </div>
-                
-                <div className = "sensei-adjacent">
-                <div className = "sensei-box">
-                    <div className = "sensei-stuff">
-                    <img src={sensei} className = "sensei-image"/>
-                    <span className = "sensei-words">
-                     {hintsList[levelNumber]}
-                    </span>
-=======
                 <div className="Training-container"> 
                     <div className = "Training-header">
                         {/* <img src={training_ninja_header} /> */}
@@ -438,7 +414,6 @@ const Training = (props) => {
                             </div>
                             
                         </div>
->>>>>>> 0345c747708853712de556deb4cb0cc89bf93cb8
                     </div>
                     <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
                         <button className="Select-level" onClick = {handleLevel1}>1</button>
