@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
-import Skeleton from "./pages/Skeleton.js";
-import NavBar from "./modules/NavBar.js";
+import { socket } from "../client-socket.js";
+import { get, post } from "../utilities";
+
 import Home from "./pages/Home.js";
-import NotFound from "./pages/NotFound.js";
-import About from "./pages/About.js";
-import Training from "./pages/Training.js";
+import NavBar from "./modules/NavBar.js";
 import Profile from "./pages/Profile.js";
+import Training from "./pages/Training.js";
+import Freestyle from "./pages/Freestyle.js";
+import About from "./pages/About.js";
+import Oops from "./pages/Oops.js";
+import NotFound from "./pages/NotFound.js";
 
 import "../utilities.css";
 
-import { socket } from "../client-socket.js";
-
-import { get, post } from "../utilities";
-import Oops from "./pages/Oops.js";
 import Profile2 from "./pages/Profile2.js";
 
 /**
@@ -70,14 +70,15 @@ const App = () => {
 
   return (
     <>
-      <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} isLoggedIn={isLoggedIn}/>
+      <NavBar userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} isLoggedIn={isLoggedIn} />
       <div className="">
         <Router>
-          <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout}/>
+          <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
+          <Training path="/training/" isLoggedIn={isLoggedIn} userId={userId} />
+          <Freestyle path="/freestyle/" isLoggedIn={isLoggedIn} userId={userId} />
           <About path="/about/" />
           <Profile path="/profile/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
           <Profile2 path="/profile2/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
-          <Training path="/training/" isLoggedIn={isLoggedIn} userId={userId}/>
           <Oops path="/oops" />
           <NotFound default />
         </Router>

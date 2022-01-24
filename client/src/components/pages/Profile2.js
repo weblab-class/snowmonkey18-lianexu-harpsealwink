@@ -19,11 +19,13 @@ const Profile2 = (props) => {
     }
 
     let handleClick = () => {
+        if (ninjaPower2.length !== 0){
         post('/api/setNinjaPower', {ninjaPower: String(ninjaPower2), userId: props.userId}).then(() => {
             get("/api/getNinjaPower").then((obj) => {
                 setNinjaPower(obj.ninjaPower)
         });
     });
+};
         
         
     };
@@ -49,26 +51,36 @@ const Profile2 = (props) => {
 
     return (
         <div>
-            <div>
-                UserId: {props.userId}
-            </div>
-            <div>
-                userName: {props.userName}
-            </div>
-            <div>
-                Highest level: {highestLevel}
-            </div>
-            <div>
-                Favorite function: {favoriteFunction}
-            </div>
-            <div>
-                Ninja power: {ninjaPower}
+            {props.isLoggedIn ? (
+                <div>
+                <div>
+                    UserId: {props.userId}
+                </div>
+                <div>
+                    userName: {props.userName}
+                </div>
+                <div>
+                    Highest level: {highestLevel}
+                </div>
+                <div>
+                    Favorite function: {favoriteFunction}
+                </div>
+                <div>
+                    Ninja power: {ninjaPower}
+                </div>
+    
+                <input type = "text" value={ninjaPower2} onChange = {handleNinjaPower2Change}></input>
+                <button onClick = {handleClick}>Edit ninja power</button>
+    
             </div>
 
-            <input type = "text" value={ninjaPower2} onChange = {handleNinjaPower2Change}></input>
-            <button onClick = {handleClick}>Edit ninja power</button>
 
+
+            ): <Oops />
+            }
         </div>
+        
+
 
     );
   };

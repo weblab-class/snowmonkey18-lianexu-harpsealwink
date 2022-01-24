@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import GraphCard from "../modules/GraphCard";
+import GraphCard from "../modules/GraphCard.js";
 import "./Training.css";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
-import Popup from "../modules/Popup";
-import TrainingHint from "../modules/TrainingHint";
-import TrainingNote from "../modules/TrainingNote";
+import Popup from "../modules/Popup.js";
+import TrainingHint from "../modules/TrainingHint.js";
+import TrainingNote from "../modules/TrainingNote.js";
+import Oops from "./Oops.js";
 
 import { get, post } from "../../utilities";
 import training_ninja_header from "./training_ninja_header.png";
@@ -421,18 +422,7 @@ const Training = (props) => {
         </div>
             ): (
                 <div className="Profile-text">
-                    <h1>Oops!</h1>
-                    <div className="Profile-info">
-                    <p>
-                        This page is for ninja eyes only.
-                    </p>
-                    <p>
-                        If you are already a ninja, please login to see this page. 
-                    </p>
-                    <p>
-                        If you are not a ninja, please register to become a novice ninja.
-                    </p>      
-                    </div>              
+                    <Oops />              
                 </div>
             )
             }
