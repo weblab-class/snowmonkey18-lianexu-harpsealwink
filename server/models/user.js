@@ -5,7 +5,6 @@ const UserSchema = new mongoose.Schema({
   googleid: String,
   highestLevel: {type: Number, default: -1},
   ninjaPower: {type: String, default: "Update your ninja power"},
-  favoriteFunction: {type: String, default: "Update your favorite function"},
   starFuncs: {type: Array, default: [""]},
   pfp: {type: Number, default: 1}
 });

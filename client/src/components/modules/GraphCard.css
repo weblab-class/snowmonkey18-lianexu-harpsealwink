@@ -1,16 +1,13 @@
-
-  .x.axis {
-    .tick {
-      line {
-        color: var(--red);
-      }
-      text {
-        font-size: 100px;
-      }
+.x.axis {
+  .tick {
+    line {
+      color: var(--red);
+    }
+    text {
+      font-size: 100px;
     }
   }
-
-
+}
 
 .GraphCard-container {
   display: flex;
@@ -18,7 +15,6 @@
   /* justify-content: space-between; */
   width: 95%;
   height: 50vh;
-
 }
 
 .GraphCard-graphContainer {
@@ -63,46 +59,44 @@
   max-height: 60vh;
   padding: 8px;
   /* background-color: purple; */
-
-
 }
 
-.ninja-textbox-layer{
+.ninja-textbox-layer {
   display: flex;
   flex-direction: column;
   height: 100%;
   /* background-color: purple; */
 }
 
-.ninja-column{
+.ninja-column {
   display: flex;
   flex-direction: column;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-.ninja{
+.ninja {
   height: 33%;
 }
 
-.ninja-small{
+.ninja-small {
   height: 100%;
 }
 
-.ninja-textbox-pair{
+.ninja-textbox-pair {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 33%;
 }
 
-.function-prompt{
+.function-prompt {
   color: white;
   padding: 4px;
   text-align: center;
 }
 
-.plot-button{
+.plot-button {
   display: inline-flex; /* keep the inline nature of buttons */
   align-items: flex-end;
   font-family: "Recursive", sans-serif;
@@ -110,15 +104,13 @@
   background-color: var(--lightred);
   border: none;
   color: var(--white);
-  
+
   font-size: 16px;
   padding: 8px;
   transition: all 0.5s;
   cursor: pointer;
   margin-top: 16px;
   max-width: 150px;
-
-
 
   /* width: 900px;
   height: 270px; */
@@ -129,49 +121,50 @@
   background-image: url("./ninjas/plot_ninja_inactive.png");
 }
 
-.plot-button:hover{
+.plot-button:hover {
   background-image: url("./ninjas/plot_ninja_active.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-
-.input-and-plot-layer{
+/* 
+.star-button {
+  background-image:
+}
+ */
+.input-and-plot-layer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: white;
 }
 
-.plot-ninja{
+.plot-ninja {
   max-width: 100%;
 }
 
 #plotSettings {
   width: 160px;
-
 }
 
 #plot {
   width: 550px;
-
 }
 
-.input-number{
+.input-number {
   max-width: 40px;
 }
 
-.layer p{
-  color: white
+.layer p {
+  color: white;
 }
 
-.layer label{
-  color: white
+.layer label {
+  color: white;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -70,7 +70,7 @@ const data = {
     },
     {
       _id: 7,
-      function: '1(x+0)^2-3',
+      function: '1(x+0)^2+-3',
       hint: 'Sensei: What’s the opposite of leviosa? Levios-ain’t. How should you change (c) now?',
       note: 'Important: input a=1, b=0, and whole numbers only!'
     },
@@ -158,7 +158,9 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
       User.findById(req.user._id).then(
         (user) => {
           console.log('highest level set')
-          res.send({highestLevel: user.highestLevel})
+          console.log(typeof user.highestLevel)
+          console.log('heloo')
+          res.send({highestLevel: Number(user.highestLevel)})
         }
       );
     }
@@ -169,62 +171,62 @@ router.post("/addStarFuncs", auth.ensureLoggedIn, (req, res) => {
   console.log('adding to starred functions')
   if (req.user) {
     User.findById(req.body.userId).then((user) => {
-      console.log("function starred")
+      console.log("function starred");
       if (!user.starFuncs.includes(req.body.func)) {
-        user.starFuncs.append(req.body.func);
+        user.starFuncs.push(req.body.func);
       };
       user.save().then(func => res.send(func));
     });
-  }
+  };
+});
+
+router.post("/delStarFuncs", auth.ensureLoggedIn, (req, res) => {
+  console.log('unstarring a function')
+  if (req.user) {
+    User.findById(req.body.userId).then((user) => {
+      console.log("function unstarred");
+      const index = user.starFuncs.indexOf(req.body.func);
+      if (index !== -1) {
+        user.starFuncs.splice(index, 1);
+      };
+      user.save().then(func => res.send(func));
+    });
+  };
+});
+
+router.get("/getStarFuncs", (req, res) => {
+  console.log("get starred functions");
+  if (req.user) {
+    User.findById(req.user._id).then((user) => {
+        console.log('starred functions gotten');
+        res.send({starFuncs: user.starFuncs});
+    });
+  };
 });
 
 
-  router.post("/setFavoriteFunction", auth.ensureLoggedIn, (req, res) => {
-    console.log('setting favorite function')
-    if(req.user) {
-      User.findById(req.body.userId).then(
-        (user) => {       
-            user.favoriteFunction = req.body.favoriteFunction;
-            user.save().then(ans => res.send(ans));
-        });
-    }
-  });
+router.post("/setNinjaPower", auth.ensureLoggedIn, (req, res) => {
+  console.log('setting ninja power')
+  if(req.user) {
+    User.findById(req.body.userId).then(
+      (user) => {       
+          user.ninjaPower = req.body.ninjaPower;
+          user.save().then(ans => res.send(ans));
+      });
+  }
+});
 
-  router.get("/getFavoriteFunction", (req, res) => {
-    console.log("get favorite function")
-    if (req.user) {
-      User.findById(req.user._id).then(
-        (user) => {
-          console.log('favorite function set')
-          res.send({favoriteFunction: user.favoriteFunction})
-        }
-      );
-    }
-  });
-
-
-  router.post("/setNinjaPower", auth.ensureLoggedIn, (req, res) => {
-    console.log('setting ninja power')
-    if(req.user) {
-      User.findById(req.body.userId).then(
-        (user) => {       
-            user.ninjaPower = req.body.ninjaPower;
-            user.save().then(ans => res.send(ans));
-        });
-    }
-  });
-
-  router.get("/getNinjaPower", (req, res) => {
-    console.log("get ninja power")
-    if (req.user) {
-      User.findById(req.user._id).then(
-        (user) => {
-          console.log('get ninja power')
-          res.send({ninjaPower: user.ninjaPower})
-        }
-      );
-    }
-  });
+router.get("/getNinjaPower", (req, res) => {
+  console.log("get ninja power")
+  if (req.user) {
+    User.findById(req.user._id).then(
+      (user) => {
+        console.log('get ninja power')
+        res.send({ninjaPower: user.ninjaPower})
+      }
+    );
+  }
+});
 
 
   // router.post("/setPfp", auth.ensureLoggedIn, (req, res) => {

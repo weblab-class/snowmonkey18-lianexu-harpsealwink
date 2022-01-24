@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GraphCard from "../modules/GraphCard.js";
 import "./Training.css";
-import functionPlot, { FunctionPlotOptions } from 'function-plot';
 import Popup from "../modules/Popup.js";
 import TrainingHint from "../modules/TrainingHint.js";
 import TrainingNote from "../modules/TrainingNote.js";
@@ -30,30 +29,50 @@ const Training = (props) => {
     const [c, setC] = useState("");
     const [trainingStatus, setTrainingStatus] = useState("");
     const [passedTraining, setPassedTraining] = useState("");
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        document.title = "Training";
+        // document.title = "Training";
+        // get("/api/levels").then((levelObjs) => {
+        //     setLevels(levelObjs);
+        // }).then(() => {
+        //     get("/api/getHighestLevel")
+        // }).then((levelObjs) => {
+        //     console.log(JSON.stringify(levelObjs));
+        //     // setLevelNumber((levelObjs.highestLevel)+1);
+        //     setLevelNumber(3);
+        // })
+
         get("/api/levels").then((levelObjs) => {
-          setLevels(levelObjs);
-        }).then(() => {get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
-            setLevelNumber(levelObjs.highestLevel+1)
-        })});
-      }, []); 
-      
-    let levelsList;
+            setLevels(levelObjs);
+        }).then(
+        get("/api/getHighestLevel").then((objs) => {
+            console.log("hi");
+            console.log(objs.highestLevel);
+            // console.log(JSON.stringify(objs));
+            // console.log("hi2");
+            setLevelNumber((objs.highestLevel)+1);
+        }))
+    }, []);
+
+    useEffect(() => {
+        setIsLoaded(true);
+    }, [levelNumber]);
+
     let levelObj = levels[levelNumber];
-    levelsList = levels.length !== 0 ? <GraphCard
-        _id={levelObj._id}
-        function={levelObj.function}
-        a={a}
-        b={b}
-        c={c}
-        setA={setA}
-        setB={setB}
-        setC={setC}
-        setTrainingStatus={setTrainingStatus}
-        setPassedTraining={setPassedTraining}
+    let levelsList = levels.length !== 0 ? 
+        <GraphCard
+            _id={levelObj._id}
+            function={levelObj.function}
+            userId={props.userId}
+            a={a}
+            b={b}
+            c={c}
+            setA={setA}
+            setB={setB}
+            setC={setC}
+            setTrainingStatus={setTrainingStatus}
+            setPassedTraining={setPassedTraining}
         /> : <div></div>;
 
     const resetParams = () => {
@@ -61,7 +80,7 @@ const Training = (props) => {
         setB("")
         setC("")
         setTrainingStatus("");
-        // setPassedTraining("");
+        setPassedTraining("");
         const elem  = document.getElementById("myFunction")
         if(elem !== null) elem.innerHTML = "";
         // document.getElementById("myFunction").innerHTML = "";
@@ -111,17 +130,18 @@ const Training = (props) => {
             resetParams()
         };
         // post('/api/setHighestLevel', {level: 0, userId: props.userId});
-        const num = 0;
-        get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
-            if(levelObjs.highestLevel >= (num-1)){
-                setPassedTraining("");
 
-            }else if(levelObjs.highestLevel < (num-1)){
-                console.log("not ready")
-                setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
-            }  
-        });
+        // const num = 0;
+        // get("/api/getHighestLevel").then((levelObjs) => {
+        //     console.log(JSON.stringify(levelObjs));
+        //     if(levelObjs.highestLevel >= (num-1)){
+        //         setPassedTraining("");
+
+        //     }else if(levelObjs.highestLevel < (num-1)){
+        //         console.log("not ready")
+        //         setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
+        //     }  
+        // });
         setButtonPopup(false);
       };
     const handleLevel2 = (event) => {
@@ -351,86 +371,71 @@ const Training = (props) => {
 
 
     return(
-        <div>
+        <>
             {props.isLoggedIn ? (
-        
-        <div className="Training-container"> 
-        
-            <div className = "Training-header">
-            {/* <img src={training_ninja_header} /> */}
-                
-                <div className = "Training-top">
-                
-                <h1>
-                    Training: Level {levelNumber+1} of 10 {passedTraining}
-                </h1>
-            
-                
-                </div>
-                
-                <div className = "sensei-adjacent">
-                <div className = "sensei-box">
-                    <div className = "sensei-stuff">
-                    <img src={sensei} className = "sensei-image"/>
-                    <span className = "sensei-words">
-                    {hintsList[levelNumber]}
-                    </span>
+                <div className="Training-container"> 
+                    <div className = "Training-header">
+                        {/* <img src={training_ninja_header} /> */}
+                        <div className = "Training-top">
+                            <h1>
+                                Training: Level {levelNumber+1} of 10 {passedTraining}
+                            </h1>
+                        </div>
+                        <div className = "sensei-adjacent">
+                            <div className = "sensei-box">
+                                <div className = "sensei-stuff">
+                                    <img src={sensei} className = "sensei-image" />
+                                    <span className = "sensei-words">
+                                        {hintsList[levelNumber]}
+                                    </span>
+                                </div>
+                                <div className = "note-words">
+                                    {notesList[levelNumber]}
+                                </div>
+                            </div>
+                            <div className = "header-buttons">
+                                <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
+                                    <span>
+                                        Open all levels
+                                    </span>
+                                </button>
+                                <button className = "next-level-button" onClick = {handleNextLevel}>
+                                    Next level
+                                </button>
+                                <div className = "training-status-status">
+                                    Graph matched? {trainingStatus}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className = "note-words">
-                    {notesList[levelNumber]}
+                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                        <button className="Select-level" onClick = {handleLevel1}>1</button>
+                        <button className="Select-level" onClick = {handleLevel2}>2</button>
+                        <button className="Select-level" onClick = {handleLevel3}>3</button>
+                        <button className="Select-level" onClick = {handleLevel4}>4</button>
+                        <button className="Select-level" onClick = {handleLevel5}>5</button>
+                        <button className="Select-level" onClick = {handleLevel6}>6</button>
+                        <button className="Select-level" onClick = {handleLevel7}>7</button>
+                        <button className="Select-level" onClick = {handleLevel8}>8</button>
+                        <button className="Select-level" onClick = {handleLevel9}>9</button>
+                        <button className="Select-level" onClick = {handleLevel10}>10</button>
+                    </Popup>
+                    <div>
+                        {levelsList}
+                    </div>
+                    {/* <div className = "training-status-status">Training status: {trainingStatus}</div> */}
                 </div>
-                
-                </div>
-                <div className = "header-buttons">
-                <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
-                <span>Open all levels</span></button>
-
-                <button className = "next-level-button" onClick = {handleNextLevel}>Next level</button>
-
-                <div className = "training-status-status">Graph matched? {trainingStatus}</div>
-
-                
-
-                </div>
-                </div>
-
-                
-            </div>
-            
-            
-            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <button className="Select-level" onClick = {handleLevel1}>1</button>
-                <button className="Select-level" onClick = {handleLevel2}>2</button>
-                <button className="Select-level" onClick = {handleLevel3}>3</button>
-                <button className="Select-level" onClick = {handleLevel4}>4</button>
-                <button className="Select-level" onClick = {handleLevel5}>5</button>
-                <button className="Select-level" onClick = {handleLevel6}>6</button>
-                <button className="Select-level" onClick = {handleLevel7}>7</button>
-                <button className="Select-level" onClick = {handleLevel8}>8</button>
-                <button className="Select-level" onClick = {handleLevel9}>9</button>
-                <button className="Select-level" onClick = {handleLevel10}>10</button>
-            </Popup>
-
-            <div>
-            {levelsList}
-            </div>
-
-
-
-
-            {/* <div className = "training-status-status">Training status: {trainingStatus}</div> */}
-
-        </div>
-            ): (
-                <div className="Profile-text">
-                    <Oops />              
-                </div>
-            )
-            }
-
-
-        </div>
-
+            ) : (
+                <>
+                    {isLoaded ? (
+                        <div className="Profile-text">
+                            <Oops />              
+                        </div>
+                    ) : <></>
+                    }
+                </>
+            )}
+        </>
     );
 };
 

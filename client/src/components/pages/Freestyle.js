@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import GraphCardFreestyle from "../modules/GraphCardFreestyle.js";
 import Oops from "./Oops.js";
 import "./Training.css";
-import functionPlot, { FunctionPlotOptions } from 'function-plot';
 
 import { get, post } from "../../utilities";
 import training_ninja_header from "./training_ninja_header.png";
@@ -31,9 +30,7 @@ const Freestyle = (props) => {
                             </div>
                         </div>    
                     </div>    
-                    <GraphCardFreestyle
-                        function="x^2"
-                    />
+                    <GraphCardFreestyle userId={props.userId} />
                 </div>
             ) : (
                 <div className="Profile-text">

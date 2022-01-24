@@ -6,6 +6,7 @@ import { get, post } from "../utilities";
 import Home from "./pages/Home.js";
 import NavBar from "./modules/NavBar.js";
 import Profile from "./pages/Profile.js";
+import Dojo from "./pages/Dojo.js";
 import Training from "./pages/Training.js";
 import Freestyle from "./pages/Freestyle.js";
 import About from "./pages/About.js";
@@ -73,11 +74,11 @@ const App = () => {
       <div className="">
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
-          <Training path="/training/" isLoggedIn={isLoggedIn} userId={userId} userName={userName} />
+          <Profile path="/profile/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
+          <Dojo path="/dojo/" />
+          <Training path="/training/" isLoggedIn={isLoggedIn} userId={userId} />
           <Freestyle path="/freestyle/" isLoggedIn={isLoggedIn} userId={userId} />
           <About path="/about/" />
-          <Profile path="/profile/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
-          {/* <Profile2 path="/profile2/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/> */}
           <Oops path="/oops" />
           <NotFound default />
         </Router>

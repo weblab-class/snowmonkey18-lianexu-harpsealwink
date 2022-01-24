@@ -32,6 +32,10 @@
   display: inline-block;
 }
 
+.Navbar-link:hover {
+  color: var(--lightyellow);
+}
+
 .Navbar-button-google {
   background-color: transparent;
   color: var(--white);
@@ -42,6 +46,10 @@
   display: inline-block;
   cursor: pointer;
   border: none;
+}
+
+.Navbar-button-google:hover {
+  color: var(--lightyellow);
 }
 
 /* Dropdown */
@@ -59,6 +67,11 @@
   background-color: inherit;
   font-family: inherit;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.dropbtn:hover {
+  color: var(--lightyellow);
 }
 
 /* Dropdown content (hidden by default) */
