@@ -35,25 +35,26 @@ const Training = (props) => {
         document.title = "Training";
         get("/api/levels").then((levelObjs) => {
           setLevels(levelObjs);
-        }).then(() => {get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
-            setLevelNumber(levelObjs.highestLevel+1)
+        }).then(() => {
+            get("/api/getHighestLevel").then((levelObjs) => {
+                console.log(JSON.stringify(levelObjs));
+                setLevelNumber(levelObjs.highestLevel+1);
         })});
-      }, []); 
+      }, []);
       
-    let levelsList;
     let levelObj = levels[levelNumber];
-    levelsList = levels.length !== 0 ? <GraphCard
-        _id={levelObj._id}
-        function={levelObj.function}
-        a={a}
-        b={b}
-        c={c}
-        setA={setA}
-        setB={setB}
-        setC={setC}
-        setTrainingStatus={setTrainingStatus}
-        setPassedTraining={setPassedTraining}
+    let levelsList = levels.length !== 0 ? 
+        <GraphCard
+            _id={levelObj._id}
+            function={levelObj.function}
+            a={a}
+            b={b}
+            c={c}
+            setA={setA}
+            setB={setB}
+            setC={setC}
+            setTrainingStatus={setTrainingStatus}
+            setPassedTraining={setPassedTraining}
         /> : <div></div>;
 
     const resetParams = () => {
@@ -350,86 +351,66 @@ const Training = (props) => {
 
 
     return(
-        <div>
+        <>
             {props.isLoggedIn ? (
-        
-        <div className="Training-container"> 
-        
-            <div className = "Training-header">
-            {/* <img src={training_ninja_header} /> */}
-                
-                <div className = "Training-top">
-                
-                <h1>
-                    Training: Level {levelNumber+1} of 10 {passedTraining}
-                </h1>
-            
-                
-                </div>
-                
-                <div className = "sensei-adjacent">
-                <div className = "sensei-box">
-                    <div className = "sensei-stuff">
-                    <img src={sensei} className = "sensei-image"/>
-                    <span className = "sensei-words">
-                    {hintsList[levelNumber]}
-                    </span>
+                <div className="Training-container"> 
+                    <div className = "Training-header">
+                        {/* <img src={training_ninja_header} /> */}
+                        <div className = "Training-top">
+                            <h1>
+                                Training: Level {levelNumber+1} of 10 {passedTraining}
+                            </h1>
+                        </div>
+                        <div className = "sensei-adjacent">
+                            <div className = "sensei-box">
+                                <div className = "sensei-stuff">
+                                    <img src={sensei} className = "sensei-image" />
+                                    <span className = "sensei-words">
+                                        {hintsList[levelNumber]}
+                                    </span>
+                                </div>
+                                <div className = "note-words">
+                                    {notesList[levelNumber]}
+                                </div>
+                            </div>
+                            <div className = "header-buttons">
+                                <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
+                                    <span>
+                                        Open all levels
+                                    </span>
+                                </button>
+                                <button className = "next-level-button" onClick = {handleNextLevel}>
+                                    Next level
+                                </button>
+                                <div className = "training-status-status">
+                                    Graph matched? {trainingStatus}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className = "note-words">
-                    {notesList[levelNumber]}
+                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                        <button className="Select-level" onClick = {handleLevel1}>1</button>
+                        <button className="Select-level" onClick = {handleLevel2}>2</button>
+                        <button className="Select-level" onClick = {handleLevel3}>3</button>
+                        <button className="Select-level" onClick = {handleLevel4}>4</button>
+                        <button className="Select-level" onClick = {handleLevel5}>5</button>
+                        <button className="Select-level" onClick = {handleLevel6}>6</button>
+                        <button className="Select-level" onClick = {handleLevel7}>7</button>
+                        <button className="Select-level" onClick = {handleLevel8}>8</button>
+                        <button className="Select-level" onClick = {handleLevel9}>9</button>
+                        <button className="Select-level" onClick = {handleLevel10}>10</button>
+                    </Popup>
+                    <div>
+                        {levelsList}
+                    </div>
+                    {/* <div className = "training-status-status">Training status: {trainingStatus}</div> */}
                 </div>
-                
-                </div>
-                <div className = "header-buttons">
-                <button className = "Open-levels" onClick={()=> setButtonPopup(true)}>
-                <span>Open all levels</span></button>
-
-                <button className = "next-level-button" onClick = {handleNextLevel}>Next level</button>
-
-                <div className = "training-status-status">Graph matched? {trainingStatus}</div>
-
-                
-
-                </div>
-                </div>
-
-                
-            </div>
-            
-            
-            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <button className="Select-level" onClick = {handleLevel1}>1</button>
-                <button className="Select-level" onClick = {handleLevel2}>2</button>
-                <button className="Select-level" onClick = {handleLevel3}>3</button>
-                <button className="Select-level" onClick = {handleLevel4}>4</button>
-                <button className="Select-level" onClick = {handleLevel5}>5</button>
-                <button className="Select-level" onClick = {handleLevel6}>6</button>
-                <button className="Select-level" onClick = {handleLevel7}>7</button>
-                <button className="Select-level" onClick = {handleLevel8}>8</button>
-                <button className="Select-level" onClick = {handleLevel9}>9</button>
-                <button className="Select-level" onClick = {handleLevel10}>10</button>
-            </Popup>
-
-            <div>
-            {levelsList}
-            </div>
-
-
-
-
-            {/* <div className = "training-status-status">Training status: {trainingStatus}</div> */}
-
-        </div>
-            ): (
+            ) : (
                 <div className="Profile-text">
                     <Oops />              
                 </div>
-            )
-            }
-
-
-        </div>
-
+            )}
+        </>
     );
 };
 

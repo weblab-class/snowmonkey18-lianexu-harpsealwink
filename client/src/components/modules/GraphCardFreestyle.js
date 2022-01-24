@@ -6,26 +6,17 @@ import { get , post } from "../../utilities";
 
 const GraphCardFreestyle = (props) => {
     const [func, setFunc] = useState("");
+
     const noParameters = {
         target: '#myFunction',
         data: [],
         grid: true,
         yAxis: {domain: [-10, 10]},
         xAxis: {domain: [-10, 10]}
-    };
-    const handleFuncChange = (event) => {
-        setFunc(event.target.value);
-    };
-    const handleClick = () => {
-        plot();
-    };
-    const handleStar = () => {
-        console.log("starrr");
-        post('/api/addStarFuncs', {func: func, userId: props.userId});
-    };
+    };  
 
-    let plot = () => {
-        let parameters = {
+    const plot = (func) => {
+        const parameters = {
             target: '#myFunction',
             data: [
                 { fn: func, color: 'blue' },
@@ -36,7 +27,20 @@ const GraphCardFreestyle = (props) => {
         }
         functionPlot(parameters);
     };
-    
+
+    const handleFuncChange = (event) => {
+        setFunc(event.target.value);
+    };
+    const handlePlot = () => {
+        plot(func);
+    };
+    const handleStar = () => {
+        console.log("starrr");
+        console.log(`func: ${func}`);
+        console.log(`userId: ${props.userId}`);
+        post('/api/addStarFuncs', {func: func, userId: props.userId});
+    };
+
     useEffect(() => {
         functionPlot(noParameters)
     }, []);
@@ -53,7 +57,7 @@ const GraphCardFreestyle = (props) => {
                 </label>
             </div>
         </div>
-            <button className = "plot-button" onClick={handleClick}>Plot it!</button>
+            <button className = "plot-button" onClick={handlePlot}>Plot it!</button>
             <button onClick={handleStar}>Star</button>
             <div className="GraphCard-graphContainer">
                 <div className="GraphCard-graph">

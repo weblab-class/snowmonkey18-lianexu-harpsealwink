@@ -31,9 +31,7 @@ const Freestyle = (props) => {
                             </div>
                         </div>    
                     </div>    
-                    <GraphCardFreestyle
-                        function="x^2"
-                    />
+                    <GraphCardFreestyle />
                 </div>
             ) : (
                 <div className="Profile-text">

@@ -75,12 +75,10 @@ const GraphCard = (props) => {
 
     };
     
-   
     useEffect(() => {
-        functionPlot(funcParameters)
+        functionPlot(funcParameters);
     },[props.function]);
 
-     
     return(
         <div className="GraphCard-container">
         {/* <div className = "ninja-column">
