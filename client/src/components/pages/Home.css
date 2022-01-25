@@ -18,7 +18,8 @@
 }
 
 .Home-title {
-  padding: 20px;
+  padding: 16px;
+  padding-top: 100px;
   margin: 8px;
 }
 
@@ -115,4 +116,9 @@
   left: 50vw;
   width: 280px;
   animation: hover 2.5s infinite;
+}
+
+.ninja_all{
+  height:200px;
+  margin-top: 8px;
 }
