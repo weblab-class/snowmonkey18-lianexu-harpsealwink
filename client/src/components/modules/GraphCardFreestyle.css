@@ -14,6 +14,7 @@
 .Star-button-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .star-button {
@@ -26,6 +27,11 @@
   cursor: pointer;
   color: var(--white);
 }
+
+.star-button:active {
+  transform: rotate(-20deg);
+}
+
 .Star-container {
   display: flex;
   flex-direction: column;
@@ -35,4 +41,7 @@
 }
 .Star-funcs-container {
   padding: 24px 0;
+}
+.input-func {
+  max-width: 120px;
 }
