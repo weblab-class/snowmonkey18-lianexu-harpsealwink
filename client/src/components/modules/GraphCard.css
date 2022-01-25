@@ -4,8 +4,9 @@
   /* justify-content: space-between; */
   width: 95%;
   height: 50vh;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   /* background-color: var(--offwhite); */
+
   border-style: double;
   border-color: var(--yellow);
   border-width: 4px;
