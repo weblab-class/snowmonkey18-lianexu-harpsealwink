@@ -47,8 +47,8 @@ const Training = (props) => {
             setLevels(levelObjs);
         }).then(
         get("/api/getHighestLevel").then((objs) => {
-            console.log("hi");
-            console.log(objs.highestLevel);
+            // console.log("hi");
+            // console.log(objs.highestLevel);
             // console.log(JSON.stringify(objs));
             // console.log("hi2");
             if(objs.highestLevel === 9){
@@ -158,7 +158,7 @@ const Training = (props) => {
 
         const num = 1;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
             }
@@ -166,7 +166,7 @@ const Training = (props) => {
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < (num-1)){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
             }  
         });
@@ -182,7 +182,7 @@ const Training = (props) => {
 
         const num = 2;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
@@ -191,7 +191,7 @@ const Training = (props) => {
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });
@@ -207,7 +207,7 @@ const Training = (props) => {
 
         const num = 3;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
             }
@@ -215,7 +215,7 @@ const Training = (props) => {
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });
@@ -231,7 +231,7 @@ const Training = (props) => {
 
         const num = 4;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
             }
@@ -239,7 +239,7 @@ const Training = (props) => {
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });
@@ -256,14 +256,14 @@ const Training = (props) => {
 
         const num = 5;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
             }
             else if(levelObjs.highestLevel >= num || levelObjs.highestLevel === num-1){
                 setPassedTraining("");
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });
@@ -280,7 +280,7 @@ const Training = (props) => {
 
         const num = 6;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
@@ -288,7 +288,7 @@ const Training = (props) => {
             else if(levelObjs.highestLevel >= num || levelObjs.highestLevel === num-1){
                 setPassedTraining("");
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });
@@ -305,7 +305,7 @@ const Training = (props) => {
 
         const num = 7;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
@@ -314,7 +314,7 @@ const Training = (props) => {
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });
@@ -331,7 +331,7 @@ const Training = (props) => {
 
         const num = 8;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
@@ -340,7 +340,7 @@ const Training = (props) => {
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });
@@ -358,7 +358,7 @@ const Training = (props) => {
 
         const num = 9;
         get("/api/getHighestLevel").then((levelObjs) => {
-            console.log(JSON.stringify(levelObjs));
+            // console.log(JSON.stringify(levelObjs));
             if(levelObjs.highestLevel === -1){
                 setPassedTraining("(You might not be ready for this level yet because you haven't passed level 1 yet!");
             }
@@ -366,7 +366,7 @@ const Training = (props) => {
                 setPassedTraining("");
 
             }else if(levelObjs.highestLevel < num-1){
-                console.log("not ready")
+                // console.log("not ready")
                 setPassedTraining("(You might not be ready for this level yet! The highest level you've passed is level " + (levelObjs.highestLevel+1) + "!)");
             }  
         });

@@ -29,7 +29,7 @@ const App = () => {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
-        console.log(`user: ${JSON.stringify(user)}`);
+        // console.log(`user: ${JSON.stringify(user)}`);
         setUserId(user._id);
         setUserName(user.name);
         setIsLoggedIn(true);
@@ -41,9 +41,9 @@ const App = () => {
   }, []);
 
 
-  useEffect(() => {
-    console.log(`logged in: ${userId}`);
-  }, [userId]);
+  // useEffect(() => {
+  //   console.log(`logged in: ${userId}`);
+  // }, [userId]);
 
   const handleLogin = (res) => {
     setUserName(res.profileObj.name);
@@ -56,10 +56,10 @@ const App = () => {
     setIsLoggedIn(true);
   };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    console.log(`Logged in as ${userName}`);
-  }, [userName]);
+  //   console.log(`Logged in as ${userName}`);
+  // }, [userName]);
 
   const handleLogout = () => {
     setUserId(undefined);
