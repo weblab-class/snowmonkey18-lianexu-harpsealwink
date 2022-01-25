@@ -5,6 +5,7 @@ import Popup from "../modules/Popup.js";
 import TrainingHint from "../modules/TrainingHint.js";
 import TrainingNote from "../modules/TrainingNote.js";
 import Oops from "./Oops.js";
+import { Link } from "@reach/router";
 
 import { get, post } from "../../utilities";
 import training_ninja_header from "./training_ninja_header.png";
@@ -405,9 +406,14 @@ const Training = (props) => {
                                         Open all levels
                                     </span>
                                 </button>
-                                <button className = "next-level-button" onClick = {handleNextLevel}>
-                                    Next level
-                                </button>
+                                {levelNumber === 9 ? (
+                                    <Link to="/freestyle/" className = "next-level-button">Freestyle!</Link>
+                                ) : (
+                                    <button className = "next-level-button" onClick = {handleNextLevel}>
+                                        Next level
+                                    </button>
+                                )}
+                                
                                 <div className = "training-status-status">
                                     Graph matched? <span>{trainingStatus}</span>
                                 </div>

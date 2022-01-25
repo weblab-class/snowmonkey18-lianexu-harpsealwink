@@ -24,7 +24,7 @@ const Home = (props) => {
             </div>          
             <div className="Home-text">
                 {props.userId ? (
-                    <Link to="/dojo/" className="Home-button">
+                    <Link to="/training/" className="Home-button">
                         let's get started!
                     </Link>
                 ) : (
