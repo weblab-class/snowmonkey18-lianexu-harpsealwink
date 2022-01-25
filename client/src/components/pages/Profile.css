@@ -66,11 +66,11 @@
   display: inline-block;
   font-family: "Recursive", sans-serif;
   border-radius: 4px;
-  background-color: var(--darkred);
+  background-color: var(--lightred);
   border: none;
   color: white;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   padding: 8px;
   width: 245px;
   transition: all 0.5s;
@@ -82,7 +82,7 @@
 
 .pfp-btn:hover{
   background-color: var(--yellow);
-  color: var(--darkred);
+  /* color: var(--darkred); */
 }
 
 .pfp-img-frame{
@@ -136,9 +136,31 @@
 }
 
 .Highest-level{
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .Star-funcs{
-  font-size: 24px;
+  font-size: 20px;
+  display: block;
+  padding: 16px;
+  background-color: var(--darkred);
+  border-radius: 8px;
+
+}
+
+
+.test{
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+.test li::before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 35px;
+  background-image: url('../modules/ninja_star.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: -35px;
 }
