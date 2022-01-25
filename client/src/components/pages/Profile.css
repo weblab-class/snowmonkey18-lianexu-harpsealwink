@@ -15,9 +15,10 @@
   
 }
 
+
 .Profile-title {
   font-family: "Skranji", cursive;
-  font-size: 30px;
+  font-size: 48px;
   text-align: center;
 }
 
@@ -61,12 +62,34 @@
   padding: 8px;
 }
 
+.pfp-btn{
+  display: inline-block;
+  font-family: "Recursive", sans-serif;
+  border-radius: 4px;
+  background-color: var(--darkred);
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  width: 245px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom:8px;
 
-.Pfp-frame{
+}
+
+.pfp-btn:hover{
+  background-color: var(--yellow);
+  color: var(--darkred);
+}
+
+.pfp-img-frame{
   height: 200px;
   width: 200px;
   background-color: var(--offwhite);
-  border-radius: 8px;
+  border-radius: 50%;
   border-color: var(--yellow);
   border-style: outset;
   border-width: 4px;
@@ -77,11 +100,8 @@
 
 .pfp{
   max-height: 100%;
-  /* position: absolute;
-  bottom: 16px;
-  top: 16px;
-  right: 16px;
-  left: 16px; */
+  background-color: var(--offwhite);
+  border-radius: 8px;
 }
 
 .corner-pic-topleft{
@@ -113,4 +133,12 @@
   right:0px;
   transform: scaleX(-1);
   max-height: 50px;
+}
+
+.Highest-level{
+  font-size: 24px;
+}
+
+.Star-funcs{
+  font-size: 24px;
 }

@@ -100,32 +100,33 @@ const Profile = (props) => {
         <div>
             {props.isLoggedIn ? (
                 <div className = "Profile-page">
-
-
                     <div className = "Profile-title">{props.userName}'s Ninja Profile</div>
-                    <div className = "Pfp-frame">
-                        <img src = {ninja_pfps[pfp]} className = "pfp"/>
-                        <img src={corner_frame} className = "corner-pic-topleft"/>
-                        <img src={corner_frame} className = "corner-pic-bottomleft"/>
-                        <img src={corner_frame} className = "corner-pic-topright"/>
-                        <img src={corner_frame} className = "corner-pic-bottomright"/>
-                    </div>
-                    <button onClick = {changePicture}>Give me different look!</button>
                     <div>
+                        <div className = "pfp-img-frame">
+                            <img src = {ninja_pfps[pfp]} className = "pfp"/>
+                            <img src={corner_frame} className = "corner-pic-topleft"/>
+                            <img src={corner_frame} className = "corner-pic-bottomleft"/>
+                            <img src={corner_frame} className = "corner-pic-topright"/>
+                            <img src={corner_frame} className = "corner-pic-bottomright"/>
+                        </div>
+                            <button onClick = {changePicture} className = "pfp-btn">Give me different look!</button>
+                    </div>
+
+                    <div className = "Highest-level">
                         Highest level: {highestLevel+1} ({ninjaType})
                     </div>
-                    <div>
+                    <div className = "Star-funcs">
                         Starred functions: 
                         <div>
                             {mapFuncs()}
                         </div>
                     </div>
-                    <div>
+                    {/* <div>
                         Ninja power: {ninjaPower}
-                    </div>
+                    </div> */}
     
-                    <input type = "text" value={ninjaPower2} onChange = {handleNinjaPower2Change}></input>
-                    <button onClick = {handleClick}>Edit ninja power</button>
+                    {/* <input type = "text" value={ninjaPower2} onChange = {handleNinjaPower2Change}></input>
+                    <button onClick = {handleClick}>Edit ninja power</button> */}
         
                 </div>
             ) : <Oops />
