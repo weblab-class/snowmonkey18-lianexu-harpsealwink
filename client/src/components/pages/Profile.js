@@ -28,7 +28,7 @@ const Profile = (props) => {
     const [ninjaType, setNinjaType] = useState("");
 
     const ninja_pfps = [ninja_1, ninja_2, ninja_3, ninja_4, ninja_5, ninja_6];
-    const ninja_types = ["Pass training levels to level up!", "Novice", "Trainee", "Seaonsed dojo-goer", "A true graph ninja!"]
+    const ninja_types = ["Pass training levels to level up!", "Novice", "Trainee", "Seasoned dojo-goer", "A true graph ninja!"]
 
     const handleNinjaPower2Change = (event) => {
         setNinjaPower2(event.target.value);
