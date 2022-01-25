@@ -68,8 +68,9 @@ const GraphCardFreestyle = (props) => {
         <div className="GraphCard-container">
             <div className="Func-container">
                 <div className = "ninja-textbox-pair">
-                    <label>
+                    <label className="function-label">
                         function: 
+                        <span className="divider"></span>
                         <input className = "input-func" value={func} onChange={handleFuncChange} />
                     </label>
                 </div>
@@ -79,7 +80,7 @@ const GraphCardFreestyle = (props) => {
                         <button className = "star-button" onClick={handleUnstar}>Unstar</button>
                     </div>
                     <div className = "Star-funcs-container">
-                        My Starred Functions: 
+                        <div className="star-funcs-text">My Starred Functions: </div>
                         <ul className = "test">
                             {mapFuncs()}
                         </ul>

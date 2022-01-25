@@ -43,16 +43,45 @@
   height: 50vh;
 }
 .Star-funcs-container {
-  font-size: 12px;
+  font-size: 15px;
   display: block;
   padding: 16px;
   background-color: var(--darkred);
   border-radius: 8px;
 }
+.star-funcs-text {
+  font-size: 18px;
+  font-family: "Skranji", cursive;
+  letter-spacing: 1.1px;
+}
 .test {
   list-style-type: none;
   margin-left: 0px;
 }
-.input-func {
+/* .input-func {
   max-width: 120px;
+} */
+.input-func {  
+  border-color: var(--lightyellow);
+  border-width: 1.5px;
+  border-style: solid;
+  background-color: var(--darkred);
+  line-height: 80%;
+  font-size: 15px;
+  font-family: "Recursive", sans-serif;
+  font-weight: 300;
+  max-width: 148px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 18px;
+  color: var(--offwhite);
+}
+.function-label {
+  font-size: 18px;
+  font-family: "Skranji", cursive;
+  letter-spacing: 1.1px;
+  padding-bottom: 10px;
+}
+.divider {
+  padding: 4px;
 }

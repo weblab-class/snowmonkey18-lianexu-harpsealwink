@@ -156,7 +156,19 @@
 }
 
 .input-number {
-  max-width: 40px;
+  max-width: 52px;
+  border-color: var(--lightyellow);
+  border-width: 1.5px;
+  border-style: solid;
+  background-color: var(--darkred);
+  line-height: 80%;
+  font-size: 15px;
+  font-family: "Recursive", sans-serif;
+  font-weight: 300;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 15px;
+  color: var(--offwhite);
 }
 
 .layer p {

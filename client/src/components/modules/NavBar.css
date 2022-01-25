@@ -27,7 +27,7 @@
 .Navbar-link {
   color: var(--white);
   font-family: "Recursive", sans-serif;
-  margin-right: var(--l);
+  margin-right: var(--xl);
   text-decoration: none;
   display: inline-block;
 }
@@ -55,7 +55,7 @@
 /* Dropdown */
 .dropdown {
   display: inline-block;
-  margin-right: var(--l);
+  margin-right: var(--xl);
 }
 
 /* Dropdown button */
@@ -84,8 +84,10 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: flex;
+  margin-left:-28px;
   flex-direction: column;
-  padding-left: var(--s);
+  text-align:center;
+  padding-left: 11px;
   padding-top: var(--m);
   padding-bottom: var(--s);
 }
@@ -93,4 +95,5 @@
 .dropdown-padding {
   padding-top: var(--s);
   padding-bottom: var(--s);
+  margin-right: 12px;
 }
