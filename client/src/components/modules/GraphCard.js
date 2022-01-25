@@ -13,7 +13,6 @@ const GraphCard = (props) => {
     const [func, setFunc] = useState("");
     // const [trainingStatus , setTrainingStatus] = useState("");
 
-
     const funcParameters = {
         target: '#myFunction',
         data: [
@@ -54,11 +53,10 @@ const GraphCard = (props) => {
         props.setPassedTraining("");
         console.log(props.userId)
         post('/api/setHighestLevel', {level: Number(props._id), userId: props.userId});
-        } else{
+        } else {
             props.setTrainingStatus("Keep trying! Graph ninjas never give up!")
         };
     };
-
 
     let plot = () => {
         let userFunction = String(props.a+"(x+"+props.b+")^2+"+props.c);
@@ -67,77 +65,70 @@ const GraphCard = (props) => {
             data: [
                 { fn: props.function, color: '#face7f' },
                 { fn: userFunction, color: "white" }
-
             ],
             grid: true,
             yAxis: {domain: [-10, 10]},
             xAxis: {domain: [-10, 10]}
         }
         functionPlot(newParameters);
-
     };
     
     useEffect(() => {
         functionPlot(funcParameters);
-    },[props.function]);
+    }, [props.function]);
 
     return(
         <div className="GraphCard-container">
-        {/* <div className = "ninja-column">
-            <img src={stretch_ninja} className = "ninja"/>
-            <img src={sidestep_ninja} className = "ninja"/>
-            <img src={levitate_ninja} className = "ninja"/>
-        </div> */}
-        <div className="layer">
+            {/* <div className = "ninja-column">
+                <img src={stretch_ninja} className = "ninja"/>
+                <img src={sidestep_ninja} className = "ninja"/>
+                <img src={levitate_ninja} className = "ninja"/>
+            </div> */}
+            <div className="layer">
 
+                {/* <img src={quadratic_banner_ninja}/> */}
+                {/* <div>a(x+b)<sup>2</sup>+c</div> */}
+
+                <div className = "ninja-textbox-layer">
+                    <div className = "function-prompt">
+                        Form: <span className="function-equ">y=a(x+b)<sup>2</sup>+c</span>
+                    </div>
+                    <div className = "ninja-textbox-pair">
+                        <img src={stretch_ninja} className = "ninja-small"/>
+                        <label className="function-prompt">
+                            a: <input className = "input-number" type="number" value={props.a} onChange={handleAChange} />
+                        </label>
+                    </div>
+                    <div className = "ninja-textbox-pair">
+                        <img src={sidestep_ninja} className = "ninja-small"/>
+                        <label className="function-prompt">
+                            b: <input className = "input-number" type="number" value={props.b} onChange={handleBChange} />
+                        </label>
+                    </div>
+
+                    <div className = "ninja-textbox-pair">
+                        <img src={levitate_ninja} className = "ninja-small"/>
+                        <label className="function-prompt">
+                            c: <input className = "input-number" type="number" value={props.c} onChange={handleCChange} />
+                        </label>
+                    </div>
+                </div>
+                {/* <p></p> */}
+                {/* <p>Training status: {trainingStatus} </p> */}
+                {/* <label> ax^2 + bx + c: 
+                <input id="function" type="text" value={func} onChange={handleFuncChange}/>
+                </label> */}
+            </div>
+            {/* <button className = "plot-button" onClick={handleClick}><img className = "plot-ninja" src = {plot_ninja}/>Plot it!</button> */}
+            <button className = "plot-button" onClick={handleClick}>Plot it!</button>
+            {/* <button className = "plot-button" onClick={handleClick}>Plot it!</button> */}
             {/* <img src={quadratic_banner_ninja}/> */}
-            {/* <div>a(x+b)<sup>2</sup>+c</div> */}
-
-            <div className = "ninja-textbox-layer">
-            <div className = "function-prompt">Form: <span className="function-equ">y=a(x+b)<sup>2</sup>+c </span> </div>
-            <div className = "ninja-textbox-pair">
-            <img src={stretch_ninja} className = "ninja-small"/>
-            <label className="function-prompt">a: <input className = "input-number" type="number" value={props.a} onChange={handleAChange} />
-            </label></div>
-
-            <div className = "ninja-textbox-pair">
-            <img src={sidestep_ninja} className = "ninja-small"/>
-            <label className="function-prompt">b: <input className = "input-number" type="number" value={props.b} onChange={handleBChange} />
-            </label></div>
-
-            <div className = "ninja-textbox-pair">
-            <img src={levitate_ninja} className = "ninja-small"/>
-            <label className="function-prompt">c: <input className = "input-number" type="number" value={props.c} onChange={handleCChange} />
-            </label></div>
-            
+            <div className="GraphCard-graphContainer">
+                <div className="GraphCard-graph">
+                    <div id="myFunction" />
+                </div>
             </div>
-            
-            {/* <p></p> */}
-            {/* <p>Training status: {trainingStatus} </p> */}
-            {/* <label> ax^2 + bx + c: 
-            <input id="function" type="text" value={func} onChange={handleFuncChange}/>
-            </label> */}
-
-        </div>
-        {/* <button className = "plot-button" onClick={handleClick}><img className = "plot-ninja" src = {plot_ninja}/>Plot it!</button> */}
-        <button className = "plot-button" onClick={handleClick}>Plot it!</button>
-
-        {/* <button className = "plot-button" onClick={handleClick}>Plot it!</button> */}
-
-
-        {/* <img src={quadratic_banner_ninja}/> */}
-        
-        <div className="GraphCard-graphContainer">
-            <div className="GraphCard-graph">
-                <div id="myFunction"></div>
-            </div>
-        </div>
-        {/* <Plot
-  className='myPlot'
-  fn={(x) => x}
-  thickness={4}
-/> */}
-
+            {/* <Plot className='myPlot' fn={(x) => x} thickness={4} /> */}
         </div>
     );
 };

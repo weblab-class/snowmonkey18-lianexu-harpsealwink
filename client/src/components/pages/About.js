@@ -8,7 +8,7 @@ import levitate_ninja from "../modules/ninjas/levitate_ninja.png";
 const About = () => {
 
     useEffect(() => {
-        document.title = "About";
+        document.title = "Graph Ninja - About";
         document.body.scrollTop = 0;
     }, []);  
 

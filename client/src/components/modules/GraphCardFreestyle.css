@@ -1,0 +1,29 @@
+.Func-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: var(--white);
+  border-radius: 8px;
+  max-width: 250px;
+  width: 20vw;
+  max-height: 60vh;
+  padding: 8px;
+  padding-right: 2vw;
+}
+
+.star-button {
+  background-image: url("./ninja_star.png");
+  background-size: 100%;
+  background-color: transparent;
+  border: none;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.Star-container {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  width: 95%;
+  height: 50vh;
+}

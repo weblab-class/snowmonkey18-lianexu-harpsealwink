@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "@reach/router";
 import "./Dojo.css";
 import Oops from "./Oops.js";
 
 const Dojo = (props) => {
+
+    useEffect(() => {
+        document.title = "Graph Ninja - Dojo";
+    }, []); 
+
     return(
         <>
             {props.isLoggedIn ? (

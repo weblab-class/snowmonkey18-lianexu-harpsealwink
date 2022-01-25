@@ -30,7 +30,7 @@ const NavBar = (props) => {
         {props.isLoggedIn && (
         <div className="dropdown">
           <Link to="/dojo/" className="dropbtn">
-            dojo ▼
+            dojo
           </Link>
           <div className="dropdown-content">
             <Link to="/training/" className="Navbar-link dropdown-padding">training</Link>

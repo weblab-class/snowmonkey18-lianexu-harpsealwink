@@ -8,6 +8,11 @@ import training_ninja_header from "./training_ninja_header.png";
 import sensei from "./sensei.png";
 
 const Freestyle = (props) => {
+
+    useEffect(() => {
+        document.title = "Graph Ninja - Freestyle";
+    }, []); 
+
     return(
         <div>
             {props.isLoggedIn ? (
