@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   /* padding-top: 14vh; */
-  margin-top: 16px;
+  margin-top: 20px;
   height: 80vh;
   /* background-image: url("dojoclipart.png");
   background-repeat: no-repeat;
@@ -40,8 +40,8 @@
 
 .Dojo-link {
   padding: var(--l) var(--m);
-  background-color: var(--lightyellow);
-  color: var(--darkred);
+  background-color: var(--lightred);
+  color: white;
   font-family: "Recursive", sans-serif;
   font-size: var(--l);
   margin-right: var(--l);
@@ -50,4 +50,16 @@
   cursor: pointer;
   border: none;
   border-radius: 20%;
+}
+
+.Dojo-link:hover {
+  background-color: var(--lightyellow);
+  color: var(--darkred);
+}
+
+.ninjas{
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:16px;
 }

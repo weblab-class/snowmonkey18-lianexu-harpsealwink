@@ -81,8 +81,8 @@
 }
 
 .pfp-btn:hover{
-  background-color: var(--yellow);
-  /* color: var(--darkred); */
+  background-color: var(--lightyellow);
+  color: var(--darkred);
 }
 
 .pfp-img-frame{

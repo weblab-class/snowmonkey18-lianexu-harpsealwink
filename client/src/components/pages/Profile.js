@@ -112,7 +112,7 @@ const Profile = (props) => {
                             <img src={corner_frame} className = "corner-pic-topright"/>
                             <img src={corner_frame} className = "corner-pic-bottomright"/>
                         </div>
-                            <button onClick = {changePicture} className = "pfp-btn">Give me different look!</button>
+                            <button onClick = {changePicture} className = "pfp-btn">Give me a different look!</button>
                     </div>
 
                     <div className = "Star-funcs">
