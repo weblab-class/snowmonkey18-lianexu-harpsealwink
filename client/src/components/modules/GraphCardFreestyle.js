@@ -21,7 +21,7 @@ const GraphCardFreestyle = (props) => {
         const parameters = {
             target: '#myFunction',
             data: [
-                { fn: func, color: 'blue' },
+                { fn: func, color: '#face7f' },
             ],
             grid: true,
             yAxis: {domain: [-10, 10]},
@@ -37,15 +37,17 @@ const GraphCardFreestyle = (props) => {
         plot(func);
     };
     const handleStar = () => {
-        post('/api/addStarFuncs', {func: func, userId: props.userId});
-        get("/api/getStarFuncs").then((obj) => {
-            setStarFuncs(obj.starFuncs);
-        });
+        post('/api/addStarFuncs', {func: func, userId: props.userId}).then(() => {
+            get("/api/getStarFuncs").then((obj) => {
+                setStarFuncs(obj.starFuncs);
+            });
+        });  
     };
     const handleUnstar = () => {
-        post('/api/delStarFuncs', {func: func, userId: props.userId});
-        get("/api/getStarFuncs").then((obj) => {
-            setStarFuncs(obj.starFuncs);
+        post('/api/delStarFuncs', {func: func, userId: props.userId}).then(() => {
+            get("/api/getStarFuncs").then((obj) => {
+                setStarFuncs(obj.starFuncs);
+            });
         });
     };
 

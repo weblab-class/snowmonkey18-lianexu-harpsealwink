@@ -11,6 +11,11 @@
   padding-right: 2vw;
 }
 
+.Star-button-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .star-button {
   background-image: url("./ninja_star.png");
   background-size: 100%;
@@ -19,11 +24,15 @@
   height: 30px;
   width: 30px;
   cursor: pointer;
+  color: var(--white);
 }
 .Star-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /* justify-content: space-between; */
   width: 95%;
   height: 50vh;
+}
+.Star-funcs-container {
+  padding: 24px 0;
 }
