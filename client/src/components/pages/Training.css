@@ -44,7 +44,7 @@ h1{
   /* background-color:var(--lightyellow); */
 }
 .training-status-status span{
-  color: var(--yellow);
+  color: var(--lightyellow);
 }
 .Training-top{
   display: inline-block;
