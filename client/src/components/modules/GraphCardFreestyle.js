@@ -79,10 +79,10 @@ const GraphCardFreestyle = (props) => {
                         <button className = "star-button" onClick={handleUnstar}>Unstar</button>
                     </div>
                     <div className = "Star-funcs-container">
-                        Starred functions: 
-                        <div>
+                        My Starred Functions: 
+                        <ul className = "test">
                             {mapFuncs()}
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
