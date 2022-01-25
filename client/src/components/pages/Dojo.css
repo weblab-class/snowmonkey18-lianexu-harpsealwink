@@ -27,6 +27,7 @@
   /* font-size: 88px; */
   height: 200px;  
   animation: grow 3s infinite;
+  text-shadow: 2px 2px 5px var(--darkred);
 }
 
 .Dojo-container {
