@@ -55,7 +55,7 @@ const Profile = (props) => {
     };
 
     useEffect(() => {
-        document.title = "Profile";
+        document.title = "Graph Ninja - Profile";
         console.log("made it this far");
         get("/api/getHighestLevel").then((obj) => {
             setHighestLevel(obj.highestLevel);

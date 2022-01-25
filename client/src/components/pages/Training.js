@@ -32,7 +32,7 @@ const Training = (props) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        // document.title = "Training";
+        document.title = "Graph Ninja - Training";
         // get("/api/levels").then((levelObjs) => {
         //     setLevels(levelObjs);
         // }).then(() => {

@@ -2,10 +2,12 @@ import React, { useState, useEffect , useRef } from "react";
 import functionPlot, { FunctionPlotOptions } from 'function-plot';
 
 import "./GraphCard.css";
+import "./GraphCardFreestyle.css"
 import { get , post } from "../../utilities";
 
 const GraphCardFreestyle = (props) => {
     const [func, setFunc] = useState("");
+    const [starFuncs, setStarFuncs] = useState([]);
 
     const noParameters = {
         target: '#myFunction',
@@ -36,30 +38,54 @@ const GraphCardFreestyle = (props) => {
     };
     const handleStar = () => {
         post('/api/addStarFuncs', {func: func, userId: props.userId});
+        get("/api/getStarFuncs").then((obj) => {
+            setStarFuncs(obj.starFuncs);
+        });
     };
     const handleUnstar = () => {
         post('/api/delStarFuncs', {func: func, userId: props.userId});
+        get("/api/getStarFuncs").then((obj) => {
+            setStarFuncs(obj.starFuncs);
+        });
     };
 
     useEffect(() => {
+        document.title = "Graph Ninja - Freestyle";
+        get("/api/getStarFuncs").then((obj) => {
+            setStarFuncs(obj.starFuncs);
+        });
         functionPlot(noParameters)
     }, []);
+
+    const mapFuncs = () => {
+        return starFuncs.map(func => <li>{func}</li>);
+    }
+
      
     return(
         <div className="GraphCard-container">
-
-        <div className="layer">
-            
-            <div className = "ninja-textbox-pair">
-                <label>
-                    function: 
-                    <input className = "input-number" value={func} onChange={handleFuncChange} />
-                </label>
+            <div className="Func-container">
+                <div className = "ninja-textbox-pair">
+                    <label>
+                        function: 
+                        <input className = "input-number" value={func} onChange={handleFuncChange} />
+                    </label>
+                </div>
+                <div className = "Star-container">
+                    <div className = "Star-button-container">
+                        <button className = "star-button" onClick={handleStar}>Star</button>
+                        <button className = "star-button" onClick={handleUnstar}>Unstar</button>
+                    </div>
+                    <div className = "Star-funcs-container">
+                        Starred functions: 
+                        <div>
+                            {mapFuncs()}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
             <button className = "plot-button" onClick={handlePlot}>Plot it!</button>
-            <button className = "star-button" onClick={handleStar}>Star</button>
-            <button className = "star-button" onClick={handleUnstar}>Unstar</button>
+
             <div className="GraphCard-graphContainer">
                 <div className="GraphCard-graph">
                     <div id="myFunction" />
