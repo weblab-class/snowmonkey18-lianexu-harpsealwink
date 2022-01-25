@@ -2,7 +2,13 @@
   display:flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 14vh;
+  /* padding-top: 14vh; */
+  margin-top: 16px;
+  height: 80vh;
+  background-image: url("dojoclipart.png");
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-position: center;
 }
 
 @keyframes grow {

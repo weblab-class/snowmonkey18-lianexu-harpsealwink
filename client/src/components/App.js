@@ -75,7 +75,7 @@ const App = () => {
         <Router>
           <Home path="/" userId={userId} handleLogin={handleLogin} handleLogout={handleLogout} />
           <Profile path="/profile/:userId" userId={userId} userName={userName} isLoggedIn={isLoggedIn} isLoaded={isLoaded}/>
-          <Dojo path="/dojo/" />
+          <Dojo path="/dojo/" isLoggedIn={isLoggedIn} userId={userId}/>
           <Training path="/training/" isLoggedIn={isLoggedIn} userId={userId} />
           <Freestyle path="/freestyle/" isLoggedIn={isLoggedIn} userId={userId} />
           <About path="/about/" />
