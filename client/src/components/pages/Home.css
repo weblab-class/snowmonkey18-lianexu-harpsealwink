@@ -72,6 +72,7 @@
   width: 80%;
   height: 200px;
   /* max-width: 80%; */
+  margin-top: 16px;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

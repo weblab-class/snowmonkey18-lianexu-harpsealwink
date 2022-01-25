@@ -22,11 +22,13 @@
   background-image: url("./ninja_star.png");
   background-size: 100%;
   background-color: transparent;
+  background-repeat: none;
   border: none;
-  height: 30px;
-  width: 30px;
+  height: 60px;
+  width: 60px;
   cursor: pointer;
   color: var(--white);
+  font-family: "Recursive", sans-serif;
 }
 
 .star-button:active {

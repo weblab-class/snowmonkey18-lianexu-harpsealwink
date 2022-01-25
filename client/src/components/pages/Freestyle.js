@@ -29,7 +29,7 @@ const Freestyle = (props) => {
                                 <div className = "sensei-stuff">
                                     <img src={sensei} className = "sensei-image" />
                                     <span className = "sensei-words">
-                                        The key to mastery is practice. ... *insert good words* ... *I am a motivational sensei*
+                                        The key to mastery is practice... * I am a motivational sensei * I wonder what sin(x) and cos(x) do... The rest is for you to discover yourself!
                                     </span>
                                 </div>
                             </div>
