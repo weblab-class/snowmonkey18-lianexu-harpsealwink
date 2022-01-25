@@ -104,6 +104,7 @@ const Profile = (props) => {
                     <div className = "Highest-level">
                         Highest Training Level: {highestLevel+1} ({ninjaType})
                     </div>
+                    <div className="profile-format">
                     <div>
                         <div className = "pfp-img-frame">
                             <img src = {ninja_pfps[pfp]} className = "pfp"/>
@@ -114,13 +115,14 @@ const Profile = (props) => {
                         </div>
                             <button onClick = {changePicture} className = "pfp-btn">Give me a different look!</button>
                     </div>
-
                     <div className = "Star-funcs">
                         My Starred Functions: 
                         <ul className = "test">
                             {mapFuncs()}
                         </ul>
                     </div>
+                </div>
+
                     {/* <div>
                         Ninja power: {ninjaPower}
                     </div> */}

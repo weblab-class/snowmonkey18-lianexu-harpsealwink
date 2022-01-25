@@ -67,3 +67,52 @@
   background-color: var(--darkred);
   color: var(--lightyellow);
 }
+
+@keyframes hover {
+  0%,
+  100% {
+    margin-top: 8px;
+  }
+  50% {
+    margin-top: 0px;
+  }
+}
+.ninja1 {
+  position: absolute;
+  top: 7vh;
+  left: 10vw;
+  width: 250px;
+  animation: hover 5s infinite;
+}
+.ninja4 {
+  position: absolute;
+  top: 42vh;
+  left: 6vw;
+  animation: hover 3s infinite;
+}
+.ninja3 {
+  position: absolute;
+  top: 50vh;
+  left: 74vw;
+  width: 280px;
+  animation: hover 2s infinite;
+}
+.ninja2 {
+  position: absolute;
+  top: 62vh;
+  left: 25vw;
+  animation: hover 1.5s infinite;
+}
+.ninja5 {
+  position: absolute;
+  top: 16vh;
+  left: 76vw;
+  animation: hover 4s infinite;
+}
+.ninja6 {
+  position: absolute;
+  top: 58vh;
+  left: 50vw;
+  width: 280px;
+  animation: hover 2.5s infinite;
+}

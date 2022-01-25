@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
+import ninja_1 from "./ninja_pfps/1.png";
+import ninja_2 from "./ninja_pfps/2.png";
+import ninja_3 from "./ninja_pfps/3.png";
+import ninja_4 from "./ninja_pfps/4.png";
+import ninja_5 from "./ninja_pfps/5.png";
+import ninja_6 from "./ninja_pfps/6.png";
 
 import "./Home.css";
 
@@ -41,11 +47,15 @@ const Home = (props) => {
                 />
                 )}
             </div>
-
-            
-            {/* <img src="./notFound.png"></img> */}
-            <div className = "Ninja-image"/>
         </div>
+
+        <img src={ninja_1} className="ninja1"/>
+        <img src={ninja_2} className="ninja2"/>
+        <img src={ninja_3} className="ninja3"/>
+        <img src={ninja_4} className="ninja4"/>
+        <img src={ninja_5} className="ninja5"/>
+        <img src={ninja_6} className="ninja6"/>
+
         </div>
     );
 };
