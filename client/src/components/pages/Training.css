@@ -16,6 +16,10 @@ h1{
   margin-bottom: 4px;
 }
 
+.Training-header{
+  margin-bottom: 8px;
+}
+
 /* training status stuff */
 .Training-status-header{
   font-family: "Recursive", sans-serif;
