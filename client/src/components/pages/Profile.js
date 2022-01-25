@@ -25,8 +25,10 @@ const Profile = (props) => {
     const[ninjaPower2, setNinjaPower2] = useState("");
     const[pfp, setPfp] = useState(0);
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [ninjaType, setNinjaType] = useState("");
 
     const ninja_pfps = [ninja_1, ninja_2, ninja_3, ninja_4, ninja_5, ninja_6];
+    const ninja_types = ["Pass training levels to level up!", "Novice", "Trainee", "Seaonsed dojo-goer", "A true Graph Ninja!"]
 
     const handleNinjaPower2Change = (event) => {
         setNinjaPower2(event.target.value);
@@ -57,6 +59,18 @@ const Profile = (props) => {
         console.log("made it this far");
         get("/api/getHighestLevel").then((obj) => {
             setHighestLevel(obj.highestLevel);
+            if (obj.highestLevel+1 === 0){
+                setNinjaType(ninja_types[0]);
+            } else if(obj.highestLevel+1 >= 1 && obj.highestLevel+1 <= 3) {
+                setNinjaType(ninja_types[1]);
+            } else if(obj.highestLevel+1 >= 4 && obj.highestLevel+1 <= 6) {
+                setNinjaType(ninja_types[2]);
+            }else if(obj.highestLevel+1 >= 7 && obj.highestLevel+1 <= 9) {
+                setNinjaType(ninja_types[3]);
+            }else if(obj.highestLevel+1 === 10) {
+                setNinjaType(ninja_types[4]);
+            }
+
         });
         get("/api/getStarFuncs").then((obj) => {
             setStarFuncs(obj.starFuncs);
@@ -98,7 +112,7 @@ const Profile = (props) => {
                     </div>
                     <button onClick = {changePicture}>Give me different look!</button>
                     <div>
-                        Highest level: {highestLevel+1}
+                        Highest level: {highestLevel+1} ({ninjaType})
                     </div>
                     <div>
                         Starred functions: 
