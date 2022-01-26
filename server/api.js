@@ -151,15 +151,12 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
 });
 
   router.get("/getHighestLevel", (req, res) => {
-    // console.log(req);
-    console.log('get highest level')
+
     if (req.user) {
 
       User.findById(req.user._id).then(
         (user) => {
-          console.log('highest level set')
-          console.log(typeof user.highestLevel)
-          console.log('heloo')
+
           res.send({highestLevel: Number(user.highestLevel)})
         }
       );
@@ -168,10 +165,10 @@ router.post("/setHighestLevel", auth.ensureLoggedIn, (req, res) => {
   });
 
 router.post("/addStarFuncs", auth.ensureLoggedIn, (req, res) => {
-  console.log('adding to starred functions')
+
   if (req.user) {
     User.findById(req.body.userId).then((user) => {
-      console.log("function starred");
+
       if (!user.starFuncs.includes(req.body.func) && (req.body.func !== "")) {
         user.starFuncs.push(req.body.func);
       };
@@ -181,10 +178,10 @@ router.post("/addStarFuncs", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.post("/delStarFuncs", auth.ensureLoggedIn, (req, res) => {
-  console.log('unstarring a function')
+
   if (req.user) {
     User.findById(req.body.userId).then((user) => {
-      console.log("function unstarred");
+
       const index = user.starFuncs.indexOf(req.body.func);
       if (index !== -1) {
         user.starFuncs.splice(index, 1);
@@ -195,10 +192,10 @@ router.post("/delStarFuncs", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/getStarFuncs", (req, res) => {
-  console.log("get starred functions");
+
   if (req.user) {
     User.findById(req.user._id).then((user) => {
-        console.log('starred functions gotten');
+
         res.send({starFuncs: user.starFuncs});
     });
   };
@@ -206,7 +203,7 @@ router.get("/getStarFuncs", (req, res) => {
 
 
 router.post("/setNinjaPower", auth.ensureLoggedIn, (req, res) => {
-  console.log('setting ninja power')
+
   if(req.user) {
     User.findById(req.body.userId).then(
       (user) => {       
@@ -217,11 +214,11 @@ router.post("/setNinjaPower", auth.ensureLoggedIn, (req, res) => {
 });
 
 router.get("/getNinjaPower", (req, res) => {
-  console.log("get ninja power")
+
   if (req.user) {
     User.findById(req.user._id).then(
       (user) => {
-        console.log('get ninja power')
+
         res.send({ninjaPower: user.ninjaPower})
       }
     );
@@ -230,7 +227,7 @@ router.get("/getNinjaPower", (req, res) => {
 
 
   router.post("/setPfp", auth.ensureLoggedIn, (req, res) => {
-    console.log('setting pfp')
+
     if(req.user) {
       User.findById(req.body.userId).then(
         (user) => {       
@@ -241,11 +238,11 @@ router.get("/getNinjaPower", (req, res) => {
   });
 
   router.get("/getPfp", (req, res) => {
-    console.log("get pfp")
+
     if (req.user) {
       User.findById(req.user._id).then(
         (user) => {
-            console.log('get pfp')
+
             res.send({pfp: user.pfp})
         }
       );
