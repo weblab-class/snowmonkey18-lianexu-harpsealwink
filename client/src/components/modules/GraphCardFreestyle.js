@@ -70,7 +70,7 @@ const GraphCardFreestyle = (props) => {
             <div className="Func-container">
                 <div className = "ninja-textbox-pair">
                     <label className="function-label">
-                        function: 
+                        function: y =
                         <span className="divider"></span>
                         <input className = "input-func" value={func} onChange={handleFuncChange} />
                     </label>
