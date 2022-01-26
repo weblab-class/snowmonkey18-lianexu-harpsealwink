@@ -41,9 +41,7 @@
     font-family: "Recursive", sans-serif;
     padding: 4px;
   
-    cursor: pointer;
-    margin: 0px;
-   
+    cursor: pointer;   
  }
   
   
@@ -53,6 +51,8 @@
  }
   
  .level-buttons{
+    padding-top: 10px;
+    margin-bottom: -14px;
     display: flex;
     flex-flow: row wrap;
  }
