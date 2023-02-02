@@ -2,4 +2,4 @@
 
 a cool game
 
-https://graph-ninja-game.herokuapp.com/
+https://graph-ninja-2022.herokuapp.com/
